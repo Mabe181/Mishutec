@@ -1,0 +1,1654 @@
+{
+  "columns": [
+    {
+      "TableName": "Categoria",
+      "Ordinal": 1,
+      "ColumnName": "ID_categoria",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": true,
+      "IsPrimaryKey": 1
+    },
+    {
+      "TableName": "Categoria",
+      "Ordinal": 2,
+      "ColumnName": "Nombre_cat",
+      "DataType": "varchar",
+      "MaxLength": 50,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Categoria",
+      "Ordinal": 3,
+      "ColumnName": "Descripcion_cat",
+      "DataType": "varchar",
+      "MaxLength": 200,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": true,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Cliente",
+      "Ordinal": 1,
+      "ColumnName": "Dni_cliente",
+      "DataType": "varchar",
+      "MaxLength": 8,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 1
+    },
+    {
+      "TableName": "Cliente",
+      "Ordinal": 2,
+      "ColumnName": "Nombre_cl",
+      "DataType": "varchar",
+      "MaxLength": 60,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Cliente",
+      "Ordinal": 3,
+      "ColumnName": "Apellido_cl",
+      "DataType": "varchar",
+      "MaxLength": 60,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Cliente",
+      "Ordinal": 4,
+      "ColumnName": "Telefono_cl",
+      "DataType": "varchar",
+      "MaxLength": 15,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": true,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Cliente",
+      "Ordinal": 5,
+      "ColumnName": "Correo_cl",
+      "DataType": "varchar",
+      "MaxLength": 100,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "CPU",
+      "Ordinal": 1,
+      "ColumnName": "Codbarras_prod",
+      "DataType": "varchar",
+      "MaxLength": 13,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 1
+    },
+    {
+      "TableName": "CPU",
+      "Ordinal": 2,
+      "ColumnName": "Frecuencia_ghz",
+      "DataType": "decimal",
+      "MaxLength": 5,
+      "Precision": 4,
+      "Scale": 2,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "CPU",
+      "Ordinal": 3,
+      "ColumnName": "Nucleos",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Detalle_Dev",
+      "Ordinal": 1,
+      "ColumnName": "ID_detalle_dev",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": true,
+      "IsPrimaryKey": 1
+    },
+    {
+      "TableName": "Detalle_Dev",
+      "Ordinal": 2,
+      "ColumnName": "Cantidad_dev",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Detalle_Dev",
+      "Ordinal": 3,
+      "ColumnName": "ID_devolucion",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Detalle_Dev",
+      "Ordinal": 4,
+      "ColumnName": "ID_detalle",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Detalle_Dev",
+      "Ordinal": 5,
+      "ColumnName": "ID_motivo",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Detalle_Venta",
+      "Ordinal": 1,
+      "ColumnName": "ID_detalle",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": true,
+      "IsPrimaryKey": 1
+    },
+    {
+      "TableName": "Detalle_Venta",
+      "Ordinal": 2,
+      "ColumnName": "Cantidad",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Detalle_Venta",
+      "Ordinal": 3,
+      "ColumnName": "Precio_unitario",
+      "DataType": "decimal",
+      "MaxLength": 9,
+      "Precision": 10,
+      "Scale": 2,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Detalle_Venta",
+      "Ordinal": 4,
+      "ColumnName": "Subtotal",
+      "DataType": "decimal",
+      "MaxLength": 9,
+      "Precision": 10,
+      "Scale": 2,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Detalle_Venta",
+      "Ordinal": 5,
+      "ColumnName": "ID_venta",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Detalle_Venta",
+      "Ordinal": 6,
+      "ColumnName": "Codbarras_prod",
+      "DataType": "varchar",
+      "MaxLength": 13,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Devolucion",
+      "Ordinal": 1,
+      "ColumnName": "ID_devolucion",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": true,
+      "IsPrimaryKey": 1
+    },
+    {
+      "TableName": "Devolucion",
+      "Ordinal": 2,
+      "ColumnName": "Fecha_dev",
+      "DataType": "date",
+      "MaxLength": 3,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Devolucion",
+      "Ordinal": 3,
+      "ColumnName": "ID_estado_dev",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Devolucion",
+      "Ordinal": 4,
+      "ColumnName": "ID_venta",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Devolucion",
+      "Ordinal": 5,
+      "ColumnName": "ID_empleado",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Empleado",
+      "Ordinal": 1,
+      "ColumnName": "ID_empleado",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": true,
+      "IsPrimaryKey": 1
+    },
+    {
+      "TableName": "Empleado",
+      "Ordinal": 2,
+      "ColumnName": "Dni_emp",
+      "DataType": "varchar",
+      "MaxLength": 8,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Empleado",
+      "Ordinal": 3,
+      "ColumnName": "Nombre_emp",
+      "DataType": "varchar",
+      "MaxLength": 60,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Empleado",
+      "Ordinal": 4,
+      "ColumnName": "Apellido_emp",
+      "DataType": "varchar",
+      "MaxLength": 60,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Estado_Dev",
+      "Ordinal": 1,
+      "ColumnName": "ID_estado_dev",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": true,
+      "IsPrimaryKey": 1
+    },
+    {
+      "TableName": "Estado_Dev",
+      "Ordinal": 2,
+      "ColumnName": "Nombre_estado",
+      "DataType": "varchar",
+      "MaxLength": 30,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Estado_Prod",
+      "Ordinal": 1,
+      "ColumnName": "ID_estado_prod",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": true,
+      "IsPrimaryKey": 1
+    },
+    {
+      "TableName": "Estado_Prod",
+      "Ordinal": 2,
+      "ColumnName": "Estado",
+      "DataType": "varchar",
+      "MaxLength": 30,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Fuente_Poder",
+      "Ordinal": 1,
+      "ColumnName": "Codbarras_prod",
+      "DataType": "varchar",
+      "MaxLength": 13,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 1
+    },
+    {
+      "TableName": "Fuente_Poder",
+      "Ordinal": 2,
+      "ColumnName": "Potencia_w",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Fuente_Poder",
+      "Ordinal": 3,
+      "ColumnName": "Certificacion",
+      "DataType": "varchar",
+      "MaxLength": 30,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Gabinete",
+      "Ordinal": 1,
+      "ColumnName": "Codbarras_prod",
+      "DataType": "varchar",
+      "MaxLength": 13,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 1
+    },
+    {
+      "TableName": "Gabinete",
+      "Ordinal": 2,
+      "ColumnName": "Formato",
+      "DataType": "varchar",
+      "MaxLength": 20,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Gabinete",
+      "Ordinal": 3,
+      "ColumnName": "Material",
+      "DataType": "varchar",
+      "MaxLength": 30,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Grafica",
+      "Ordinal": 1,
+      "ColumnName": "Codbarras_prod",
+      "DataType": "varchar",
+      "MaxLength": 13,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 1
+    },
+    {
+      "TableName": "Grafica",
+      "Ordinal": 2,
+      "ColumnName": "Vram_gb",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Grafica",
+      "Ordinal": 3,
+      "ColumnName": "Chipset",
+      "DataType": "varchar",
+      "MaxLength": 50,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Marca",
+      "Ordinal": 1,
+      "ColumnName": "ID_marca",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": true,
+      "IsPrimaryKey": 1
+    },
+    {
+      "TableName": "Marca",
+      "Ordinal": 2,
+      "ColumnName": "Nombre_marca",
+      "DataType": "varchar",
+      "MaxLength": 50,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Metodo_Pago",
+      "Ordinal": 1,
+      "ColumnName": "ID_metodo",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": true,
+      "IsPrimaryKey": 1
+    },
+    {
+      "TableName": "Metodo_Pago",
+      "Ordinal": 2,
+      "ColumnName": "Nombre_metodo",
+      "DataType": "varchar",
+      "MaxLength": 40,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Motivo_Dev",
+      "Ordinal": 1,
+      "ColumnName": "ID_motivo",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": true,
+      "IsPrimaryKey": 1
+    },
+    {
+      "TableName": "Motivo_Dev",
+      "Ordinal": 2,
+      "ColumnName": "Descripcion_motivo",
+      "DataType": "varchar",
+      "MaxLength": 100,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Mov_Inventario",
+      "Ordinal": 1,
+      "ColumnName": "ID_movimiento",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": true,
+      "IsPrimaryKey": 1
+    },
+    {
+      "TableName": "Mov_Inventario",
+      "Ordinal": 2,
+      "ColumnName": "Fecha",
+      "DataType": "date",
+      "MaxLength": 3,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Mov_Inventario",
+      "Ordinal": 3,
+      "ColumnName": "Cantidad",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Mov_Inventario",
+      "Ordinal": 4,
+      "ColumnName": "ID_tipo_mov",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Mov_Inventario",
+      "Ordinal": 5,
+      "ColumnName": "Codbarras_prod",
+      "DataType": "varchar",
+      "MaxLength": 13,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Mov_Inventario",
+      "Ordinal": 6,
+      "ColumnName": "ID_empleado",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Producto",
+      "Ordinal": 1,
+      "ColumnName": "Codbarras_prod",
+      "DataType": "varchar",
+      "MaxLength": 13,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 1
+    },
+    {
+      "TableName": "Producto",
+      "Ordinal": 2,
+      "ColumnName": "Nombre_prod",
+      "DataType": "varchar",
+      "MaxLength": 120,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Producto",
+      "Ordinal": 3,
+      "ColumnName": "Precio",
+      "DataType": "decimal",
+      "MaxLength": 9,
+      "Precision": 10,
+      "Scale": 2,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Producto",
+      "Ordinal": 4,
+      "ColumnName": "Garantia_meses",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Producto",
+      "Ordinal": 5,
+      "ColumnName": "Stock",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Producto",
+      "Ordinal": 6,
+      "ColumnName": "ID_estado_prod",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Producto",
+      "Ordinal": 7,
+      "ColumnName": "ID_categoria",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Producto",
+      "Ordinal": 8,
+      "ColumnName": "ID_marca",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Proveedor",
+      "Ordinal": 1,
+      "ColumnName": "ID_proveedor",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": true,
+      "IsPrimaryKey": 1
+    },
+    {
+      "TableName": "Proveedor",
+      "Ordinal": 2,
+      "ColumnName": "Nombre_prov",
+      "DataType": "varchar",
+      "MaxLength": 100,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Proveedor",
+      "Ordinal": 3,
+      "ColumnName": "Correo_prov",
+      "DataType": "varchar",
+      "MaxLength": 100,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Proveedor",
+      "Ordinal": 4,
+      "ColumnName": "Telefono_prov",
+      "DataType": "varchar",
+      "MaxLength": 15,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "RAM",
+      "Ordinal": 1,
+      "ColumnName": "Codbarras_prod",
+      "DataType": "varchar",
+      "MaxLength": 13,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 1
+    },
+    {
+      "TableName": "RAM",
+      "Ordinal": 2,
+      "ColumnName": "Capacidad_gb",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "RAM",
+      "Ordinal": 3,
+      "ColumnName": "Velocidad_mhz",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "SSD",
+      "Ordinal": 1,
+      "ColumnName": "Codbarras_prod",
+      "DataType": "varchar",
+      "MaxLength": 13,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 1
+    },
+    {
+      "TableName": "SSD",
+      "Ordinal": 2,
+      "ColumnName": "Capacidad_gb",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "SSD",
+      "Ordinal": 3,
+      "ColumnName": "Interfaz",
+      "DataType": "varchar",
+      "MaxLength": 20,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Suministra",
+      "Ordinal": 1,
+      "ColumnName": "Codbarras_prod",
+      "DataType": "varchar",
+      "MaxLength": 13,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 1
+    },
+    {
+      "TableName": "Suministra",
+      "Ordinal": 2,
+      "ColumnName": "ID_proveedor",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 1
+    },
+    {
+      "TableName": "Suministra",
+      "Ordinal": 3,
+      "ColumnName": "Precio_compra",
+      "DataType": "decimal",
+      "MaxLength": 9,
+      "Precision": 10,
+      "Scale": 2,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Tipo_Comprobante",
+      "Ordinal": 1,
+      "ColumnName": "ID_tipo_comp",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": true,
+      "IsPrimaryKey": 1
+    },
+    {
+      "TableName": "Tipo_Comprobante",
+      "Ordinal": 2,
+      "ColumnName": "Nombre_tipo",
+      "DataType": "varchar",
+      "MaxLength": 30,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Tipo_Movimiento",
+      "Ordinal": 1,
+      "ColumnName": "ID_tipo_mov",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": true,
+      "IsPrimaryKey": 1
+    },
+    {
+      "TableName": "Tipo_Movimiento",
+      "Ordinal": 2,
+      "ColumnName": "Nombre_tipo",
+      "DataType": "varchar",
+      "MaxLength": 40,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Venta",
+      "Ordinal": 1,
+      "ColumnName": "ID_venta",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": true,
+      "IsPrimaryKey": 1
+    },
+    {
+      "TableName": "Venta",
+      "Ordinal": 2,
+      "ColumnName": "Fecha_venta",
+      "DataType": "date",
+      "MaxLength": 3,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Venta",
+      "Ordinal": 3,
+      "ColumnName": "Total_venta",
+      "DataType": "decimal",
+      "MaxLength": 9,
+      "Precision": 10,
+      "Scale": 2,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Venta",
+      "Ordinal": 4,
+      "ColumnName": "Numero_comprobante",
+      "DataType": "varchar",
+      "MaxLength": 20,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Venta",
+      "Ordinal": 5,
+      "ColumnName": "ID_tipo_comp",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Venta",
+      "Ordinal": 6,
+      "ColumnName": "Dni_cliente",
+      "DataType": "varchar",
+      "MaxLength": 8,
+      "Precision": 0,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Venta",
+      "Ordinal": 7,
+      "ColumnName": "ID_empleado",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    },
+    {
+      "TableName": "Venta_Metodo_Pago",
+      "Ordinal": 1,
+      "ColumnName": "ID_venta",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 1
+    },
+    {
+      "TableName": "Venta_Metodo_Pago",
+      "Ordinal": 2,
+      "ColumnName": "ID_metodo",
+      "DataType": "int",
+      "MaxLength": 4,
+      "Precision": 10,
+      "Scale": 0,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 1
+    },
+    {
+      "TableName": "Venta_Metodo_Pago",
+      "Ordinal": 3,
+      "ColumnName": "Monto_pagado",
+      "DataType": "decimal",
+      "MaxLength": 9,
+      "Precision": 10,
+      "Scale": 2,
+      "IsNullable": false,
+      "IsIdentity": false,
+      "IsPrimaryKey": 0
+    }
+  ],
+  "foreignKeys": [
+    {
+      "FK_Name": "FK_CPU_Producto",
+      "ParentTable": "CPU",
+      "ParentColumn": "Codbarras_prod",
+      "ReferencedTable": "Producto",
+      "ReferencedColumn": "Codbarras_prod",
+      "OnDelete": "NO_ACTION",
+      "OnUpdate": "NO_ACTION"
+    },
+    {
+      "FK_Name": "FK_DetDev_Detalle",
+      "ParentTable": "Detalle_Dev",
+      "ParentColumn": "ID_detalle",
+      "ReferencedTable": "Detalle_Venta",
+      "ReferencedColumn": "ID_detalle",
+      "OnDelete": "NO_ACTION",
+      "OnUpdate": "NO_ACTION"
+    },
+    {
+      "FK_Name": "FK_DetDev_Devolucion",
+      "ParentTable": "Detalle_Dev",
+      "ParentColumn": "ID_devolucion",
+      "ReferencedTable": "Devolucion",
+      "ReferencedColumn": "ID_devolucion",
+      "OnDelete": "NO_ACTION",
+      "OnUpdate": "NO_ACTION"
+    },
+    {
+      "FK_Name": "FK_DetDev_Motivo",
+      "ParentTable": "Detalle_Dev",
+      "ParentColumn": "ID_motivo",
+      "ReferencedTable": "Motivo_Dev",
+      "ReferencedColumn": "ID_motivo",
+      "OnDelete": "NO_ACTION",
+      "OnUpdate": "NO_ACTION"
+    },
+    {
+      "FK_Name": "FK_Detalle_Producto",
+      "ParentTable": "Detalle_Venta",
+      "ParentColumn": "Codbarras_prod",
+      "ReferencedTable": "Producto",
+      "ReferencedColumn": "Codbarras_prod",
+      "OnDelete": "NO_ACTION",
+      "OnUpdate": "NO_ACTION"
+    },
+    {
+      "FK_Name": "FK_Detalle_Venta",
+      "ParentTable": "Detalle_Venta",
+      "ParentColumn": "ID_venta",
+      "ReferencedTable": "Venta",
+      "ReferencedColumn": "ID_venta",
+      "OnDelete": "NO_ACTION",
+      "OnUpdate": "NO_ACTION"
+    },
+    {
+      "FK_Name": "FK_Dev_Empleado",
+      "ParentTable": "Devolucion",
+      "ParentColumn": "ID_empleado",
+      "ReferencedTable": "Empleado",
+      "ReferencedColumn": "ID_empleado",
+      "OnDelete": "NO_ACTION",
+      "OnUpdate": "NO_ACTION"
+    },
+    {
+      "FK_Name": "FK_Dev_Estado",
+      "ParentTable": "Devolucion",
+      "ParentColumn": "ID_estado_dev",
+      "ReferencedTable": "Estado_Dev",
+      "ReferencedColumn": "ID_estado_dev",
+      "OnDelete": "NO_ACTION",
+      "OnUpdate": "NO_ACTION"
+    },
+    {
+      "FK_Name": "FK_Dev_Venta",
+      "ParentTable": "Devolucion",
+      "ParentColumn": "ID_venta",
+      "ReferencedTable": "Venta",
+      "ReferencedColumn": "ID_venta",
+      "OnDelete": "NO_ACTION",
+      "OnUpdate": "NO_ACTION"
+    },
+    {
+      "FK_Name": "FK_Fuente_Producto",
+      "ParentTable": "Fuente_Poder",
+      "ParentColumn": "Codbarras_prod",
+      "ReferencedTable": "Producto",
+      "ReferencedColumn": "Codbarras_prod",
+      "OnDelete": "NO_ACTION",
+      "OnUpdate": "NO_ACTION"
+    },
+    {
+      "FK_Name": "FK_Gabinete_Producto",
+      "ParentTable": "Gabinete",
+      "ParentColumn": "Codbarras_prod",
+      "ReferencedTable": "Producto",
+      "ReferencedColumn": "Codbarras_prod",
+      "OnDelete": "NO_ACTION",
+      "OnUpdate": "NO_ACTION"
+    },
+    {
+      "FK_Name": "FK_Grafica_Producto",
+      "ParentTable": "Grafica",
+      "ParentColumn": "Codbarras_prod",
+      "ReferencedTable": "Producto",
+      "ReferencedColumn": "Codbarras_prod",
+      "OnDelete": "NO_ACTION",
+      "OnUpdate": "NO_ACTION"
+    },
+    {
+      "FK_Name": "FK_Mov_Empleado",
+      "ParentTable": "Mov_Inventario",
+      "ParentColumn": "ID_empleado",
+      "ReferencedTable": "Empleado",
+      "ReferencedColumn": "ID_empleado",
+      "OnDelete": "NO_ACTION",
+      "OnUpdate": "NO_ACTION"
+    },
+    {
+      "FK_Name": "FK_Mov_Producto",
+      "ParentTable": "Mov_Inventario",
+      "ParentColumn": "Codbarras_prod",
+      "ReferencedTable": "Producto",
+      "ReferencedColumn": "Codbarras_prod",
+      "OnDelete": "NO_ACTION",
+      "OnUpdate": "NO_ACTION"
+    },
+    {
+      "FK_Name": "FK_Mov_Tipo",
+      "ParentTable": "Mov_Inventario",
+      "ParentColumn": "ID_tipo_mov",
+      "ReferencedTable": "Tipo_Movimiento",
+      "ReferencedColumn": "ID_tipo_mov",
+      "OnDelete": "NO_ACTION",
+      "OnUpdate": "NO_ACTION"
+    },
+    {
+      "FK_Name": "FK_Producto_Categoria",
+      "ParentTable": "Producto",
+      "ParentColumn": "ID_categoria",
+      "ReferencedTable": "Categoria",
+      "ReferencedColumn": "ID_categoria",
+      "OnDelete": "NO_ACTION",
+      "OnUpdate": "NO_ACTION"
+    },
+    {
+      "FK_Name": "FK_Producto_Estado",
+      "ParentTable": "Producto",
+      "ParentColumn": "ID_estado_prod",
+      "ReferencedTable": "Estado_Prod",
+      "ReferencedColumn": "ID_estado_prod",
+      "OnDelete": "NO_ACTION",
+      "OnUpdate": "NO_ACTION"
+    },
+    {
+      "FK_Name": "FK_Producto_Marca",
+      "ParentTable": "Producto",
+      "ParentColumn": "ID_marca",
+      "ReferencedTable": "Marca",
+      "ReferencedColumn": "ID_marca",
+      "OnDelete": "NO_ACTION",
+      "OnUpdate": "NO_ACTION"
+    },
+    {
+      "FK_Name": "FK_RAM_Producto",
+      "ParentTable": "RAM",
+      "ParentColumn": "Codbarras_prod",
+      "ReferencedTable": "Producto",
+      "ReferencedColumn": "Codbarras_prod",
+      "OnDelete": "NO_ACTION",
+      "OnUpdate": "NO_ACTION"
+    },
+    {
+      "FK_Name": "FK_SSD_Producto",
+      "ParentTable": "SSD",
+      "ParentColumn": "Codbarras_prod",
+      "ReferencedTable": "Producto",
+      "ReferencedColumn": "Codbarras_prod",
+      "OnDelete": "NO_ACTION",
+      "OnUpdate": "NO_ACTION"
+    },
+    {
+      "FK_Name": "FK_Suministra_Producto",
+      "ParentTable": "Suministra",
+      "ParentColumn": "Codbarras_prod",
+      "ReferencedTable": "Producto",
+      "ReferencedColumn": "Codbarras_prod",
+      "OnDelete": "NO_ACTION",
+      "OnUpdate": "NO_ACTION"
+    },
+    {
+      "FK_Name": "FK_Suministra_Proveedor",
+      "ParentTable": "Suministra",
+      "ParentColumn": "ID_proveedor",
+      "ReferencedTable": "Proveedor",
+      "ReferencedColumn": "ID_proveedor",
+      "OnDelete": "NO_ACTION",
+      "OnUpdate": "NO_ACTION"
+    },
+    {
+      "FK_Name": "FK_Venta_Cliente",
+      "ParentTable": "Venta",
+      "ParentColumn": "Dni_cliente",
+      "ReferencedTable": "Cliente",
+      "ReferencedColumn": "Dni_cliente",
+      "OnDelete": "NO_ACTION",
+      "OnUpdate": "NO_ACTION"
+    },
+    {
+      "FK_Name": "FK_Venta_Empleado",
+      "ParentTable": "Venta",
+      "ParentColumn": "ID_empleado",
+      "ReferencedTable": "Empleado",
+      "ReferencedColumn": "ID_empleado",
+      "OnDelete": "NO_ACTION",
+      "OnUpdate": "NO_ACTION"
+    },
+    {
+      "FK_Name": "FK_Venta_TipoComp",
+      "ParentTable": "Venta",
+      "ParentColumn": "ID_tipo_comp",
+      "ReferencedTable": "Tipo_Comprobante",
+      "ReferencedColumn": "ID_tipo_comp",
+      "OnDelete": "NO_ACTION",
+      "OnUpdate": "NO_ACTION"
+    },
+    {
+      "FK_Name": "FK_VMP_Metodo",
+      "ParentTable": "Venta_Metodo_Pago",
+      "ParentColumn": "ID_metodo",
+      "ReferencedTable": "Metodo_Pago",
+      "ReferencedColumn": "ID_metodo",
+      "OnDelete": "NO_ACTION",
+      "OnUpdate": "NO_ACTION"
+    },
+    {
+      "FK_Name": "FK_VMP_Venta",
+      "ParentTable": "Venta_Metodo_Pago",
+      "ParentColumn": "ID_venta",
+      "ReferencedTable": "Venta",
+      "ReferencedColumn": "ID_venta",
+      "OnDelete": "NO_ACTION",
+      "OnUpdate": "NO_ACTION"
+    }
+  ],
+  "checkConstraints": [
+    {
+      "TableName": "Detalle_Dev",
+      "ConstraintName": "CK_DetDev_Cantidad",
+      "CheckDefinition": "([Cantidad_dev]>(0))"
+    },
+    {
+      "TableName": "Detalle_Venta",
+      "ConstraintName": "CK_Detalle_Cantidad",
+      "CheckDefinition": "([Cantidad]>(0))"
+    },
+    {
+      "TableName": "Detalle_Venta",
+      "ConstraintName": "CK_Detalle_Subtotal",
+      "CheckDefinition": "([Subtotal]=[Cantidad]*[Precio_unitario])"
+    },
+    {
+      "TableName": "Mov_Inventario",
+      "ConstraintName": "CK_Mov_Cantidad",
+      "CheckDefinition": "([Cantidad]>(0))"
+    },
+    {
+      "TableName": "Producto",
+      "ConstraintName": "CK_Producto_Garantia",
+      "CheckDefinition": "([Garantia_meses]>=(0))"
+    },
+    {
+      "TableName": "Producto",
+      "ConstraintName": "CK_Producto_Precio",
+      "CheckDefinition": "([Precio]>(0))"
+    },
+    {
+      "TableName": "Producto",
+      "ConstraintName": "CK_Producto_Stock",
+      "CheckDefinition": "([Stock]>=(0))"
+    },
+    {
+      "TableName": "Suministra",
+      "ConstraintName": "CK_Suministra_Precio",
+      "CheckDefinition": "([Precio_compra]>(0))"
+    },
+    {
+      "TableName": "Venta",
+      "ConstraintName": "CK_Venta_Total",
+      "CheckDefinition": "([Total_venta]>=(0))"
+    },
+    {
+      "TableName": "Venta_Metodo_Pago",
+      "ConstraintName": "CK_VMP_Monto",
+      "CheckDefinition": "([Monto_pagado]>(0))"
+    }
+  ],
+  "indexes": [
+    {
+      "TableName": "Categoria",
+      "IndexName": "PK__Categori__3790015670028896",
+      "IsUnique": true,
+      "IsPK": true,
+      "ColumnsList": "ID_categoria"
+    },
+    {
+      "TableName": "Categoria",
+      "IndexName": "UQ__Categori__3FE29294B02AA9CD",
+      "IsUnique": true,
+      "IsPK": false,
+      "ColumnsList": "Nombre_cat"
+    },
+    {
+      "TableName": "Cliente",
+      "IndexName": "PK__Cliente__538EA93AD4432791",
+      "IsUnique": true,
+      "IsPK": true,
+      "ColumnsList": "Dni_cliente"
+    },
+    {
+      "TableName": "CPU",
+      "IndexName": "PK__CPU__76879DAF66F70FD2",
+      "IsUnique": true,
+      "IsPK": true,
+      "ColumnsList": "Codbarras_prod"
+    },
+    {
+      "TableName": "Detalle_Dev",
+      "IndexName": "PK__Detalle___13D297565D790C78",
+      "IsUnique": true,
+      "IsPK": true,
+      "ColumnsList": "ID_detalle_dev"
+    },
+    {
+      "TableName": "Detalle_Dev",
+      "IndexName": "UQ_DetDev",
+      "IsUnique": true,
+      "IsPK": false,
+      "ColumnsList": "ID_devolucion, ID_detalle"
+    },
+    {
+      "TableName": "Detalle_Venta",
+      "IndexName": "PK__Detalle___83B6061E5B296E19",
+      "IsUnique": true,
+      "IsPK": true,
+      "ColumnsList": "ID_detalle"
+    },
+    {
+      "TableName": "Detalle_Venta",
+      "IndexName": "UQ_Detalle_Venta_Prod",
+      "IsUnique": true,
+      "IsPK": false,
+      "ColumnsList": "ID_venta, Codbarras_prod"
+    },
+    {
+      "TableName": "Devolucion",
+      "IndexName": "PK__Devoluci__BB82C4B17E07AEFB",
+      "IsUnique": true,
+      "IsPK": true,
+      "ColumnsList": "ID_devolucion"
+    },
+    {
+      "TableName": "Empleado",
+      "IndexName": "PK__Empleado__FC29D6F610D41C5E",
+      "IsUnique": true,
+      "IsPK": true,
+      "ColumnsList": "ID_empleado"
+    },
+    {
+      "TableName": "Empleado",
+      "IndexName": "UQ__Empleado__70F104C0B1BB2F5A",
+      "IsUnique": true,
+      "IsPK": false,
+      "ColumnsList": "Dni_emp"
+    },
+    {
+      "TableName": "Estado_Dev",
+      "IndexName": "PK__Estado_D__E48F68983CC9AE90",
+      "IsUnique": true,
+      "IsPK": true,
+      "ColumnsList": "ID_estado_dev"
+    },
+    {
+      "TableName": "Estado_Dev",
+      "IndexName": "UQ__Estado_D__BE574DFBC0CDA877",
+      "IsUnique": true,
+      "IsPK": false,
+      "ColumnsList": "Nombre_estado"
+    },
+    {
+      "TableName": "Estado_Prod",
+      "IndexName": "PK__Estado_P__36C7CB802EBC65B4",
+      "IsUnique": true,
+      "IsPK": true,
+      "ColumnsList": "ID_estado_prod"
+    },
+    {
+      "TableName": "Estado_Prod",
+      "IndexName": "UQ__Estado_P__36DF552F067A51A0",
+      "IsUnique": true,
+      "IsPK": false,
+      "ColumnsList": "Estado"
+    },
+    {
+      "TableName": "Fuente_Poder",
+      "IndexName": "PK__Fuente_P__76879DAFAE14DE6A",
+      "IsUnique": true,
+      "IsPK": true,
+      "ColumnsList": "Codbarras_prod"
+    },
+    {
+      "TableName": "Gabinete",
+      "IndexName": "PK__Gabinete__76879DAF8B1C50F2",
+      "IsUnique": true,
+      "IsPK": true,
+      "ColumnsList": "Codbarras_prod"
+    },
+    {
+      "TableName": "Grafica",
+      "IndexName": "PK__Grafica__76879DAFFA63713B",
+      "IsUnique": true,
+      "IsPK": true,
+      "ColumnsList": "Codbarras_prod"
+    },
+    {
+      "TableName": "Marca",
+      "IndexName": "PK__Marca__36DBB8CBE983C532",
+      "IsUnique": true,
+      "IsPK": true,
+      "ColumnsList": "ID_marca"
+    },
+    {
+      "TableName": "Marca",
+      "IndexName": "UQ__Marca__A1F7E18A2B3E2780",
+      "IsUnique": true,
+      "IsPK": false,
+      "ColumnsList": "Nombre_marca"
+    },
+    {
+      "TableName": "Metodo_Pago",
+      "IndexName": "PK__Metodo_P__645FC8982CD9F7E4",
+      "IsUnique": true,
+      "IsPK": true,
+      "ColumnsList": "ID_metodo"
+    },
+    {
+      "TableName": "Metodo_Pago",
+      "IndexName": "UQ__Metodo_P__CC422F4DA51F2931",
+      "IsUnique": true,
+      "IsPK": false,
+      "ColumnsList": "Nombre_metodo"
+    },
+    {
+      "TableName": "Motivo_Dev",
+      "IndexName": "PK__Motivo_D__9535A4ADD394EB2D",
+      "IsUnique": true,
+      "IsPK": true,
+      "ColumnsList": "ID_motivo"
+    },
+    {
+      "TableName": "Motivo_Dev",
+      "IndexName": "UQ__Motivo_D__856297614BBC3A9D",
+      "IsUnique": true,
+      "IsPK": false,
+      "ColumnsList": "Descripcion_motivo"
+    },
+    {
+      "TableName": "Mov_Inventario",
+      "IndexName": "PK_Mov_Inventario",
+      "IsUnique": true,
+      "IsPK": true,
+      "ColumnsList": "ID_movimiento"
+    },
+    {
+      "TableName": "Producto",
+      "IndexName": "PK__Producto__76879DAF6B710861",
+      "IsUnique": true,
+      "IsPK": true,
+      "ColumnsList": "Codbarras_prod"
+    },
+    {
+      "TableName": "Proveedor",
+      "IndexName": "PK__Proveedo__74AD766F03A05FFC",
+      "IsUnique": true,
+      "IsPK": true,
+      "ColumnsList": "ID_proveedor"
+    },
+    {
+      "TableName": "RAM",
+      "IndexName": "PK__RAM__76879DAF71C902B3",
+      "IsUnique": true,
+      "IsPK": true,
+      "ColumnsList": "Codbarras_prod"
+    },
+    {
+      "TableName": "SSD",
+      "IndexName": "PK__SSD__76879DAFDE9E4EFB",
+      "IsUnique": true,
+      "IsPK": true,
+      "ColumnsList": "Codbarras_prod"
+    },
+    {
+      "TableName": "Suministra",
+      "IndexName": "PK_Suministra",
+      "IsUnique": true,
+      "IsPK": true,
+      "ColumnsList": "Codbarras_prod, ID_proveedor"
+    },
+    {
+      "TableName": "Tipo_Comprobante",
+      "IndexName": "PK__Tipo_Com__BD7FEE17C2C76EE6",
+      "IsUnique": true,
+      "IsPK": true,
+      "ColumnsList": "ID_tipo_comp"
+    },
+    {
+      "TableName": "Tipo_Comprobante",
+      "IndexName": "UQ__Tipo_Com__A3F0A41FAEF57FAC",
+      "IsUnique": true,
+      "IsPK": false,
+      "ColumnsList": "Nombre_tipo"
+    },
+    {
+      "TableName": "Tipo_Movimiento",
+      "IndexName": "PK__Tipo_Mov__2C1E3A9CCE9CF232",
+      "IsUnique": true,
+      "IsPK": true,
+      "ColumnsList": "ID_tipo_mov"
+    },
+    {
+      "TableName": "Tipo_Movimiento",
+      "IndexName": "UQ__Tipo_Mov__A3F0A41F2F01E3F3",
+      "IsUnique": true,
+      "IsPK": false,
+      "ColumnsList": "Nombre_tipo"
+    },
+    {
+      "TableName": "Venta",
+      "IndexName": "PK__Venta__39DDE5E4BF8DE087",
+      "IsUnique": true,
+      "IsPK": true,
+      "ColumnsList": "ID_venta"
+    },
+    {
+      "TableName": "Venta",
+      "IndexName": "UQ_Venta_Numero_comprobante",
+      "IsUnique": true,
+      "IsPK": false,
+      "ColumnsList": "Numero_comprobante"
+    },
+    {
+      "TableName": "Venta_Metodo_Pago",
+      "IndexName": "PK_Venta_Metodo_Pago",
+      "IsUnique": true,
+      "IsPK": true,
+      "ColumnsList": "ID_venta, ID_metodo"
+    }
+  ]
+}

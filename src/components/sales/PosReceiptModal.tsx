@@ -1,0 +1,232 @@
+import { useEffect, useRef } from "react";
+import { TransactionalSaleResult } from "@/lib/repositories/sale-transaction.repository";
+import { formatCurrency, formatDate } from "@/lib/formatters";
+import {
+  Printer,
+  X,
+  CheckCircle2,
+  FileText,
+  ShieldCheck,
+  Receipt,
+  Cpu,
+} from "lucide-react";
+
+interface PosReceiptModalProps {
+  sale: TransactionalSaleResult;
+  onClose: () => void;
+}
+
+export function PosReceiptModal({ sale, onClose }: PosReceiptModalProps) {
+  const receiptRef = useRef<HTMLDivElement>(null);
+
+  // Cierre con Escape y bloqueo de scroll
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [onClose]);
+
+  const handlePrint = () => {
+    window.print();
+  };
+
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="pos-receipt-title"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/85 backdrop-blur-sm animate-in fade-in duration-200"
+    >
+      <div className="relative w-full max-w-xl max-h-[94vh] flex flex-col rounded-2xl bg-slate-900 border border-slate-800 shadow-2xl overflow-hidden">
+        {/* Cabecera Fija */}
+        <div className="p-4 sm:p-5 border-b border-slate-800 flex items-center justify-between shrink-0 bg-slate-950/70">
+          <div className="flex items-center gap-2.5 min-w-0">
+            <div className="p-2 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 shrink-0">
+              <CheckCircle2 className="h-5 w-5" />
+            </div>
+            <div>
+              <h2
+                id="pos-receipt-title"
+                className="text-base sm:text-lg font-bold text-white flex items-center gap-2"
+              >
+                <span>¡Venta Confirmada con Éxito!</span>
+              </h2>
+              <p className="text-xs text-slate-400 mt-0.5 font-mono">
+                {sale.numeroComprobante} &bull; Transacción ACID Registrada en SQL Server
+              </p>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            onClick={onClose}
+            className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+            aria-label="Cerrar recibo"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        </div>
+
+        {/* Cuerpo del Recibo Imprimible (Scroll Interno) */}
+        <div className="p-4 sm:p-6 overflow-y-auto space-y-4">
+          {/* Tarjeta de Formato Físico / Ticket Imprimible */}
+          <div
+            ref={receiptRef}
+            className="p-5 sm:p-6 rounded-xl bg-white text-slate-900 border border-slate-200 shadow-sm space-y-4 print:p-0 print:border-none print:shadow-none"
+          >
+            {/* Encabezado Comercial */}
+            <div className="text-center border-b border-dashed border-slate-300 pb-4">
+              <div className="flex items-center justify-center gap-2 mb-1">
+                <Cpu className="h-5 w-5 text-cyan-700" />
+                <h3 className="text-lg font-black tracking-tight text-slate-950">
+                  MISHUTEC
+                </h3>
+              </div>
+              <p className="text-xs font-semibold text-slate-700">
+                Componentes de PC de Alto Rendimiento
+              </p>
+              <p className="text-[11px] text-slate-500">
+                Sistema Comercial &bull; Terminal Punto de Venta
+              </p>
+
+              <div className="mt-3 py-1.5 px-3 rounded bg-slate-100 inline-block border border-slate-200">
+                <span className="text-xs font-bold font-mono tracking-wide text-slate-800">
+                  {sale.tipoComprobante.toUpperCase()}: {sale.numeroComprobante}
+                </span>
+              </div>
+            </div>
+
+            {/* Metadatos de la Venta */}
+            <div className="grid grid-cols-2 gap-2 text-xs py-1 border-b border-dashed border-slate-300">
+              <div>
+                <span className="text-[10px] text-slate-500 block uppercase font-bold">
+                  Fecha de Emisión:
+                </span>
+                <span className="font-medium text-slate-800">{formatDate(sale.fecha)}</span>
+              </div>
+              <div className="text-right">
+                <span className="text-[10px] text-slate-500 block uppercase font-bold">
+                  Operador / Cajero:
+                </span>
+                <span className="font-medium text-slate-800">{sale.empleadoNombre}</span>
+              </div>
+              <div className="col-span-2 pt-1">
+                <span className="text-[10px] text-slate-500 block uppercase font-bold">
+                  Cliente Titular:
+                </span>
+                <span className="font-semibold text-slate-900">
+                  {sale.clienteNombre} &bull; <span className="font-mono font-normal">DNI: {sale.dniCliente}</span>
+                </span>
+              </div>
+            </div>
+
+            {/* Detalle de Artículos */}
+            <div className="space-y-1">
+              <table className="w-full text-xs text-left">
+                <thead>
+                  <tr className="border-b border-slate-300 text-[10px] text-slate-500 uppercase">
+                    <th className="py-1">Cant.</th>
+                    <th className="py-1 px-2">Descripción</th>
+                    <th className="py-1 text-right">P.U.</th>
+                    <th className="py-1 text-right">Importe</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {sale.items.map((item) => (
+                    <tr key={item.codbarras}>
+                      <td className="py-2 font-mono font-bold text-slate-800">
+                        {item.cantidad}
+                      </td>
+                      <td className="py-2 px-2">
+                        <span className="font-semibold text-slate-900 block leading-tight">
+                          {item.nombre}
+                        </span>
+                        <span className="text-[10px] font-mono text-slate-500">
+                          {item.codbarras}
+                        </span>
+                      </td>
+                      <td className="py-2 text-right font-mono text-slate-700">
+                        {formatCurrency(item.precioUnitario)}
+                      </td>
+                      <td className="py-2 text-right font-mono font-bold text-slate-900">
+                        {formatCurrency(item.subtotal)}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Resumen Total y Desglose de Pagos */}
+            <div className="border-t-2 border-slate-900 pt-2 space-y-2 text-xs">
+              <div className="flex items-center justify-between text-base font-black">
+                <span>TOTAL A PAGAR:</span>
+                <span className="font-mono text-cyan-800">{formatCurrency(sale.totalVenta)}</span>
+              </div>
+
+              <div className="pt-2 border-t border-dashed border-slate-300 space-y-1">
+                <span className="text-[10px] font-bold text-slate-500 block uppercase">
+                  Medios de Pago Utilizados:
+                </span>
+                {sale.pagos.map((p) => (
+                  <div key={p.idMetodo} className="flex justify-between text-xs text-slate-700 font-mono">
+                    <span>{p.nombreMetodo}:</span>
+                    <span className="font-bold">{formatCurrency(p.monto)}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Leyenda Legal Obligatoria */}
+            <div className="pt-3 border-t border-dashed border-slate-300 text-center">
+              <p className="text-[10px] text-slate-500 uppercase font-bold leading-tight">
+                Comprobante comercial de uso interno.
+              </p>
+              <p className="text-[9px] text-slate-400 mt-0.5">
+                No constituye comprobante electrónico autorizado por SUNAT.
+              </p>
+              <p className="text-[9px] text-slate-400 mt-2 font-mono">
+                *** GRACIAS POR SU COMPRA ***
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Barra de Acciones Inferior */}
+        <div className="p-3.5 sm:p-4 border-t border-slate-800 bg-slate-950/70 flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-2.5 shrink-0">
+          <div className="text-[11px] text-slate-400 flex items-center gap-1.5">
+            <ShieldCheck className="h-4 w-4 text-emerald-400" />
+            <span>Kardex y existencias actualizados</span>
+          </div>
+
+          <div className="flex items-center gap-2 w-full sm:w-auto">
+            <button
+              type="button"
+              onClick={handlePrint}
+              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 px-4 py-2.5 min-h-[42px] rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 text-xs font-bold shadow-md shadow-cyan-500/20 transition-colors"
+            >
+              <Printer className="h-4 w-4" />
+              <span>Imprimir Comprobante</span>
+            </button>
+            <button
+              type="button"
+              onClick={onClose}
+              className="px-4 py-2.5 min-h-[42px] rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold border border-slate-700 transition-colors"
+            >
+              Nueva Venta
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

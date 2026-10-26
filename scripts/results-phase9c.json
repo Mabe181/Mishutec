@@ -1,0 +1,586 @@
+[
+  {
+    "suite": "Autenticación",
+    "scenario": "Renderizado del formulario en /login anónimo",
+    "expected": "Campos username, password y botón presentes",
+    "actual": "Campos: user=true, pass=true, btn=true",
+    "status": "PASS",
+    "evidence": "HTML verificado en DOM"
+  },
+  {
+    "suite": "Autenticación",
+    "scenario": "Rechazo de credenciales incorrectas con alerta en UI",
+    "expected": "Muestra alerta 'Credenciales administrativas incorrectas' y permanece en /login",
+    "actual": "Alerta mostrada: true, URL actual: http://localhost:3000/login",
+    "status": "PASS",
+    "evidence": "Mensaje de error renderizado en DOM sin filtrar contraseña"
+  },
+  {
+    "suite": "Autenticación",
+    "scenario": "Inicio de sesión exitoso y redirección al Dashboard",
+    "expected": "URL final: http://localhost:3000/dashboard",
+    "actual": "URL obtenida: http://localhost:3000/dashboard",
+    "status": "PASS",
+    "evidence": "Navegación confirmada por cliente"
+  },
+  {
+    "suite": "Autenticación",
+    "scenario": "Creación de cookie de sesión segura (HttpOnly y SameSite Lax)",
+    "expected": "mishutec_session HttpOnly=true, SameSite=Lax",
+    "actual": "Cookie creada: true, HttpOnly: true, SameSite: Lax",
+    "status": "PASS",
+    "evidence": "Atributos de seguridad confirmados por Network CDP"
+  },
+  {
+    "suite": "Autenticación",
+    "scenario": "Persistencia de sesión activa tras recarga (F5)",
+    "expected": "Permanecer en /dashboard",
+    "actual": "URL tras reload: http://localhost:3000/dashboard",
+    "status": "PASS",
+    "evidence": "Sesión persistente confirmada"
+  },
+  {
+    "suite": "Sanitización",
+    "scenario": "sanitizeRedirectUrl('/ventas') -> '/ventas'",
+    "expected": "true",
+    "actual": "true",
+    "status": "PASS",
+    "evidence": "Prueba unitaria"
+  },
+  {
+    "suite": "Sanitización",
+    "scenario": "sanitizeRedirectUrl('https://evil.com') -> '/dashboard'",
+    "expected": "true",
+    "actual": "true",
+    "status": "PASS",
+    "evidence": "Prueba unitaria"
+  },
+  {
+    "suite": "Sanitización",
+    "scenario": "sanitizeRedirectUrl('//evil.com') -> '/dashboard'",
+    "expected": "true",
+    "actual": "true",
+    "status": "PASS",
+    "evidence": "Prueba unitaria"
+  },
+  {
+    "suite": "Sanitización",
+    "scenario": "sanitizeRedirectUrl('/\\evil.com') -> '/dashboard'",
+    "expected": "true",
+    "actual": "true",
+    "status": "PASS",
+    "evidence": "Prueba unitaria"
+  },
+  {
+    "suite": "Sanitización",
+    "scenario": "sanitizeRedirectUrl('javascript:alert(1)') -> '/dashboard'",
+    "expected": "true",
+    "actual": "true",
+    "status": "PASS",
+    "evidence": "Prueba unitaria"
+  },
+  {
+    "suite": "Sanitización",
+    "scenario": "sanitizeRedirectUrl('/login') -> '/dashboard'",
+    "expected": "true",
+    "actual": "true",
+    "status": "PASS",
+    "evidence": "Prueba unitaria"
+  },
+  {
+    "suite": "Seguridad Redirección",
+    "scenario": "Respetar parámetro ?from= hacia ruta interna permitida (/reportes)",
+    "expected": "Redirección a http://localhost:3000/reportes",
+    "actual": "URL alcanzada: http://localhost:3000/reportes",
+    "status": "PASS",
+    "evidence": "Navegación autorizada a ruta solicitada"
+  },
+  {
+    "suite": "Seguridad Redirección",
+    "scenario": "Bloqueo de Open Redirect hacia dominio externo (https://evil-phishing.com)",
+    "expected": "Redirección forzada a /dashboard seguro",
+    "actual": "URL alcanzada: http://localhost:3000/dashboard",
+    "status": "PASS",
+    "evidence": "Open Redirect neutralizado exitosamente"
+  },
+  {
+    "suite": "Cierre de Sesión",
+    "scenario": "Redirección a /login al cerrar sesión",
+    "expected": "URL final: http://localhost:3000/login",
+    "actual": "URL obtenida: http://localhost:3000/login",
+    "status": "PASS",
+    "evidence": "Navegación confirmada"
+  },
+  {
+    "suite": "Cierre de Sesión",
+    "scenario": "Invalidación y eliminación de cookie mishutec_session",
+    "expected": "Cookie eliminada o vaciada",
+    "actual": "Estado cookie: eliminada",
+    "status": "PASS",
+    "evidence": "Verificado en almacén de cookies del navegador"
+  },
+  {
+    "suite": "Cierre de Sesión",
+    "scenario": "Bloqueo inmediato de acceso anónimo posterior a /dashboard",
+    "expected": "Redirigido a /login?from=%2Fdashboard",
+    "actual": "URL actual: http://localhost:3000/login?from=%2Fdashboard",
+    "status": "PASS",
+    "evidence": "Proxy perimetral bloqueó navegación anónima"
+  },
+  {
+    "suite": "Rutas Protegidas",
+    "scenario": "Acceso anónimo a /dashboard bloqueado con redirección a /login",
+    "expected": "HTTP 307/308 hacia /login?from=%2Fdashboard",
+    "actual": "HTTP 307 Location: /login?from=%2Fdashboard",
+    "status": "PASS",
+    "evidence": "Proxy interceptó petición HTTP"
+  },
+  {
+    "suite": "Rutas Protegidas",
+    "scenario": "Acceso anónimo a /productos bloqueado con redirección a /login",
+    "expected": "HTTP 307/308 hacia /login?from=%2Fproductos",
+    "actual": "HTTP 307 Location: /login?from=%2Fproductos",
+    "status": "PASS",
+    "evidence": "Proxy interceptó petición HTTP"
+  },
+  {
+    "suite": "Rutas Protegidas",
+    "scenario": "Acceso anónimo a /inventario bloqueado con redirección a /login",
+    "expected": "HTTP 307/308 hacia /login?from=%2Finventario",
+    "actual": "HTTP 307 Location: /login?from=%2Finventario",
+    "status": "PASS",
+    "evidence": "Proxy interceptó petición HTTP"
+  },
+  {
+    "suite": "Rutas Protegidas",
+    "scenario": "Acceso anónimo a /clientes bloqueado con redirección a /login",
+    "expected": "HTTP 307/308 hacia /login?from=%2Fclientes",
+    "actual": "HTTP 307 Location: /login?from=%2Fclientes",
+    "status": "PASS",
+    "evidence": "Proxy interceptó petición HTTP"
+  },
+  {
+    "suite": "Rutas Protegidas",
+    "scenario": "Acceso anónimo a /proveedores bloqueado con redirección a /login",
+    "expected": "HTTP 307/308 hacia /login?from=%2Fproveedores",
+    "actual": "HTTP 307 Location: /login?from=%2Fproveedores",
+    "status": "PASS",
+    "evidence": "Proxy interceptó petición HTTP"
+  },
+  {
+    "suite": "Rutas Protegidas",
+    "scenario": "Acceso anónimo a /empleados bloqueado con redirección a /login",
+    "expected": "HTTP 307/308 hacia /login?from=%2Fempleados",
+    "actual": "HTTP 307 Location: /login?from=%2Fempleados",
+    "status": "PASS",
+    "evidence": "Proxy interceptó petición HTTP"
+  },
+  {
+    "suite": "Rutas Protegidas",
+    "scenario": "Acceso anónimo a /ventas bloqueado con redirección a /login",
+    "expected": "HTTP 307/308 hacia /login?from=%2Fventas",
+    "actual": "HTTP 307 Location: /login?from=%2Fventas",
+    "status": "PASS",
+    "evidence": "Proxy interceptó petición HTTP"
+  },
+  {
+    "suite": "Rutas Protegidas",
+    "scenario": "Acceso anónimo a /devoluciones bloqueado con redirección a /login",
+    "expected": "HTTP 307/308 hacia /login?from=%2Fdevoluciones",
+    "actual": "HTTP 307 Location: /login?from=%2Fdevoluciones",
+    "status": "PASS",
+    "evidence": "Proxy interceptó petición HTTP"
+  },
+  {
+    "suite": "Rutas Protegidas",
+    "scenario": "Acceso anónimo a /reportes bloqueado con redirección a /login",
+    "expected": "HTTP 307/308 hacia /login?from=%2Freportes",
+    "actual": "HTTP 307 Location: /login?from=%2Freportes",
+    "status": "PASS",
+    "evidence": "Proxy interceptó petición HTTP"
+  },
+  {
+    "suite": "Rutas Protegidas",
+    "scenario": "Acceso anónimo a /diagnostico bloqueado con redirección a /login",
+    "expected": "HTTP 307/308 hacia /login?from=%2Fdiagnostico",
+    "actual": "HTTP 307 Location: /login?from=%2Fdiagnostico",
+    "status": "PASS",
+    "evidence": "Proxy interceptó petición HTTP"
+  },
+  {
+    "suite": "Rutas Autenticadas",
+    "scenario": "Navegación autenticada a /dashboard",
+    "expected": "Carga exitosa en /dashboard sin errores de aplicación",
+    "actual": "URL: http://localhost:3000/dashboard, Error: false",
+    "status": "PASS",
+    "evidence": "Página renderizada en DOM bajo sesión válida"
+  },
+  {
+    "suite": "Rutas Autenticadas",
+    "scenario": "Navegación autenticada a /productos",
+    "expected": "Carga exitosa en /productos sin errores de aplicación",
+    "actual": "URL: http://localhost:3000/productos, Error: false",
+    "status": "PASS",
+    "evidence": "Página renderizada en DOM bajo sesión válida"
+  },
+  {
+    "suite": "Rutas Autenticadas",
+    "scenario": "Navegación autenticada a /inventario",
+    "expected": "Carga exitosa en /inventario sin errores de aplicación",
+    "actual": "URL: http://localhost:3000/inventario, Error: false",
+    "status": "PASS",
+    "evidence": "Página renderizada en DOM bajo sesión válida"
+  },
+  {
+    "suite": "Rutas Autenticadas",
+    "scenario": "Navegación autenticada a /clientes",
+    "expected": "Carga exitosa en /clientes sin errores de aplicación",
+    "actual": "URL: http://localhost:3000/clientes, Error: false",
+    "status": "PASS",
+    "evidence": "Página renderizada en DOM bajo sesión válida"
+  },
+  {
+    "suite": "Rutas Autenticadas",
+    "scenario": "Navegación autenticada a /proveedores",
+    "expected": "Carga exitosa en /proveedores sin errores de aplicación",
+    "actual": "URL: http://localhost:3000/proveedores, Error: false",
+    "status": "PASS",
+    "evidence": "Página renderizada en DOM bajo sesión válida"
+  },
+  {
+    "suite": "Rutas Autenticadas",
+    "scenario": "Navegación autenticada a /empleados",
+    "expected": "Carga exitosa en /empleados sin errores de aplicación",
+    "actual": "URL: http://localhost:3000/empleados, Error: false",
+    "status": "PASS",
+    "evidence": "Página renderizada en DOM bajo sesión válida"
+  },
+  {
+    "suite": "Rutas Autenticadas",
+    "scenario": "Navegación autenticada a /ventas",
+    "expected": "Carga exitosa en /ventas sin errores de aplicación",
+    "actual": "URL: http://localhost:3000/ventas, Error: false",
+    "status": "PASS",
+    "evidence": "Página renderizada en DOM bajo sesión válida"
+  },
+  {
+    "suite": "Rutas Autenticadas",
+    "scenario": "Navegación autenticada a /devoluciones",
+    "expected": "Carga exitosa en /devoluciones sin errores de aplicación",
+    "actual": "URL: http://localhost:3000/devoluciones, Error: false",
+    "status": "PASS",
+    "evidence": "Página renderizada en DOM bajo sesión válida"
+  },
+  {
+    "suite": "Rutas Autenticadas",
+    "scenario": "Navegación autenticada a /reportes",
+    "expected": "Carga exitosa en /reportes sin errores de aplicación",
+    "actual": "URL: http://localhost:3000/reportes, Error: false",
+    "status": "PASS",
+    "evidence": "Página renderizada en DOM bajo sesión válida"
+  },
+  {
+    "suite": "Rutas Autenticadas",
+    "scenario": "Navegación autenticada a /diagnostico",
+    "expected": "Carga exitosa en /diagnostico sin errores de aplicación",
+    "actual": "URL: http://localhost:3000/diagnostico, Error: false",
+    "status": "PASS",
+    "evidence": "Página renderizada en DOM bajo sesión válida"
+  },
+  {
+    "suite": "Server Actions",
+    "scenario": "getFilteredReportsAction rechaza ejecución anónima",
+    "expected": "{ success: false, error: 'Acceso denegado...' }",
+    "actual": "success: false, error: Acceso denegado: se requiere sesión administrativa activa.",
+    "status": "PASS",
+    "evidence": "Autorización Server-Side verificada"
+  },
+  {
+    "suite": "Server Actions",
+    "scenario": "exportReportCsvAction rechaza ejecución anónima",
+    "expected": "{ success: false, error: 'Acceso denegado...' }",
+    "actual": "success: false, error: Acceso denegado: se requiere sesión administrativa activa.",
+    "status": "PASS",
+    "evidence": "Autorización Server-Side verificada"
+  },
+  {
+    "suite": "Server Actions",
+    "scenario": "getSaleDetailAction enmascara datos de cliente en modo anónimo (Ley 29733)",
+    "expected": "DNI y correo enmascarados con ****",
+    "actual": "DNI retornado: 72****90, Correo: a***@gmail.com",
+    "status": "PASS",
+    "evidence": "Enmascaramiento preventivo verificado"
+  },
+  {
+    "suite": "Server Actions",
+    "scenario": "getClientDetailAction rechaza consulta personal anónima",
+    "expected": "{ success: false, statusCode: 401 }",
+    "actual": "success: false, statusCode: 401",
+    "status": "PASS",
+    "evidence": "Ley 29733 protegida en Server Action"
+  },
+  {
+    "suite": "Server Actions",
+    "scenario": "getEmployeeDetailAction rechaza consulta de personal anónima",
+    "expected": "{ success: false, statusCode: 401 }",
+    "actual": "success: false, statusCode: 401",
+    "status": "PASS",
+    "evidence": "Expedientes de RRHH protegidos"
+  },
+  {
+    "suite": "Server Actions",
+    "scenario": "searchSaleForReturnAction rechaza búsqueda anónima de comprobante",
+    "expected": "{ success: false, statusCode: 401 }",
+    "actual": "success: false, statusCode: 401",
+    "status": "PASS",
+    "evidence": "Acceso restringido a ventas para RMA"
+  },
+  {
+    "suite": "Endpoints API",
+    "scenario": "/api/db-status es público y sanitizado (healthcheck sin fuga)",
+    "expected": "HTTP 200 { status: 'healthy' } sin nombres de máquina ni usuarios",
+    "actual": "Status: 200, Body: {\"status\":\"healthy\",\"service\":\"Mishutec SaaS Enterprise\",\"timestamp\":\"2026-10-23T23:45:08.662Z\",\"checks\":{\"databaseConnected\":true,\"catalogAccessible\":true}}",
+    "status": "PASS",
+    "evidence": "Respuesta limpia para probes de infraestructura"
+  },
+  {
+    "suite": "Endpoints API",
+    "scenario": "/api/products/[barcode] público para escáner POS con respuesta válida",
+    "expected": "HTTP 200 con ficha del producto escaneado",
+    "actual": "HTTP 200, Producto: Kingston Fury Beast 16GB DDR4 3200",
+    "status": "PASS",
+    "evidence": "Catálogo POS operativo"
+  },
+  {
+    "suite": "Endpoints API",
+    "scenario": "/api/products/[barcode] inexistente no fuga 'MishutecT2' ni 'SQL Server'",
+    "expected": "HTTP 404 sin nombres de base de datos ni motor SQL",
+    "actual": "HTTP 404, Error: Producto con código 'BARCODE_INEXISTENTE' no encontrado en el catálogo",
+    "status": "PASS",
+    "evidence": "Mitigación H-07 confirmada en servidor real"
+  },
+  {
+    "suite": "Exportación CSV",
+    "scenario": "Generación CSV tipo 'kpis' con BOM UTF-8 y sanitización RFC 4180",
+    "expected": "Archivo generado con BOM UTF-8 y caracteres gatillo neutralizados con apostrofe",
+    "actual": "BOM: true, Longitud: 758 bytes",
+    "status": "PASS",
+    "evidence": "Nombre generado: mishutec-reporte-kpis-2026-10-23T23-45-08.csv"
+  },
+  {
+    "suite": "Exportación CSV",
+    "scenario": "Generación CSV tipo 'ventas' con BOM UTF-8 y sanitización RFC 4180",
+    "expected": "Archivo generado con BOM UTF-8 y caracteres gatillo neutralizados con apostrofe",
+    "actual": "BOM: true, Longitud: 331 bytes",
+    "status": "PASS",
+    "evidence": "Nombre generado: mishutec-reporte-ventas-2026-10-23T23-45-08.csv"
+  },
+  {
+    "suite": "Exportación CSV",
+    "scenario": "Generación CSV tipo 'productos' con BOM UTF-8 y sanitización RFC 4180",
+    "expected": "Archivo generado con BOM UTF-8 y caracteres gatillo neutralizados con apostrofe",
+    "actual": "BOM: true, Longitud: 886 bytes",
+    "status": "PASS",
+    "evidence": "Nombre generado: mishutec-reporte-productos-2026-10-23T23-45-08.csv"
+  },
+  {
+    "suite": "Exportación CSV",
+    "scenario": "Generación CSV tipo 'inventario' con BOM UTF-8 y sanitización RFC 4180",
+    "expected": "Archivo generado con BOM UTF-8 y caracteres gatillo neutralizados con apostrofe",
+    "actual": "BOM: true, Longitud: 693 bytes",
+    "status": "PASS",
+    "evidence": "Nombre generado: mishutec-reporte-inventario-2026-10-23T23-45-08.csv"
+  },
+  {
+    "suite": "Exportación CSV",
+    "scenario": "Generación CSV tipo 'clientes' con BOM UTF-8 y sanitización RFC 4180",
+    "expected": "Archivo generado con BOM UTF-8 y caracteres gatillo neutralizados con apostrofe",
+    "actual": "BOM: true, Longitud: 691 bytes",
+    "status": "PASS",
+    "evidence": "Nombre generado: mishutec-reporte-clientes-2026-10-23T23-45-08.csv"
+  },
+  {
+    "suite": "Exportación CSV",
+    "scenario": "Generación CSV tipo 'proveedores' con BOM UTF-8 y sanitización RFC 4180",
+    "expected": "Archivo generado con BOM UTF-8 y caracteres gatillo neutralizados con apostrofe",
+    "actual": "BOM: true, Longitud: 1192 bytes",
+    "status": "PASS",
+    "evidence": "Nombre generado: mishutec-reporte-proveedores-2026-10-23T23-45-08.csv"
+  },
+  {
+    "suite": "Exportación CSV",
+    "scenario": "Generación CSV tipo 'devoluciones' con BOM UTF-8 y sanitización RFC 4180",
+    "expected": "Archivo generado con BOM UTF-8 y caracteres gatillo neutralizados con apostrofe",
+    "actual": "BOM: true, Longitud: 600 bytes",
+    "status": "PASS",
+    "evidence": "Nombre generado: mishutec-reporte-devoluciones-2026-10-23T23-45-08.csv"
+  },
+  {
+    "suite": "Indicadores RMA",
+    "scenario": "Indicador A (Incidencia bruta 53.33% - 8/15) visible en DOM",
+    "expected": "53.33% renderizado bajo 'Indicador A: Incidencia Bruta'",
+    "actual": "Visible: true, Etiqueta: true",
+    "status": "PASS",
+    "evidence": "DOM inspeccionado en /reportes pestaña RMA"
+  },
+  {
+    "suite": "Indicadores RMA",
+    "scenario": "Indicador B (Aprobación RMA 40.00% - 6/15) visible en DOM",
+    "expected": "40.00% renderizado bajo 'Indicador B: Aprobación RMA'",
+    "actual": "Visible: true, Etiqueta: true",
+    "status": "PASS",
+    "evidence": "DOM inspeccionado en /reportes pestaña RMA"
+  },
+  {
+    "suite": "Indicadores RMA",
+    "scenario": "Indicador C (Reingreso Kardex 6.67% - 1/15) visible en DOM",
+    "expected": "6.67% renderizado bajo 'Indicador C: Reingreso Kardex'",
+    "actual": "Visible: true, Etiqueta: true",
+    "status": "PASS",
+    "evidence": "DOM inspeccionado en /reportes pestaña RMA"
+  },
+  {
+    "suite": "Indicadores RMA",
+    "scenario": "Denominador fundamentado en 15 unidades vendidas acumuladas",
+    "expected": "Base de cálculo: 15 unidades vendidas",
+    "actual": "Texto presente en UI: true",
+    "status": "PASS",
+    "evidence": "Verificado en badge de base de cálculo"
+  },
+  {
+    "suite": "Indicadores RMA",
+    "scenario": "Documentación de Política de Reincorporación a Existencias (H-04) visible",
+    "expected": "Texto explicativo de custodia y no restock automático de averías presente",
+    "actual": "Sección presente: true",
+    "status": "PASS",
+    "evidence": "UI de orientación al usuario verificada"
+  },
+  {
+    "suite": "Responsive",
+    "scenario": "Cero desbordamiento horizontal en Dashboard (mobile-320 - 320x568)",
+    "expected": "scrollWidth <= 320",
+    "actual": "innerWidth: 320, scrollWidth: 320",
+    "status": "PASS",
+    "evidence": "Medición viewport CSS"
+  },
+  {
+    "suite": "Responsive",
+    "scenario": "Cero desbordamiento horizontal en Dashboard (mobile-390 - 390x844)",
+    "expected": "scrollWidth <= 390",
+    "actual": "innerWidth: 390, scrollWidth: 390",
+    "status": "PASS",
+    "evidence": "Medición viewport CSS"
+  },
+  {
+    "suite": "Responsive",
+    "scenario": "Cero desbordamiento horizontal en Dashboard (tablet-768 - 768x1024)",
+    "expected": "scrollWidth <= 768",
+    "actual": "innerWidth: 768, scrollWidth: 753",
+    "status": "PASS",
+    "evidence": "Medición viewport CSS"
+  },
+  {
+    "suite": "Responsive",
+    "scenario": "Cero desbordamiento horizontal en Dashboard (tablet-1024 - 1024x768)",
+    "expected": "scrollWidth <= 1024",
+    "actual": "innerWidth: 1024, scrollWidth: 1009",
+    "status": "PASS",
+    "evidence": "Medición viewport CSS"
+  },
+  {
+    "suite": "Responsive",
+    "scenario": "Cero desbordamiento horizontal en Dashboard (desktop-1440 - 1440x900)",
+    "expected": "scrollWidth <= 1440",
+    "actual": "innerWidth: 1440, scrollWidth: 1425",
+    "status": "PASS",
+    "evidence": "Medición viewport CSS"
+  },
+  {
+    "suite": "Integridad BD",
+    "scenario": "MishutecT2 (Académica) conserva exactamente 10 productos",
+    "expected": "10 productos",
+    "actual": "10 productos",
+    "status": "PASS",
+    "evidence": "Conteo directo en SQL Server"
+  },
+  {
+    "suite": "Integridad BD",
+    "scenario": "MishutecT2 (Académica) conserva exactamente 73 unidades de stock",
+    "expected": "73 unidades",
+    "actual": "73 unidades",
+    "status": "PASS",
+    "evidence": "Suma de Stock en dbo.Producto"
+  },
+  {
+    "suite": "Integridad BD",
+    "scenario": "MishutecT2 (Académica) conserva exactamente 5 ventas",
+    "expected": "5 ventas",
+    "actual": "5 ventas",
+    "status": "PASS",
+    "evidence": "Conteo directo en dbo.Venta"
+  },
+  {
+    "suite": "Integridad BD",
+    "scenario": "MishutecT2 (Académica) conserva exactamente 17 movimientos Kardex",
+    "expected": "17 movimientos",
+    "actual": "17 movimientos",
+    "status": "PASS",
+    "evidence": "Conteo directo en dbo.Mov_Inventario"
+  },
+  {
+    "suite": "Integridad BD",
+    "scenario": "MishutecT2 (Académica) conserva exactamente 1 devolución histórica",
+    "expected": "1 devolución",
+    "actual": "1 devolución",
+    "status": "PASS",
+    "evidence": "Conteo directo en dbo.Devolucion"
+  },
+  {
+    "suite": "Integridad BD",
+    "scenario": "MishutecT2_Aceptacion conserva exactamente 12 productos",
+    "expected": "12 productos",
+    "actual": "12 productos",
+    "status": "PASS",
+    "evidence": "Conteo directo en SQL Server"
+  },
+  {
+    "suite": "Integridad BD",
+    "scenario": "MishutecT2_Aceptacion conserva exactamente 76 unidades de stock",
+    "expected": "76 unidades",
+    "actual": "76 unidades",
+    "status": "PASS",
+    "evidence": "Suma de Stock en dbo.Producto"
+  },
+  {
+    "suite": "Integridad BD",
+    "scenario": "MishutecT2_Aceptacion conserva exactamente 9 ventas",
+    "expected": "9 ventas",
+    "actual": "9 ventas",
+    "status": "PASS",
+    "evidence": "Conteo directo en dbo.Venta"
+  },
+  {
+    "suite": "Integridad BD",
+    "scenario": "MishutecT2_Aceptacion conserva exactamente S/ 5,500.00 en ventas",
+    "expected": "S/ 5,500.00",
+    "actual": "S/ 5500",
+    "status": "PASS",
+    "evidence": "Suma de Total_venta en dbo.Venta"
+  },
+  {
+    "suite": "Integridad BD",
+    "scenario": "MishutecT2_Aceptacion conserva exactamente 31 movimientos Kardex",
+    "expected": "31 movimientos",
+    "actual": "31 movimientos",
+    "status": "PASS",
+    "evidence": "Conteo directo en dbo.Mov_Inventario"
+  },
+  {
+    "suite": "Integridad BD",
+    "scenario": "MishutecT2_Aceptacion conserva exactamente 7 devoluciones",
+    "expected": "7 devoluciones",
+    "actual": "7 devoluciones",
+    "status": "PASS",
+    "evidence": "Conteo directo en dbo.Devolucion"
+  }
+]

@@ -1,0 +1,42 @@
+{
+  "name": "mishutec",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "db:test": "tsx scripts/test-db-connection.ts",
+    "test:6b": "tsx scripts/test-phase6b-transactions.ts",
+    "test:7b": "tsx scripts/test-phase7b-transactions.ts",
+    "test:8": "tsx scripts/test-phase8-reports.ts",
+    "test:9b": "tsx scripts/test-phase9b-security.ts",
+    "test:9c": "tsx scripts/test-phase9c-e2e.ts"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "jose": "^6.2.13",
+    "lucide-react": "^1.61.0",
+    "msnodesqlv8": "^5.6.0",
+    "mssql": "^12.7.10",
+    "next": "16.4.2",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "recharts": "^3.10.1",
+    "tailwind-merge": "^3.7.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/turbopack": "^4",
+    "@types/mssql": "^12.3.0",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.2",
+    "tailwindcss": "^4",
+    "tsx": "^4.23.15",
+    "typescript": "^5"
+  }
+}

@@ -1,0 +1,1707 @@
+{
+  "tables": [
+    "Categoria",
+    "Cliente",
+    "CPU",
+    "Detalle_Dev",
+    "Detalle_Venta",
+    "Devolucion",
+    "Empleado",
+    "Estado_Dev",
+    "Estado_Prod",
+    "Fuente_Poder",
+    "Gabinete",
+    "Grafica",
+    "Marca",
+    "Metodo_Pago",
+    "Motivo_Dev",
+    "Mov_Inventario",
+    "Producto",
+    "Proveedor",
+    "RAM",
+    "SSD",
+    "Suministra",
+    "Tipo_Comprobante",
+    "Tipo_Movimiento",
+    "Venta",
+    "Venta_Metodo_Pago"
+  ],
+  "columns": [
+    {
+      "object_id": 949578421,
+      "TableName": "Categoria",
+      "column_id": 1,
+      "ColumnName": "ID_categoria",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": true,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 949578421,
+      "TableName": "Categoria",
+      "column_id": 2,
+      "ColumnName": "Nombre_cat",
+      "DataType": "varchar",
+      "max_length": 50,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 949578421,
+      "TableName": "Categoria",
+      "column_id": 3,
+      "ColumnName": "Descripcion_cat",
+      "DataType": "varchar",
+      "max_length": 200,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": true,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1829581556,
+      "TableName": "Cliente",
+      "column_id": 1,
+      "ColumnName": "Dni_cliente",
+      "DataType": "varchar",
+      "max_length": 8,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1829581556,
+      "TableName": "Cliente",
+      "column_id": 2,
+      "ColumnName": "Nombre_cl",
+      "DataType": "varchar",
+      "max_length": 60,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1829581556,
+      "TableName": "Cliente",
+      "column_id": 3,
+      "ColumnName": "Apellido_cl",
+      "DataType": "varchar",
+      "max_length": 60,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1829581556,
+      "TableName": "Cliente",
+      "column_id": 4,
+      "ColumnName": "Telefono_cl",
+      "DataType": "varchar",
+      "max_length": 15,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": true,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1829581556,
+      "TableName": "Cliente",
+      "column_id": 5,
+      "ColumnName": "Correo_cl",
+      "DataType": "varchar",
+      "max_length": 100,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1541580530,
+      "TableName": "CPU",
+      "column_id": 1,
+      "ColumnName": "Codbarras_prod",
+      "DataType": "varchar",
+      "max_length": 13,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1541580530,
+      "TableName": "CPU",
+      "column_id": 2,
+      "ColumnName": "Frecuencia_ghz",
+      "DataType": "decimal",
+      "max_length": 5,
+      "precision": 4,
+      "scale": 2,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1541580530,
+      "TableName": "CPU",
+      "column_id": 3,
+      "ColumnName": "Nucleos",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 258099960,
+      "TableName": "Detalle_Dev",
+      "column_id": 1,
+      "ColumnName": "ID_detalle_dev",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": true,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 258099960,
+      "TableName": "Detalle_Dev",
+      "column_id": 2,
+      "ColumnName": "Cantidad_dev",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 258099960,
+      "TableName": "Detalle_Dev",
+      "column_id": 3,
+      "ColumnName": "ID_devolucion",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 258099960,
+      "TableName": "Detalle_Dev",
+      "column_id": 4,
+      "ColumnName": "ID_detalle",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 258099960,
+      "TableName": "Detalle_Dev",
+      "column_id": 5,
+      "ColumnName": "ID_motivo",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 2037582297,
+      "TableName": "Detalle_Venta",
+      "column_id": 1,
+      "ColumnName": "ID_detalle",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": true,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 2037582297,
+      "TableName": "Detalle_Venta",
+      "column_id": 2,
+      "ColumnName": "Cantidad",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 2037582297,
+      "TableName": "Detalle_Venta",
+      "column_id": 3,
+      "ColumnName": "Precio_unitario",
+      "DataType": "decimal",
+      "max_length": 9,
+      "precision": 10,
+      "scale": 2,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 2037582297,
+      "TableName": "Detalle_Venta",
+      "column_id": 4,
+      "ColumnName": "Subtotal",
+      "DataType": "decimal",
+      "max_length": 9,
+      "precision": 10,
+      "scale": 2,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 2037582297,
+      "TableName": "Detalle_Venta",
+      "column_id": 5,
+      "ColumnName": "ID_venta",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 2037582297,
+      "TableName": "Detalle_Venta",
+      "column_id": 6,
+      "ColumnName": "Codbarras_prod",
+      "DataType": "varchar",
+      "max_length": 13,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 178099675,
+      "TableName": "Devolucion",
+      "column_id": 1,
+      "ColumnName": "ID_devolucion",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": true,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 178099675,
+      "TableName": "Devolucion",
+      "column_id": 2,
+      "ColumnName": "Fecha_dev",
+      "DataType": "date",
+      "max_length": 3,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 178099675,
+      "TableName": "Devolucion",
+      "column_id": 3,
+      "ColumnName": "ID_estado_dev",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 178099675,
+      "TableName": "Devolucion",
+      "column_id": 4,
+      "ColumnName": "ID_venta",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 178099675,
+      "TableName": "Devolucion",
+      "column_id": 5,
+      "ColumnName": "ID_empleado",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1861581670,
+      "TableName": "Empleado",
+      "column_id": 1,
+      "ColumnName": "ID_empleado",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": true,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1861581670,
+      "TableName": "Empleado",
+      "column_id": 2,
+      "ColumnName": "Dni_emp",
+      "DataType": "varchar",
+      "max_length": 8,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1861581670,
+      "TableName": "Empleado",
+      "column_id": 3,
+      "ColumnName": "Nombre_emp",
+      "DataType": "varchar",
+      "max_length": 60,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1861581670,
+      "TableName": "Empleado",
+      "column_id": 4,
+      "ColumnName": "Apellido_emp",
+      "DataType": "varchar",
+      "max_length": 60,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1221579390,
+      "TableName": "Estado_Dev",
+      "column_id": 1,
+      "ColumnName": "ID_estado_dev",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": true,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1221579390,
+      "TableName": "Estado_Dev",
+      "column_id": 2,
+      "ColumnName": "Nombre_estado",
+      "DataType": "varchar",
+      "max_length": 30,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 997578592,
+      "TableName": "Estado_Prod",
+      "column_id": 1,
+      "ColumnName": "ID_estado_prod",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": true,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 997578592,
+      "TableName": "Estado_Prod",
+      "column_id": 2,
+      "ColumnName": "Estado",
+      "DataType": "varchar",
+      "max_length": 30,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1733581214,
+      "TableName": "Fuente_Poder",
+      "column_id": 1,
+      "ColumnName": "Codbarras_prod",
+      "DataType": "varchar",
+      "max_length": 13,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1733581214,
+      "TableName": "Fuente_Poder",
+      "column_id": 2,
+      "ColumnName": "Potencia_w",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1733581214,
+      "TableName": "Fuente_Poder",
+      "column_id": 3,
+      "ColumnName": "Certificacion",
+      "DataType": "varchar",
+      "max_length": 30,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1781581385,
+      "TableName": "Gabinete",
+      "column_id": 1,
+      "ColumnName": "Codbarras_prod",
+      "DataType": "varchar",
+      "max_length": 13,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1781581385,
+      "TableName": "Gabinete",
+      "column_id": 2,
+      "ColumnName": "Formato",
+      "DataType": "varchar",
+      "max_length": 20,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1781581385,
+      "TableName": "Gabinete",
+      "column_id": 3,
+      "ColumnName": "Material",
+      "DataType": "varchar",
+      "max_length": 30,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1685581043,
+      "TableName": "Grafica",
+      "column_id": 1,
+      "ColumnName": "Codbarras_prod",
+      "DataType": "varchar",
+      "max_length": 13,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1685581043,
+      "TableName": "Grafica",
+      "column_id": 2,
+      "ColumnName": "Vram_gb",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1685581043,
+      "TableName": "Grafica",
+      "column_id": 3,
+      "ColumnName": "Chipset",
+      "DataType": "varchar",
+      "max_length": 50,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 901578250,
+      "TableName": "Marca",
+      "column_id": 1,
+      "ColumnName": "ID_marca",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": true,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 901578250,
+      "TableName": "Marca",
+      "column_id": 2,
+      "ColumnName": "Nombre_marca",
+      "DataType": "varchar",
+      "max_length": 50,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1125579048,
+      "TableName": "Metodo_Pago",
+      "column_id": 1,
+      "ColumnName": "ID_metodo",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": true,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1125579048,
+      "TableName": "Metodo_Pago",
+      "column_id": 2,
+      "ColumnName": "Nombre_metodo",
+      "DataType": "varchar",
+      "max_length": 40,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1269579561,
+      "TableName": "Motivo_Dev",
+      "column_id": 1,
+      "ColumnName": "ID_motivo",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": true,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1269579561,
+      "TableName": "Motivo_Dev",
+      "column_id": 2,
+      "ColumnName": "Descripcion_motivo",
+      "DataType": "varchar",
+      "max_length": 100,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 82099333,
+      "TableName": "Mov_Inventario",
+      "column_id": 1,
+      "ColumnName": "ID_movimiento",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": true,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 82099333,
+      "TableName": "Mov_Inventario",
+      "column_id": 2,
+      "ColumnName": "Fecha",
+      "DataType": "date",
+      "max_length": 3,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 82099333,
+      "TableName": "Mov_Inventario",
+      "column_id": 3,
+      "ColumnName": "Cantidad",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 82099333,
+      "TableName": "Mov_Inventario",
+      "column_id": 4,
+      "ColumnName": "ID_tipo_mov",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 82099333,
+      "TableName": "Mov_Inventario",
+      "column_id": 5,
+      "ColumnName": "Codbarras_prod",
+      "DataType": "varchar",
+      "max_length": 13,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 82099333,
+      "TableName": "Mov_Inventario",
+      "column_id": 6,
+      "ColumnName": "ID_empleado",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1317579732,
+      "TableName": "Producto",
+      "column_id": 1,
+      "ColumnName": "Codbarras_prod",
+      "DataType": "varchar",
+      "max_length": 13,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1317579732,
+      "TableName": "Producto",
+      "column_id": 2,
+      "ColumnName": "Nombre_prod",
+      "DataType": "varchar",
+      "max_length": 120,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1317579732,
+      "TableName": "Producto",
+      "column_id": 3,
+      "ColumnName": "Precio",
+      "DataType": "decimal",
+      "max_length": 9,
+      "precision": 10,
+      "scale": 2,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1317579732,
+      "TableName": "Producto",
+      "column_id": 4,
+      "ColumnName": "Garantia_meses",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1317579732,
+      "TableName": "Producto",
+      "column_id": 5,
+      "ColumnName": "Stock",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": "((0))"
+    },
+    {
+      "object_id": 1317579732,
+      "TableName": "Producto",
+      "column_id": 6,
+      "ColumnName": "ID_estado_prod",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1317579732,
+      "TableName": "Producto",
+      "column_id": 7,
+      "ColumnName": "ID_categoria",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1317579732,
+      "TableName": "Producto",
+      "column_id": 8,
+      "ColumnName": "ID_marca",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1045578763,
+      "TableName": "Proveedor",
+      "column_id": 1,
+      "ColumnName": "ID_proveedor",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": true,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1045578763,
+      "TableName": "Proveedor",
+      "column_id": 2,
+      "ColumnName": "Nombre_prov",
+      "DataType": "varchar",
+      "max_length": 100,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1045578763,
+      "TableName": "Proveedor",
+      "column_id": 3,
+      "ColumnName": "Correo_prov",
+      "DataType": "varchar",
+      "max_length": 100,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1045578763,
+      "TableName": "Proveedor",
+      "column_id": 4,
+      "ColumnName": "Telefono_prov",
+      "DataType": "varchar",
+      "max_length": 15,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1589580701,
+      "TableName": "RAM",
+      "column_id": 1,
+      "ColumnName": "Codbarras_prod",
+      "DataType": "varchar",
+      "max_length": 13,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1589580701,
+      "TableName": "RAM",
+      "column_id": 2,
+      "ColumnName": "Capacidad_gb",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1589580701,
+      "TableName": "RAM",
+      "column_id": 3,
+      "ColumnName": "Velocidad_mhz",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1637580872,
+      "TableName": "SSD",
+      "column_id": 1,
+      "ColumnName": "Codbarras_prod",
+      "DataType": "varchar",
+      "max_length": 13,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1637580872,
+      "TableName": "SSD",
+      "column_id": 2,
+      "ColumnName": "Capacidad_gb",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1637580872,
+      "TableName": "SSD",
+      "column_id": 3,
+      "ColumnName": "Interfaz",
+      "DataType": "varchar",
+      "max_length": 20,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1461580245,
+      "TableName": "Suministra",
+      "column_id": 1,
+      "ColumnName": "Codbarras_prod",
+      "DataType": "varchar",
+      "max_length": 13,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1461580245,
+      "TableName": "Suministra",
+      "column_id": 2,
+      "ColumnName": "ID_proveedor",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1461580245,
+      "TableName": "Suministra",
+      "column_id": 3,
+      "ColumnName": "Precio_compra",
+      "DataType": "decimal",
+      "max_length": 9,
+      "precision": 10,
+      "scale": 2,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1077578877,
+      "TableName": "Tipo_Comprobante",
+      "column_id": 1,
+      "ColumnName": "ID_tipo_comp",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": true,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1077578877,
+      "TableName": "Tipo_Comprobante",
+      "column_id": 2,
+      "ColumnName": "Nombre_tipo",
+      "DataType": "varchar",
+      "max_length": 30,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1173579219,
+      "TableName": "Tipo_Movimiento",
+      "column_id": 1,
+      "ColumnName": "ID_tipo_mov",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": true,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1173579219,
+      "TableName": "Tipo_Movimiento",
+      "column_id": 2,
+      "ColumnName": "Nombre_tipo",
+      "DataType": "varchar",
+      "max_length": 40,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1909581841,
+      "TableName": "Venta",
+      "column_id": 1,
+      "ColumnName": "ID_venta",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": true,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1909581841,
+      "TableName": "Venta",
+      "column_id": 2,
+      "ColumnName": "Fecha_venta",
+      "DataType": "date",
+      "max_length": 3,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": "(CONVERT([date],getdate()))"
+    },
+    {
+      "object_id": 1909581841,
+      "TableName": "Venta",
+      "column_id": 3,
+      "ColumnName": "Total_venta",
+      "DataType": "decimal",
+      "max_length": 9,
+      "precision": 10,
+      "scale": 2,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1909581841,
+      "TableName": "Venta",
+      "column_id": 4,
+      "ColumnName": "Numero_comprobante",
+      "DataType": "varchar",
+      "max_length": 20,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1909581841,
+      "TableName": "Venta",
+      "column_id": 5,
+      "ColumnName": "ID_tipo_comp",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1909581841,
+      "TableName": "Venta",
+      "column_id": 6,
+      "ColumnName": "Dni_cliente",
+      "DataType": "varchar",
+      "max_length": 8,
+      "precision": 0,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 1909581841,
+      "TableName": "Venta",
+      "column_id": 7,
+      "ColumnName": "ID_empleado",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 2099048,
+      "TableName": "Venta_Metodo_Pago",
+      "column_id": 1,
+      "ColumnName": "ID_venta",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 2099048,
+      "TableName": "Venta_Metodo_Pago",
+      "column_id": 2,
+      "ColumnName": "ID_metodo",
+      "DataType": "int",
+      "max_length": 4,
+      "precision": 10,
+      "scale": 0,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    },
+    {
+      "object_id": 2099048,
+      "TableName": "Venta_Metodo_Pago",
+      "column_id": 3,
+      "ColumnName": "Monto_pagado",
+      "DataType": "decimal",
+      "max_length": 9,
+      "precision": 10,
+      "scale": 2,
+      "is_nullable": false,
+      "is_identity": false,
+      "DefaultDefinition": null
+    }
+  ],
+  "primaryKeys": [
+    {
+      "TableName": "Categoria",
+      "PkName": "PK__Categori__3790015670028896",
+      "ColumnName": "ID_categoria",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "Cliente",
+      "PkName": "PK__Cliente__538EA93AD4432791",
+      "ColumnName": "Dni_cliente",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "CPU",
+      "PkName": "PK__CPU__76879DAF66F70FD2",
+      "ColumnName": "Codbarras_prod",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "Detalle_Dev",
+      "PkName": "PK__Detalle___13D297565D790C78",
+      "ColumnName": "ID_detalle_dev",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "Detalle_Venta",
+      "PkName": "PK__Detalle___83B6061E5B296E19",
+      "ColumnName": "ID_detalle",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "Devolucion",
+      "PkName": "PK__Devoluci__BB82C4B17E07AEFB",
+      "ColumnName": "ID_devolucion",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "Empleado",
+      "PkName": "PK__Empleado__FC29D6F610D41C5E",
+      "ColumnName": "ID_empleado",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "Estado_Dev",
+      "PkName": "PK__Estado_D__E48F68983CC9AE90",
+      "ColumnName": "ID_estado_dev",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "Estado_Prod",
+      "PkName": "PK__Estado_P__36C7CB802EBC65B4",
+      "ColumnName": "ID_estado_prod",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "Fuente_Poder",
+      "PkName": "PK__Fuente_P__76879DAFAE14DE6A",
+      "ColumnName": "Codbarras_prod",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "Gabinete",
+      "PkName": "PK__Gabinete__76879DAF8B1C50F2",
+      "ColumnName": "Codbarras_prod",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "Grafica",
+      "PkName": "PK__Grafica__76879DAFFA63713B",
+      "ColumnName": "Codbarras_prod",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "Marca",
+      "PkName": "PK__Marca__36DBB8CBE983C532",
+      "ColumnName": "ID_marca",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "Metodo_Pago",
+      "PkName": "PK__Metodo_P__645FC8982CD9F7E4",
+      "ColumnName": "ID_metodo",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "Motivo_Dev",
+      "PkName": "PK__Motivo_D__9535A4ADD394EB2D",
+      "ColumnName": "ID_motivo",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "Mov_Inventario",
+      "PkName": "PK_Mov_Inventario",
+      "ColumnName": "ID_movimiento",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "Producto",
+      "PkName": "PK__Producto__76879DAF6B710861",
+      "ColumnName": "Codbarras_prod",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "Proveedor",
+      "PkName": "PK__Proveedo__74AD766F03A05FFC",
+      "ColumnName": "ID_proveedor",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "RAM",
+      "PkName": "PK__RAM__76879DAF71C902B3",
+      "ColumnName": "Codbarras_prod",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "SSD",
+      "PkName": "PK__SSD__76879DAFDE9E4EFB",
+      "ColumnName": "Codbarras_prod",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "Suministra",
+      "PkName": "PK_Suministra",
+      "ColumnName": "Codbarras_prod",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "Suministra",
+      "PkName": "PK_Suministra",
+      "ColumnName": "ID_proveedor",
+      "key_ordinal": 2
+    },
+    {
+      "TableName": "Tipo_Comprobante",
+      "PkName": "PK__Tipo_Com__BD7FEE17C2C76EE6",
+      "ColumnName": "ID_tipo_comp",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "Tipo_Movimiento",
+      "PkName": "PK__Tipo_Mov__2C1E3A9CCE9CF232",
+      "ColumnName": "ID_tipo_mov",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "Venta",
+      "PkName": "PK__Venta__39DDE5E4BF8DE087",
+      "ColumnName": "ID_venta",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "Venta_Metodo_Pago",
+      "PkName": "PK_Venta_Metodo_Pago",
+      "ColumnName": "ID_venta",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "Venta_Metodo_Pago",
+      "PkName": "PK_Venta_Metodo_Pago",
+      "ColumnName": "ID_metodo",
+      "key_ordinal": 2
+    }
+  ],
+  "foreignKeys": [
+    {
+      "FkName": "FK_CPU_Producto",
+      "ParentTable": "CPU",
+      "ParentColumn": "Codbarras_prod",
+      "ReferencedTable": "Producto",
+      "ReferencedColumn": "Codbarras_prod"
+    },
+    {
+      "FkName": "FK_DetDev_Detalle",
+      "ParentTable": "Detalle_Dev",
+      "ParentColumn": "ID_detalle",
+      "ReferencedTable": "Detalle_Venta",
+      "ReferencedColumn": "ID_detalle"
+    },
+    {
+      "FkName": "FK_DetDev_Devolucion",
+      "ParentTable": "Detalle_Dev",
+      "ParentColumn": "ID_devolucion",
+      "ReferencedTable": "Devolucion",
+      "ReferencedColumn": "ID_devolucion"
+    },
+    {
+      "FkName": "FK_DetDev_Motivo",
+      "ParentTable": "Detalle_Dev",
+      "ParentColumn": "ID_motivo",
+      "ReferencedTable": "Motivo_Dev",
+      "ReferencedColumn": "ID_motivo"
+    },
+    {
+      "FkName": "FK_Detalle_Producto",
+      "ParentTable": "Detalle_Venta",
+      "ParentColumn": "Codbarras_prod",
+      "ReferencedTable": "Producto",
+      "ReferencedColumn": "Codbarras_prod"
+    },
+    {
+      "FkName": "FK_Detalle_Venta",
+      "ParentTable": "Detalle_Venta",
+      "ParentColumn": "ID_venta",
+      "ReferencedTable": "Venta",
+      "ReferencedColumn": "ID_venta"
+    },
+    {
+      "FkName": "FK_Dev_Empleado",
+      "ParentTable": "Devolucion",
+      "ParentColumn": "ID_empleado",
+      "ReferencedTable": "Empleado",
+      "ReferencedColumn": "ID_empleado"
+    },
+    {
+      "FkName": "FK_Dev_Estado",
+      "ParentTable": "Devolucion",
+      "ParentColumn": "ID_estado_dev",
+      "ReferencedTable": "Estado_Dev",
+      "ReferencedColumn": "ID_estado_dev"
+    },
+    {
+      "FkName": "FK_Dev_Venta",
+      "ParentTable": "Devolucion",
+      "ParentColumn": "ID_venta",
+      "ReferencedTable": "Venta",
+      "ReferencedColumn": "ID_venta"
+    },
+    {
+      "FkName": "FK_Fuente_Producto",
+      "ParentTable": "Fuente_Poder",
+      "ParentColumn": "Codbarras_prod",
+      "ReferencedTable": "Producto",
+      "ReferencedColumn": "Codbarras_prod"
+    },
+    {
+      "FkName": "FK_Gabinete_Producto",
+      "ParentTable": "Gabinete",
+      "ParentColumn": "Codbarras_prod",
+      "ReferencedTable": "Producto",
+      "ReferencedColumn": "Codbarras_prod"
+    },
+    {
+      "FkName": "FK_Grafica_Producto",
+      "ParentTable": "Grafica",
+      "ParentColumn": "Codbarras_prod",
+      "ReferencedTable": "Producto",
+      "ReferencedColumn": "Codbarras_prod"
+    },
+    {
+      "FkName": "FK_Mov_Empleado",
+      "ParentTable": "Mov_Inventario",
+      "ParentColumn": "ID_empleado",
+      "ReferencedTable": "Empleado",
+      "ReferencedColumn": "ID_empleado"
+    },
+    {
+      "FkName": "FK_Mov_Producto",
+      "ParentTable": "Mov_Inventario",
+      "ParentColumn": "Codbarras_prod",
+      "ReferencedTable": "Producto",
+      "ReferencedColumn": "Codbarras_prod"
+    },
+    {
+      "FkName": "FK_Mov_Tipo",
+      "ParentTable": "Mov_Inventario",
+      "ParentColumn": "ID_tipo_mov",
+      "ReferencedTable": "Tipo_Movimiento",
+      "ReferencedColumn": "ID_tipo_mov"
+    },
+    {
+      "FkName": "FK_Producto_Categoria",
+      "ParentTable": "Producto",
+      "ParentColumn": "ID_categoria",
+      "ReferencedTable": "Categoria",
+      "ReferencedColumn": "ID_categoria"
+    },
+    {
+      "FkName": "FK_Producto_Estado",
+      "ParentTable": "Producto",
+      "ParentColumn": "ID_estado_prod",
+      "ReferencedTable": "Estado_Prod",
+      "ReferencedColumn": "ID_estado_prod"
+    },
+    {
+      "FkName": "FK_Producto_Marca",
+      "ParentTable": "Producto",
+      "ParentColumn": "ID_marca",
+      "ReferencedTable": "Marca",
+      "ReferencedColumn": "ID_marca"
+    },
+    {
+      "FkName": "FK_RAM_Producto",
+      "ParentTable": "RAM",
+      "ParentColumn": "Codbarras_prod",
+      "ReferencedTable": "Producto",
+      "ReferencedColumn": "Codbarras_prod"
+    },
+    {
+      "FkName": "FK_SSD_Producto",
+      "ParentTable": "SSD",
+      "ParentColumn": "Codbarras_prod",
+      "ReferencedTable": "Producto",
+      "ReferencedColumn": "Codbarras_prod"
+    },
+    {
+      "FkName": "FK_Suministra_Producto",
+      "ParentTable": "Suministra",
+      "ParentColumn": "Codbarras_prod",
+      "ReferencedTable": "Producto",
+      "ReferencedColumn": "Codbarras_prod"
+    },
+    {
+      "FkName": "FK_Suministra_Proveedor",
+      "ParentTable": "Suministra",
+      "ParentColumn": "ID_proveedor",
+      "ReferencedTable": "Proveedor",
+      "ReferencedColumn": "ID_proveedor"
+    },
+    {
+      "FkName": "FK_Venta_Cliente",
+      "ParentTable": "Venta",
+      "ParentColumn": "Dni_cliente",
+      "ReferencedTable": "Cliente",
+      "ReferencedColumn": "Dni_cliente"
+    },
+    {
+      "FkName": "FK_Venta_Empleado",
+      "ParentTable": "Venta",
+      "ParentColumn": "ID_empleado",
+      "ReferencedTable": "Empleado",
+      "ReferencedColumn": "ID_empleado"
+    },
+    {
+      "FkName": "FK_Venta_TipoComp",
+      "ParentTable": "Venta",
+      "ParentColumn": "ID_tipo_comp",
+      "ReferencedTable": "Tipo_Comprobante",
+      "ReferencedColumn": "ID_tipo_comp"
+    },
+    {
+      "FkName": "FK_VMP_Metodo",
+      "ParentTable": "Venta_Metodo_Pago",
+      "ParentColumn": "ID_metodo",
+      "ReferencedTable": "Metodo_Pago",
+      "ReferencedColumn": "ID_metodo"
+    },
+    {
+      "FkName": "FK_VMP_Venta",
+      "ParentTable": "Venta_Metodo_Pago",
+      "ParentColumn": "ID_venta",
+      "ReferencedTable": "Venta",
+      "ReferencedColumn": "ID_venta"
+    }
+  ],
+  "uniqueConstraints": [
+    {
+      "TableName": "Categoria",
+      "UniqueConstraintName": "UQ__Categori__3FE29294B02AA9CD",
+      "ColumnName": "Nombre_cat",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "Detalle_Dev",
+      "UniqueConstraintName": "UQ_DetDev",
+      "ColumnName": "ID_devolucion",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "Detalle_Dev",
+      "UniqueConstraintName": "UQ_DetDev",
+      "ColumnName": "ID_detalle",
+      "key_ordinal": 2
+    },
+    {
+      "TableName": "Detalle_Venta",
+      "UniqueConstraintName": "UQ_Detalle_Venta_Prod",
+      "ColumnName": "ID_venta",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "Detalle_Venta",
+      "UniqueConstraintName": "UQ_Detalle_Venta_Prod",
+      "ColumnName": "Codbarras_prod",
+      "key_ordinal": 2
+    },
+    {
+      "TableName": "Empleado",
+      "UniqueConstraintName": "UQ__Empleado__70F104C0B1BB2F5A",
+      "ColumnName": "Dni_emp",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "Estado_Dev",
+      "UniqueConstraintName": "UQ__Estado_D__BE574DFBC0CDA877",
+      "ColumnName": "Nombre_estado",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "Estado_Prod",
+      "UniqueConstraintName": "UQ__Estado_P__36DF552F067A51A0",
+      "ColumnName": "Estado",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "Marca",
+      "UniqueConstraintName": "UQ__Marca__A1F7E18A2B3E2780",
+      "ColumnName": "Nombre_marca",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "Metodo_Pago",
+      "UniqueConstraintName": "UQ__Metodo_P__CC422F4DA51F2931",
+      "ColumnName": "Nombre_metodo",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "Motivo_Dev",
+      "UniqueConstraintName": "UQ__Motivo_D__856297614BBC3A9D",
+      "ColumnName": "Descripcion_motivo",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "Tipo_Comprobante",
+      "UniqueConstraintName": "UQ__Tipo_Com__A3F0A41FAEF57FAC",
+      "ColumnName": "Nombre_tipo",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "Tipo_Movimiento",
+      "UniqueConstraintName": "UQ__Tipo_Mov__A3F0A41F2F01E3F3",
+      "ColumnName": "Nombre_tipo",
+      "key_ordinal": 1
+    },
+    {
+      "TableName": "Venta",
+      "UniqueConstraintName": "UQ_Venta_Numero_comprobante",
+      "ColumnName": "Numero_comprobante",
+      "key_ordinal": 1
+    }
+  ],
+  "checkConstraints": [
+    {
+      "TableName": "Detalle_Dev",
+      "CheckName": "CK_DetDev_Cantidad",
+      "CheckDefinition": "([Cantidad_dev]>(0))"
+    },
+    {
+      "TableName": "Detalle_Venta",
+      "CheckName": "CK_Detalle_Cantidad",
+      "CheckDefinition": "([Cantidad]>(0))"
+    },
+    {
+      "TableName": "Detalle_Venta",
+      "CheckName": "CK_Detalle_Subtotal",
+      "CheckDefinition": "([Subtotal]=[Cantidad]*[Precio_unitario])"
+    },
+    {
+      "TableName": "Mov_Inventario",
+      "CheckName": "CK_Mov_Cantidad",
+      "CheckDefinition": "([Cantidad]>(0))"
+    },
+    {
+      "TableName": "Producto",
+      "CheckName": "CK_Producto_Garantia",
+      "CheckDefinition": "([Garantia_meses]>=(0))"
+    },
+    {
+      "TableName": "Producto",
+      "CheckName": "CK_Producto_Precio",
+      "CheckDefinition": "([Precio]>(0))"
+    },
+    {
+      "TableName": "Producto",
+      "CheckName": "CK_Producto_Stock",
+      "CheckDefinition": "([Stock]>=(0))"
+    },
+    {
+      "TableName": "Suministra",
+      "CheckName": "CK_Suministra_Precio",
+      "CheckDefinition": "([Precio_compra]>(0))"
+    },
+    {
+      "TableName": "Venta",
+      "CheckName": "CK_Venta_Total",
+      "CheckDefinition": "([Total_venta]>=(0))"
+    },
+    {
+      "TableName": "Venta_Metodo_Pago",
+      "CheckName": "CK_VMP_Monto",
+      "CheckDefinition": "([Monto_pagado]>(0))"
+    }
+  ]
+}
