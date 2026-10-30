@@ -56,12 +56,25 @@ export async function createSaleTransactional(
     // 1. Validar sesión administrativa autorizada
     await requireAdminSession();
 
-    // 2. Validación de esquema mediante Zod
+    // 2. Validación de esquema mediante Zod con diagnóstico controlado
     const parsed = saleInputSchema.safeParse(rawInput);
     if (!parsed.success) {
+      const firstIssue = parsed.error.issues[0];
+      const issuePath = firstIssue?.path ? firstIssue.path.join(".") : "general";
+      console.warn(`[SaleValidationIssue] Campo '${issuePath}':`, {
+        code: firstIssue?.code,
+        message: firstIssue?.message,
+        path: firstIssue?.path,
+      });
+
+      let userFriendlyError = firstIssue?.message || "Datos de venta inválidos. Por favor verifique el formulario.";
+      if (userFriendlyError.includes("expected number, received string")) {
+        userFriendlyError = `El campo '${issuePath}' requiere un valor numérico válido.`;
+      }
+
       return {
         success: false,
-        error: parsed.error.issues[0]?.message || "Datos de venta inválidos.",
+        error: userFriendlyError,
         statusCode: 400,
       };
     }

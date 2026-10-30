@@ -1,0 +1,694 @@
+<USER_REQUEST>
+# MISHUTEC — FASE 10.2: IGV, CORRECCIÓN GLOBAL DEL MODO OSCURO Y GESTIÓN DE PAGOS A PROVEEDORES Y TRABAJADORES
+
+Actúa como arquitecto de software senior, desarrollador full-stack especializado en Next.js 16, React, TypeScript, SQL Server, sistemas POS y diseño UI/UX.
+
+Estamos continuando el desarrollo de MISHUTEC.
+
+Ya se implementó la Fase 10, incluyendo caja diaria, métodos de pago, devoluciones, notas de crédito, reembolsos y reportes financieros.
+
+**No quiero reconstruir estos módulos. Quiero corregirlos, ampliarlos e integrarlos adecuadamente.**
+
+Te proporcionaré cinco capturas de pantalla del sistema actual, que debes utilizar como referencia para revisar sus problemas visuales.
+
+## 1. AUDITORÍA INICIAL
+
+Antes de modificar cualquier archivo:
+
+1. Inspecciona la arquitectura actual.
+2. Revisa las pantallas de ventas, caja, compras, proveedores, empleados y reportes.
+3. Analiza los esquemas de validación y servicios.
+4. Inspecciona las tablas y relaciones de SQL Server.
+5. Comprueba la implementación existente del IGV.
+6. Revisa cómo se almacenan los gastos, compras y pagos.
+7. Identifica el sistema actual de temas claro/oscuro.
+8. Comprueba si ya existen cuentas por pagar o estructuras equivalentes.
+
+Elabora un diagnóstico con las funcionalidades existentes, los defectos encontrados y los cambios necesarios.
+
+Después realiza las modificaciones, no te limites a elaborar un informe.
+
+No elimines datos ni dupliques tablas o servicios existentes.
+
+---
+
+# 2. IMPLEMENTAR CORRECTAMENTE EL IGV EN VENTAS
+
+La profesora ha solicitado que el sistema registre y muestre el IGV.
+
+Actualmente necesitamos verificar que esté integrado en todo el ciclo de ventas y no solamente en reportes.
+
+## 2.1 Cálculo tributario
+
+Para operaciones gravadas en Perú durante 2026:
+
+- IGV: 15.5%.
+- IPM: 2.5%.
+- Tasa conjunta: 18%.
+
+La tasa debe ser configurable por período y mantenerse correctamente en las operaciones históricas.
+
+Debes diferenciar precios con impuesto incluido y precios sin impuesto.
+
+### Ejemplo A: Precio con IGV incluido
+
+Producto: S/ 118.00.
+
+Resultado:
+
+- Base imponible: S/ 100.00.
+- IGV + IPM: S/ 18.00.
+- Total: S/ 118.00.
+
+### Ejemplo B: Precio sin IGV
+
+Producto: S/ 100.00.
+
+Resultado:
+
+- Base imponible: S/ 100.00.
+- IGV + IPM: S/ 18.00.
+- Total: S/ 118.00.
+
+**MUY IMPORTANTE:** No sumes otro 18% a los precios que ya incluyen impuestos.
+
+Audita la interpretación de precios existente antes de modificarla.
+
+No cambies silenciosamente los precios actuales del catálogo.
+
+Diferencia operaciones gravadas, exoneradas e inafectas cuando corresponda.
+
+## 2.2 Interfaz de ventas
+
+En el módulo `/ventas`, el resumen comercial debe mostrar:
+
+- Subtotal.
+- Descuentos.
+- Base imponible.
+- IGV/IPM aplicable.
+- Total a pagar.
+- Métodos de pago.
+- Efectivo recibido.
+- Vuelto.
+
+Conservar los cálculos de vuelto y pagos mixtos implementados anteriormente.
+
+Cuando el usuario agregue o retire un producto, actualizar correctamente el resumen.
+
+## 2.3 Boletas y facturas
+
+En los documentos generados por MISHUTEC, mostrar el desglose tributario de la operación.
+
+Incluir:
+
+- Productos.
+- Cantidades.
+- Precios.
+- Subtotal.
+- Descuentos.
+- Base imponible.
+- Impuestos.
+- Total.
+
+No afirmar que un documento es electrónico o está validado por SUNAT si todavía no existe integración autorizada.
+
+## 2.4 Compras y proveedores
+
+Las compras a proveedores también deben diferenciar:
+
+- Valor de adquisición.
+- Impuesto aplicable.
+- Total del documento.
+- Condición de pago.
+- Saldo pendiente.
+
+No asumir que todas las compras otorgan crédito fiscal.
+
+El crédito fiscal requiere documentación y condiciones tributarias específicas.
+
+Mantener separado el costo del inventario y el impuesto recuperable cuando corresponda.
+
+## 2.5 Devoluciones
+
+Cuando se devuelve un producto, calcular el ajuste tributario de acuerdo con los importes originales.
+
+No utilizar los precios actuales del catálogo para recalcular ventas históricas.
+
+Mantener la trazabilidad entre venta, devolución y nota de crédito.
+
+---
+
+# 3. CORREGIR COMPLETAMENTE EL MODO OSCURO
+
+Las capturas muestran pantallas que requieren una revisión de la implementación visual.
+
+Necesito que audites los cinco ejemplos y los componentes utilizados por esas vistas.
+
+No quiero corregir solamente un color específico: quiero solucionar la causa del problema.
+
+## 3.1 Diagnóstico visual
+
+Revisa:
+
+- Fondos principales.
+- Sidebar.
+- Header.
+- Tarjetas de indicadores.
+- Tablas.
+- Formularios.
+- Campos de texto.
+- Selectores.
+- Listas desplegables.
+- Modales.
+- Ventanas de confirmación.
+- Pestañas.
+- Gráficos.
+- Tooltips.
+- Botones.
+- Badges de estado.
+- Mensajes de error.
+- Scrollbars y menús flotantes.
+
+Identifica los elementos que utilizan colores fijos incompatibles con el tema oscuro.
+
+Revisa especialmente componentes que se renderizan mediante portales fuera de su contenedor original.
+
+## 3.2 Solución estructural
+
+Usa el sistema de estilos existente.
+
+Si corresponde, centraliza los tokens semánticos de color:
+
+- Background.
+- Surface.
+- Card.
+- Border.
+- Foreground.
+- Muted foreground.
+- Primary.
+- Secondary.
+- Success.
+- Warning.
+- Danger.
+
+Evita mezclar colores hardcodeados de tema claro dentro de componentes oscuros.
+
+No introduzcas otra biblioteca de temas si ya existe una solución funcional.
+
+## 3.3 Diseño esperado
+
+En modo oscuro:
+
+- Los textos deben ser legibles.
+- Las tarjetas deben diferenciarse del fondo.
+- Los formularios deben ser claros visualmente.
+- Los bordes deben tener contraste suficiente.
+- Los selects deben mostrar sus opciones correctamente.
+- Los modales deben conservar coherencia visual.
+- Los botones deben distinguir estados activos y deshabilitados.
+- Los gráficos deben tener ejes y etiquetas legibles.
+- Las tablas no deben mostrar filas blancas inesperadas.
+- Los mensajes de validación deben ser visibles.
+
+En modo claro debe seguir funcionando todo correctamente.
+
+Mantén la identidad visual actual de MISHUTEC.
+
+No quiero un rediseño completo ni colores aleatorios.
+
+La interfaz debe ser moderna, profesional y consistente.
+
+## 3.4 Cambio entre temas
+
+Verifica que cambiar de claro a oscuro:
+
+- Actualice todos los componentes.
+- No provoque parpadeos innecesarios.
+- Mantenga la selección del usuario.
+- No genere errores de hidratación.
+- Funcione después de recargar.
+- Respete la configuración actual de tema.
+
+Puedes agregar una transición breve y suave si resulta compatible con el sistema y respeta la preferencia de movimiento reducido.
+
+## 3.5 Pruebas visuales
+
+Comprueba las cinco pantallas proporcionadas y sus modales principales.
+
+Obtén capturas en modo claro y oscuro.
+
+Verifica también escritorio, tablet y móvil.
+
+No consideres solucionado el problema únicamente porque cambió el fondo.
+
+---
+
+# 4. GESTIÓN DE EGRESOS: PAGOS A PROVEEDORES
+
+La profesora también quiere que MISHUTEC permita controlar los pagos que la empresa debe realizar.
+
+Actualmente necesitamos diferenciar un gasto general de un pago a proveedor.
+
+## 4.1 Cuentas por pagar
+
+Revisa el módulo existente de compras y proveedores.
+
+Si es necesario, agrega una sección de cuentas por pagar integrada con las compras.
+
+Debe permitir:
+
+- Seleccionar proveedor.
+- Consultar compras realizadas.
+- Ver número de factura o documento.
+- Consultar fecha de emisión.
+- Consultar vencimiento.
+- Ver importe total.
+- Consultar importe pagado.
+- Ver saldo pendiente.
+- Registrar abonos.
+- Consultar historial de pagos.
+
+## 4.2 Estados de deuda
+
+Administrar estados equivalentes a:
+
+- PENDIENTE.
+- PARCIALMENTE PAGADA.
+- PAGADA.
+- VENCIDA.
+- ANULADA, cuando corresponda.
+
+El estado debe calcularse coherentemente con los pagos y la validez de la obligación.
+
+No permitir pagos superiores al saldo sin un procedimiento explícito para anticipos o saldos a favor.
+
+## 4.3 Ejemplo funcional
+
+MISHUTEC compra mercadería a un proveedor:
+
+Proveedor: Distribuidora Tecnológica SAC.
+
+Total del documento: S/ 2,000.
+
+Condición: Crédito.
+
+Pago inicial: S/ 500 mediante Yape.
+
+Saldo pendiente: S/ 1,500.
+
+Posteriormente se abonan S/ 1,000 por transferencia.
+
+Nuevo saldo pendiente: S/ 500.
+
+Finalmente se pagan S/ 500.
+
+La deuda queda PAGADA.
+
+El sistema debe conservar todos los pagos, métodos, fechas y responsables.
+
+**Importante:** Registrar la compra y pagar posteriormente la deuda no deben producir dos gastos contables por la misma operación.
+
+Si los productos fueron adquiridos para inventario, distinguir la incorporación de mercadería, la obligación financiera y el pago al proveedor.
+
+El costo debe reflejarse correctamente en la rentabilidad según el tratamiento que corresponda.
+
+## 4.4 Integración con caja
+
+Si el pago es en efectivo:
+
+- Disminuye el efectivo de la caja activa.
+
+Si el pago es por Yape:
+
+- Se registra como salida digital.
+- No disminuye la gaveta de efectivo.
+
+Si se paga mediante transferencia:
+
+- Se registra el método y la referencia.
+- No disminuye el efectivo físico.
+
+Permitir registrar pagos desde cuentas bancarias o canales digitales, respetando las estructuras existentes.
+
+No afirmar que se transfirió dinero realmente: el sistema registra operaciones, salvo que exista una integración bancaria autorizada.
+
+---
+
+# 5. GESTIÓN DE EGRESOS: PAGOS A TRABAJADORES
+
+La profesora también solicita controlar cuánto dinero se utiliza para pagar al personal.
+
+## 5.1 Reutilizar empleados
+
+MISHUTEC ya cuenta con información de empleados.
+
+Revisa su estructura y reutiliza los registros correspondientes.
+
+No crees otro catálogo de trabajadores.
+
+## 5.2 Registro de pagos
+
+Implementa una función para registrar pagos al personal.
+
+Debe permitir:
+
+- Seleccionar trabajador.
+- Consultar sus datos autorizados.
+- Indicar período del pago.
+- Indicar concepto.
+- Registrar importe.
+- Seleccionar método de pago.
+- Registrar fecha.
+- Añadir observaciones.
+- Consultar historial.
+
+Conceptos posibles:
+
+- Remuneración.
+- Adelanto.
+- Bono.
+- Pago extraordinario.
+- Reembolso de gastos.
+- Otros conceptos configurados.
+
+Diferencia remuneraciones de adelantos y reembolsos para no contabilizar gastos duplicados.
+
+## 5.3 Obligaciones y pagos
+
+Permitir manejar:
+
+- Pagos pendientes.
+- Pagos parciales.
+- Pagos completados.
+- Adelantos aplicados a obligaciones posteriores.
+
+Ejemplo:
+
+Trabajador: Juan Pérez.
+
+Remuneración pactada para el período: S/ 1,500.
+
+Adelanto registrado: S/ 300.
+
+Saldo pendiente referencial: S/ 1,200.
+
+Cuando se efectúe el pago restante, debe quedar la trazabilidad completa.
+
+No calcular automáticamente AFP, ONP, EsSalud, quinta categoría ni otros conceptos legales sin información y reglas suficientes.
+
+Si la empresa necesita una planilla real, primero identificar los requerimientos legales específicos.
+
+No confundir a un trabajador en planilla con un prestador independiente que emite recibos por honorarios.
+
+## 5.4 Privacidad y permisos
+
+Los importes de remuneraciones deben ser visibles únicamente para roles autorizados.
+
+Los cajeros no deben acceder automáticamente a todos los salarios.
+
+Si un usuario tiene permiso para ejecutar un pago pero no para administrar remuneraciones, respeta esa separación.
+
+Registra quién autorizó y quién ejecutó el pago.
+
+No permitir alterar pagos confirmados sin trazabilidad.
+
+---
+
+# 6. REDISEÑO FUNCIONAL DE LA SECCIÓN EGRESOS
+
+Necesito una sección fácil de utilizar.
+
+Puede organizarse mediante pestañas, filtros o categorías, según el diseño existente:
+
+**Egresos generales**
+- Servicios.
+- Gastos operativos.
+- Otros conceptos.
+
+**Proveedores**
+- Compras pendientes.
+- Abonos.
+- Pagos realizados.
+
+**Trabajadores**
+- Obligaciones pendientes.
+- Adelantos.
+- Pagos realizados.
+
+**Historial**
+- Fecha.
+- Beneficiario.
+- Categoría.
+- Método de pago.
+- Importe.
+- Responsable.
+- Estado.
+
+No necesariamente debes crear cuatro pantallas independientes si la arquitectura actual permite una solución mejor.
+
+Lo importante es que el usuario comprenda:
+
+- A quién debe pagar.
+- Cuánto debe.
+- Cuánto ha pagado.
+- Cuánto falta.
+- Desde qué método se realizó el pago.
+- Cómo afectó a la caja.
+
+Utiliza formularios con validaciones claras.
+
+Evita duplicar egresos cuando se reintenta una operación.
+
+---
+
+# 7. INTEGRACIÓN CON CIERRE DIARIO
+
+La caja debe reflejar los nuevos egresos.
+
+En el cierre diario mostrar por separado:
+
+**Ingresos**
+- Ventas cobradas.
+- Otros ingresos de caja.
+
+**Egresos**
+- Pagos a proveedores.
+- Pagos a trabajadores.
+- Gastos operativos.
+- Reembolsos.
+- Retiros, diferenciados de los gastos.
+
+**Métodos**
+- Efectivo.
+- Yape.
+- Tarjeta.
+- Transferencias.
+- Otros canales configurados.
+
+No mezclar efectivo físico con cobros o pagos digitales.
+
+Ejemplo:
+
+Efectivo inicial: S/ 500.
+
+Ventas cobradas en efectivo: S/ 800.
+
+Pago a proveedor en efectivo: S/ 200.
+
+Pago a trabajador en efectivo: S/ 300.
+
+Efectivo esperado: S/ 800.
+
+Verifica que el sistema permita realizar el arqueo y cerrar caja correctamente.
+
+Los pagos por transferencia o Yape deben aparecer como salidas digitales, sin modificar el saldo físico de la gaveta.
+
+Un pago realizado hoy sobre una compra anterior debe afectar el flujo de dinero de hoy, sin modificar silenciosamente un cierre histórico.
+
+---
+
+# 8. IMPACTO EN REPORTES FINANCIEROS
+
+Actualiza las vistas financieras existentes.
+
+Incluir:
+
+- Ventas netas.
+- IGV/IPM de ventas.
+- Compras registradas.
+- Crédito fiscal elegible, cuando esté sustentado.
+- Cuentas por pagar.
+- Pagos realizados a proveedores.
+- Obligaciones pendientes con trabajadores.
+- Pagos realizados al personal.
+- Gastos operativos.
+- Costo de ventas.
+- Ganancia bruta.
+- Margen bruto.
+- Utilidad operativa estimada.
+- Flujo de efectivo.
+
+Distinguir claramente:
+
+1. Una compra registrada.
+2. Un gasto devengado.
+3. Un pago realizado.
+4. Una obligación pendiente.
+5. Un costo incorporado al inventario.
+6. Un impuesto trasladado o recuperable.
+
+No restar automáticamente todo pago a proveedores de la utilidad si corresponde a mercadería cuyo costo ya se reconoce mediante el costo de ventas.
+
+No restar dos veces un salario cuando se registró la obligación y después se realizó su pago.
+
+Los informes SUNAT deben continuar identificados como referenciales mientras no exista integración tributaria real.
+
+---
+
+# 9. CONSISTENCIA DE SQL SERVER
+
+Inspecciona las estructuras existentes:
+
+- Ventas.
+- Compras.
+- Proveedores.
+- Empleados.
+- Caja_Sesion.
+- Caja_Movimiento.
+- Productos.
+- Inventario.
+- Reportes.
+
+Evalúa si son necesarias tablas adicionales para:
+
+- Obligaciones por pagar.
+- Aplicaciones de pagos.
+- Conceptos de egresos.
+- Obligaciones laborales.
+- Detalles tributarios históricos.
+
+Son entidades conceptuales, no nombres obligatorios.
+
+Reutiliza lo existente cuando sea posible.
+
+Aplica:
+
+- Transacciones SQL.
+- Restricciones de integridad.
+- Control de concurrencia.
+- Prevención de doble pago.
+- Idempotencia.
+- Auditoría.
+- Validaciones de importes.
+- Cálculos monetarios exactos.
+
+No ejecutes cambios destructivos ni migraciones sobre bases protegidas sin autorización y respaldo verificado.
+
+---
+
+# 10. PRUEBAS OBLIGATORIAS
+
+Implementa pruebas automatizadas para:
+
+### IGV
+
+1. Precio gravado con impuesto incluido.
+2. Precio gravado sin impuesto incluido.
+3. Operación exonerada.
+4. Operación inafecta.
+5. Boleta con desglose.
+6. Devolución con ajuste tributario.
+7. Redondeo correcto en varios productos.
+
+### Proveedores
+
+8. Compra al contado.
+9. Compra a crédito.
+10. Pago parcial.
+11. Pago total.
+12. Pago por transferencia.
+13. Pago en efectivo.
+14. Prevención de pagos duplicados.
+15. Intento de pago superior a la deuda.
+16. Coherencia entre compras, inventario, deuda y caja.
+
+### Trabajadores
+
+17. Registro de obligación de pago.
+18. Adelanto.
+19. Pago parcial.
+20. Pago completo.
+21. Control de permisos.
+22. Prevención de gastos duplicados.
+
+### Caja y reportes
+
+23. Integración con caja.
+24. Separación de pagos digitales.
+25. Arqueo correcto.
+26. Cierre diario.
+27. Conservación de cierres históricos.
+28. Cálculo de rentabilidad.
+29. Persistencia en SQL Server.
+30. Reversión de transacciones fallidas.
+
+### UI
+
+31. Modo claro en las cinco pantallas.
+32. Modo oscuro en las cinco pantallas.
+33. Formularios y selectores.
+34. Tablas y modales.
+35. Diseño responsive.
+36. Persistencia del tema tras recargar.
+
+Ejecuta también las pruebas existentes de las Fases 7, 8, 9, 10 y 10.1 que sean aplicables.
+
+Corrige regresiones reales.
+
+No declares éxito basándote únicamente en que el proyecto compila.
+
+---
+
+# 11. ENTREGABLES
+
+Al finalizar necesito:
+
+1. Funcionalidades implementadas en MISHUTEC.
+2. IGV correctamente integrado en ventas, comprobantes y compras.
+3. Modo oscuro corregido.
+4. Gestión de pagos a proveedores.
+5. Gestión de pagos a trabajadores.
+6. Integración de egresos con caja.
+7. Reportes financieros actualizados.
+8. Cambios SQL documentados.
+9. Capturas comparativas en ambos temas.
+10. Pruebas automatizadas aprobadas.
+11. Manual actualizado.
+12. Guía de demostración para la profesora.
+
+Entrega un resumen claro de los archivos modificados, las pruebas ejecutadas y las limitaciones pendientes.
+
+## INSTRUCCIÓN FINAL
+
+Quiero una implementación completa y coherente, no solamente cambios de apariencia.
+
+**Prioridades:**
+
+1. Corregir el modo oscuro en las pantallas adjuntas.
+2. Integrar el IGV correctamente en las operaciones comerciales.
+3. Implementar la gestión de obligaciones y pagos a proveedores.
+4. Implementar pagos a trabajadores.
+5. Integrar todos los movimientos con caja y reportes.
+6. Verificar la consistencia financiera y funcional.
+
+Trabaja directamente sobre el proyecto existente de MISHUTEC.
+
+No reconstruyas módulos, no dupliques registros financieros, no deshabilites las restricciones de seguridad y no utilices datos ficticios en producción.
+
+No hagas push ni despliegues sin autorización.
+
+El objetivo es que MISHUTEC pueda demostrar correctamente las funcionalidades solicitadas por la profesora y que los resultados de caja, inventario y rentabilidad sean coherentes entre sí.
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-10-30T11:34:01-05:00.
+</ADDITIONAL_METADATA>
