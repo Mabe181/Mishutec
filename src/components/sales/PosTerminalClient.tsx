@@ -303,17 +303,17 @@ export function PosTerminalClient({
   return (
     <div className="space-y-5">
       {/* Banner Informativo Fase 6B */}
-      <div className="p-4 rounded-2xl bg-cyan-950/40 border border-cyan-500/30 text-cyan-200 shadow-md">
+      <div className="p-4 rounded-xl bg-blue-50/80 border border-blue-200 text-blue-950 shadow-xs">
         <div className="flex items-start gap-3">
-          <ShieldCheck className="h-5 w-5 text-cyan-400 shrink-0 mt-0.5" />
+          <ShieldCheck className="h-5 w-5 text-blue-600 shrink-0 mt-0.5" />
           <div className="text-xs space-y-1">
-            <span className="font-bold text-cyan-300 block text-sm">
+            <span className="font-bold text-blue-900 block text-sm">
               Terminal POS Transaccional Activo (Fase 6B)
             </span>
-            <p className="text-cyan-200/90 leading-relaxed">
-              Sistema operativo conectado a <code>MishutecT2_Aceptacion</code>. Cada venta se procesa en una transacción
-              atómica (ACID con bloqueo concurrente <code>sp_getapplock</code>): emite correlativos secuenciales (Boleta B001 / Factura F001),
-              valida reglas de negocio, descuenta el stock real y registra las salidas correspondientes en <code>Mov_Inventario</code>.
+            <p className="text-blue-800/90 leading-relaxed">
+              Sistema operativo conectado a <code className="bg-blue-100 text-blue-900 px-1 py-0.5 rounded font-mono">MishutecT2_Aceptacion</code>. Cada venta se procesa en una transacción
+              atómica (ACID con bloqueo concurrente <code className="bg-blue-100 text-blue-900 px-1 py-0.5 rounded font-mono">sp_getapplock</code>): emite correlativos secuenciales (Boleta B001 / Factura F001),
+              valida reglas de negocio, descuenta el stock real y registra las salidas correspondientes en <code className="bg-blue-100 text-blue-900 px-1 py-0.5 rounded font-mono">Mov_Inventario</code>.
             </p>
           </div>
         </div>
@@ -323,15 +323,15 @@ export function PosTerminalClient({
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
         {/* Columna Izquierda: Buscador y Catálogo de Productos (7 columnas) */}
         <div className="lg:col-span-7 space-y-4">
-          <div className="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-slate-800/80 shadow-md space-y-3.5">
+          <div className="p-4 sm:p-5 rounded-xl bg-white border border-slate-200 shadow-xs space-y-3.5">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <Package className="h-4 w-4 text-cyan-400" />
-                <h3 className="text-sm font-semibold text-white">
+                <Package className="h-4 w-4 text-blue-600" />
+                <h3 className="text-sm font-semibold text-slate-900">
                   Catálogo Disponible para Venta
                 </h3>
               </div>
-              <span className="text-[11px] text-slate-400 font-mono">
+              <span className="text-[11px] text-slate-500 font-mono">
                 {filteredProducts.length} productos con stock
               </span>
             </div>
@@ -344,7 +344,7 @@ export function PosTerminalClient({
                 value={productSearch}
                 onChange={(e) => setProductSearch(e.target.value)}
                 placeholder="Escanear código de barras o escribir nombre del componente..."
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-950/80 border border-slate-800 text-xs sm:text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition-colors"
+                className="w-full pl-10 pr-4 py-2.5 rounded-lg bg-slate-50 border border-slate-200 text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:bg-white transition-colors"
               />
             </div>
 
@@ -353,10 +353,10 @@ export function PosTerminalClient({
               <button
                 type="button"
                 onClick={() => setSelectedCategory("todas")}
-                className={`px-3 py-1.5 rounded-lg font-medium transition-colors shrink-0 ${
+                className={`px-3 py-1.5 rounded-lg font-medium transition-colors shrink-0 shadow-xs ${
                   selectedCategory === "todas"
-                    ? "bg-cyan-500 text-slate-950 font-semibold"
-                    : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+                    ? "bg-blue-600 text-white font-semibold"
+                    : "bg-slate-100 text-slate-700 hover:bg-slate-200"
                 }`}
               >
                 Todas
@@ -366,10 +366,10 @@ export function PosTerminalClient({
                   key={cat}
                   type="button"
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-3 py-1.5 rounded-lg font-medium transition-colors shrink-0 ${
+                  className={`px-3 py-1.5 rounded-lg font-medium transition-colors shrink-0 shadow-xs ${
                     selectedCategory === cat
-                      ? "bg-cyan-500 text-slate-950 font-semibold"
-                      : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+                      ? "bg-blue-600 text-white font-semibold"
+                      : "bg-slate-100 text-slate-700 hover:bg-slate-200"
                   }`}
                 >
                   {cat}
@@ -381,7 +381,7 @@ export function PosTerminalClient({
           {/* Grilla de Productos */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[550px] overflow-y-auto pr-1">
             {filteredProducts.length === 0 ? (
-              <div className="col-span-full py-12 text-center text-slate-400 text-xs bg-slate-900/30 rounded-2xl border border-slate-800">
+              <div className="col-span-full py-12 text-center text-slate-500 text-xs bg-white rounded-xl border border-slate-200 shadow-xs">
                 No se encontraron productos disponibles con stock en este criterio.
               </div>
             ) : (
@@ -395,32 +395,32 @@ export function PosTerminalClient({
                 return (
                   <div
                     key={p.codbarras}
-                    className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800/80 hover:border-slate-700 transition-all flex flex-col justify-between space-y-3"
+                    className="p-3.5 rounded-xl bg-white border border-slate-200 hover:border-blue-300 hover:shadow-xs transition-all flex flex-col justify-between space-y-3"
                   >
                     <div>
                       <div className="flex items-start justify-between gap-1.5">
-                        <span className="font-semibold text-white text-xs leading-tight line-clamp-2">
+                        <span className="font-semibold text-slate-900 text-xs leading-tight line-clamp-2">
                           {p.nombre}
                         </span>
-                        <span className="font-mono font-bold text-cyan-400 text-xs shrink-0">
+                        <span className="font-mono font-bold text-slate-900 text-xs shrink-0">
                           {formatCurrency(p.precio)}
                         </span>
                       </div>
-                      <div className="mt-1 flex items-center gap-1.5 text-[10px] text-slate-400 font-mono">
+                      <div className="mt-1 flex items-center gap-1.5 text-[10px] text-slate-500 font-mono">
                         <span>{p.codbarras}</span>
                         <span>&bull;</span>
                         <span>{p.marca}</span>
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-between pt-2 border-t border-slate-800/80">
+                    <div className="flex items-center justify-between pt-2 border-t border-slate-100">
                       <span
                         className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
                           remainingStock > 2
-                            ? "bg-slate-800 text-slate-300"
+                            ? "bg-slate-100 text-slate-700 border border-slate-200"
                             : remainingStock > 0
-                            ? "bg-amber-500/15 text-amber-300 border border-amber-500/30"
-                            : "bg-rose-500/20 text-rose-300 border border-rose-500/40"
+                            ? "bg-amber-50 text-amber-700 border border-amber-200"
+                            : "bg-rose-50 text-rose-700 border border-rose-200"
                         }`}
                       >
                         Stock: {remainingStock} ud.
@@ -430,7 +430,7 @@ export function PosTerminalClient({
                         type="button"
                         disabled={remainingStock <= 0}
                         onClick={() => handleAddToCart(p)}
-                        className="inline-flex items-center gap-1 px-3 py-1.5 min-h-[36px] rounded-lg bg-cyan-500/20 hover:bg-cyan-500/30 active:bg-cyan-500/40 text-cyan-300 text-xs font-semibold border border-cyan-500/40 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                        className="inline-flex items-center gap-1 px-3 py-1.5 min-h-[36px] rounded-lg bg-blue-50 hover:bg-blue-100 active:bg-blue-200 text-blue-600 text-xs font-semibold border border-blue-200 shadow-xs transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
                       >
                         <Plus className="h-3.5 w-3.5" />
                         <span>Añadir</span>
@@ -445,12 +445,12 @@ export function PosTerminalClient({
 
         {/* Columna Derecha: Carrito, Parámetros y Checkout (5 columnas) */}
         <div className="lg:col-span-5 space-y-4">
-          <div className="p-4 sm:p-5 rounded-2xl bg-slate-900/80 border border-slate-800/80 shadow-md space-y-4">
+          <div className="p-4 sm:p-5 rounded-xl bg-white border border-slate-200 shadow-xs space-y-4">
             {/* Cabecera del Carrito */}
-            <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <div className="flex items-center gap-2">
-                <ShoppingCart className="h-4 w-4 text-cyan-400" />
-                <h3 className="text-sm font-semibold text-white">
+                <ShoppingCart className="h-4 w-4 text-blue-600" />
+                <h3 className="text-sm font-semibold text-slate-900">
                   Orden de Venta ({totalItemsCount} ítems)
                 </h3>
               </div>
@@ -458,7 +458,7 @@ export function PosTerminalClient({
                 <button
                   type="button"
                   onClick={handleClearCart}
-                  className="text-xs text-rose-400 hover:text-rose-300 transition-colors flex items-center gap-1"
+                  className="text-xs text-rose-600 hover:text-rose-700 font-medium transition-colors flex items-center gap-1"
                 >
                   <RotateCcw className="h-3 w-3" />
                   <span>Vaciar</span>
@@ -469,30 +469,30 @@ export function PosTerminalClient({
             {/* Lista de Ítems en Carrito */}
             <div className="space-y-2 max-h-[260px] overflow-y-auto pr-1">
               {cart.length === 0 ? (
-                <div className="py-8 text-center text-slate-500 text-xs">
+                <div className="py-8 text-center text-slate-400 text-xs">
                   El carrito se encuentra vacío. Añada productos desde el catálogo para iniciar la orden.
                 </div>
               ) : (
                 cart.map((item) => (
                   <div
                     key={item.producto.codbarras}
-                    className="p-3 rounded-xl bg-slate-950/60 border border-slate-800 space-y-2 text-xs"
+                    className="p-3 rounded-lg bg-slate-50 border border-slate-200 space-y-2 text-xs"
                   >
                     <div className="flex items-start justify-between gap-2">
                       <div className="min-w-0">
-                        <span className="font-semibold text-white block truncate leading-tight">
+                        <span className="font-semibold text-slate-900 block truncate leading-tight">
                           {item.producto.nombre}
                         </span>
-                        <span className="text-[10px] text-slate-400 font-mono">
+                        <span className="text-[10px] text-slate-500 font-mono">
                           {formatCurrency(item.precioUnitario)} c/u
                         </span>
                       </div>
-                      <span className="font-mono font-bold text-cyan-300 shrink-0">
+                      <span className="font-mono font-bold text-slate-900 shrink-0">
                         {formatCurrency(item.subtotal)}
                       </span>
                     </div>
 
-                    <div className="flex items-center justify-between pt-1 border-t border-slate-800/80">
+                    <div className="flex items-center justify-between pt-1 border-t border-slate-200/80">
                       {/* Control de Cantidades */}
                       <div className="flex items-center gap-1.5">
                         <button
@@ -503,11 +503,11 @@ export function PosTerminalClient({
                               item.cantidad - 1
                             )
                           }
-                          className="p-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors"
+                          className="p-1 rounded bg-white border border-slate-200 hover:bg-slate-100 text-slate-700 transition-colors shadow-xs"
                         >
                           <Minus className="h-3 w-3" />
                         </button>
-                        <span className="font-mono font-bold text-white px-2">
+                        <span className="font-mono font-bold text-slate-900 px-2">
                           {item.cantidad}
                         </span>
                         <button
@@ -519,7 +519,7 @@ export function PosTerminalClient({
                               item.cantidad + 1
                             )
                           }
-                          className="p-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 disabled:opacity-40 transition-colors"
+                          className="p-1 rounded bg-white border border-slate-200 hover:bg-slate-100 text-slate-700 disabled:opacity-40 transition-colors shadow-xs"
                         >
                           <Plus className="h-3 w-3" />
                         </button>
@@ -530,7 +530,7 @@ export function PosTerminalClient({
                         onClick={() =>
                           handleRemoveFromCart(item.producto.codbarras)
                         }
-                        className="p-1 text-slate-500 hover:text-rose-400 transition-colors"
+                        className="p-1 text-slate-400 hover:text-rose-600 transition-colors"
                         title="Eliminar de la orden"
                       >
                         <Trash2 className="h-3.5 w-3.5" />
@@ -542,20 +542,20 @@ export function PosTerminalClient({
             </div>
 
             {/* Parámetros de la Transacción */}
-            <div className="pt-2 border-t border-slate-800 space-y-3 text-xs">
+            <div className="pt-2 border-t border-slate-100 space-y-3 text-xs">
               {/* Selector de Tipo de Comprobante */}
               <div>
-                <label className="block text-[11px] font-medium text-slate-400 mb-1">
+                <label className="block text-[11px] font-semibold text-slate-700 mb-1">
                   Comprobante Legal a Emitir
                 </label>
                 <div className="grid grid-cols-2 gap-2">
                   <button
                     type="button"
                     onClick={() => setSelectedTipoCompId(1)}
-                    className={`p-2 rounded-xl border text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 ${
+                    className={`p-2 rounded-lg border text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 shadow-xs ${
                       selectedTipoCompId === 1
-                        ? "bg-cyan-500/20 border-cyan-500 text-cyan-300"
-                        : "bg-slate-950 border-slate-800 text-slate-400"
+                        ? "bg-blue-50 border-blue-500 text-blue-700"
+                        : "bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100"
                     }`}
                   >
                     <Receipt className="h-3.5 w-3.5" />
@@ -564,10 +564,10 @@ export function PosTerminalClient({
                   <button
                     type="button"
                     onClick={() => setSelectedTipoCompId(2)}
-                    className={`p-2 rounded-xl border text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 ${
+                    className={`p-2 rounded-lg border text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 shadow-xs ${
                       selectedTipoCompId === 2
-                        ? "bg-blue-500/20 border-blue-500 text-blue-300"
-                        : "bg-slate-950 border-slate-800 text-slate-400"
+                        ? "bg-blue-50 border-blue-500 text-blue-700"
+                        : "bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100"
                     }`}
                   >
                     <FileText className="h-3.5 w-3.5" />
@@ -578,13 +578,13 @@ export function PosTerminalClient({
 
               {/* Selector de Cliente */}
               <div>
-                <label className="block text-[11px] font-medium text-slate-400 mb-1">
+                <label className="block text-[11px] font-semibold text-slate-700 mb-1">
                   Cliente Titular
                 </label>
                 <select
                   value={selectedClientDni}
                   onChange={(e) => setSelectedClientDni(e.target.value)}
-                  className="w-full px-3 py-2 rounded-lg bg-slate-950 border border-slate-800 text-xs text-slate-200 focus:outline-none focus:border-cyan-500"
+                  className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-blue-500 focus:bg-white"
                 >
                   {metadata.clientes.map((c) => (
                     <option key={c.dni} value={c.dni}>
@@ -596,13 +596,13 @@ export function PosTerminalClient({
 
               {/* Selector de Empleado */}
               <div>
-                <label className="block text-[11px] font-medium text-slate-400 mb-1">
+                <label className="block text-[11px] font-semibold text-slate-700 mb-1">
                   Empleado Responsable
                 </label>
                 <select
                   value={selectedEmployeeId}
                   onChange={(e) => setSelectedEmployeeId(Number(e.target.value))}
-                  className="w-full px-3 py-2 rounded-lg bg-slate-950 border border-slate-800 text-xs text-slate-200 focus:outline-none focus:border-cyan-500"
+                  className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-200 text-xs text-slate-900 focus:outline-none focus:border-blue-500 focus:bg-white"
                 >
                   {metadata.empleados.map((emp) => (
                     <option key={emp.id} value={emp.id}>
@@ -615,7 +615,7 @@ export function PosTerminalClient({
               {/* Distribución de Métodos de Pago */}
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <label className="block text-[11px] font-medium text-slate-400">
+                  <label className="block text-[11px] font-semibold text-slate-700">
                     Distribución de Pago (Soporte Mixto)
                   </label>
                   {/* Selector rápido para añadir método */}
@@ -627,7 +627,7 @@ export function PosTerminalClient({
                       }
                     }}
                     defaultValue=""
-                    className="text-[10px] bg-slate-950 text-cyan-400 border border-slate-800 rounded px-1.5 py-0.5"
+                    className="text-[10px] bg-slate-50 text-blue-600 font-semibold border border-slate-200 rounded px-1.5 py-0.5"
                   >
                     <option value="" disabled>
                       + Añadir método
@@ -644,13 +644,13 @@ export function PosTerminalClient({
                   {payments.map((p, index) => (
                     <div
                       key={p.idMetodo}
-                      className="p-2 rounded-lg bg-slate-950 border border-slate-800 flex items-center justify-between gap-2"
+                      className="p-2 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-between gap-2"
                     >
-                      <span className="font-medium text-slate-300 text-xs w-24 truncate">
+                      <span className="font-medium text-slate-700 text-xs w-24 truncate">
                         {p.nombreMetodo}
                       </span>
                       <div className="flex items-center gap-1.5 flex-1 justify-end">
-                        <span className="text-slate-500 font-mono text-[10px]">S/.</span>
+                        <span className="text-slate-400 font-mono text-[10px]">S/.</span>
                         <input
                           type="number"
                           step="0.01"
@@ -659,13 +659,13 @@ export function PosTerminalClient({
                           onChange={(e) =>
                             handlePaymentAmountChange(index, parseFloat(e.target.value) || 0)
                           }
-                          className="w-24 px-2 py-1 rounded bg-slate-900 border border-slate-700 text-right font-mono font-bold text-white text-xs focus:outline-none focus:border-cyan-500"
+                          className="w-24 px-2 py-1 rounded bg-white border border-slate-250 text-right font-mono font-bold text-slate-900 text-xs focus:outline-none focus:border-blue-500"
                         />
                         <button
                           type="button"
                           onClick={() => handleAutoFillPayment(index)}
                           title="Asignar restante automáticamente"
-                          className="px-1.5 py-1 text-[10px] rounded bg-slate-800 hover:bg-slate-700 text-cyan-400 font-mono transition-colors"
+                          className="px-1.5 py-1 text-[10px] rounded bg-blue-50 hover:bg-blue-100 text-blue-600 font-mono font-semibold border border-blue-200 transition-colors"
                         >
                           Auto
                         </button>
@@ -673,7 +673,7 @@ export function PosTerminalClient({
                           <button
                             type="button"
                             onClick={() => handleRemovePaymentMethod(index)}
-                            className="p-1 text-slate-500 hover:text-rose-400"
+                            className="p-1 text-slate-400 hover:text-rose-600 transition-colors"
                           >
                             <Trash2 className="h-3 w-3" />
                           </button>
@@ -684,26 +684,26 @@ export function PosTerminalClient({
                 </div>
 
                 {/* Balance de Pagos */}
-                <div className="p-2.5 rounded-lg bg-slate-950/80 border border-slate-800 flex items-center justify-between text-xs font-mono">
-                  <span className="text-slate-400">Total asignado a pagos:</span>
+                <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-between text-xs font-mono">
+                  <span className="text-slate-600">Total asignado a pagos:</span>
                   <span
                     className={`font-bold ${
                       Math.abs(diferenciaPagos) < 0.01
-                        ? "text-emerald-400"
-                        : "text-amber-400"
+                        ? "text-emerald-700"
+                        : "text-amber-700"
                     }`}
                   >
                     {formatCurrency(totalPagado)}
                   </span>
                 </div>
                 {diferenciaPagos > 0.01 && (
-                  <p className="text-[11px] text-amber-400 flex items-center gap-1">
+                  <p className="text-[11px] text-amber-700 flex items-center gap-1">
                     <AlertTriangle className="h-3 w-3 shrink-0" />
                     <span>Faltan asignar {formatCurrency(diferenciaPagos)} para cubrir la orden.</span>
                   </p>
                 )}
                 {diferenciaPagos < -0.01 && (
-                  <p className="text-[11px] text-blue-400 flex items-center gap-1">
+                  <p className="text-[11px] text-blue-700 flex items-center gap-1">
                     <CheckCircle2 className="h-3 w-3 shrink-0" />
                     <span>Exceso de pago (vuelto al cliente): {formatCurrency(Math.abs(diferenciaPagos))}</span>
                   </p>
@@ -712,27 +712,27 @@ export function PosTerminalClient({
             </div>
 
             {/* Resumen Total y Botón de Confirmación Fase 6B */}
-            <div className="pt-3 border-t border-slate-800 space-y-3">
+            <div className="pt-3 border-t border-slate-100 space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-sm font-semibold text-slate-300">
+                <span className="text-sm font-semibold text-slate-700">
                   Total General a Pagar
                 </span>
-                <span className="text-xl sm:text-2xl font-bold font-mono text-cyan-400">
+                <span className="text-xl sm:text-2xl font-bold font-mono text-slate-900">
                   {formatCurrency(totalGeneral)}
                 </span>
               </div>
 
               {submitError && (
-                <div className="p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs flex items-start gap-2.5">
-                  <AlertCircle className="h-4 w-4 text-rose-400 shrink-0 mt-0.5" />
+                <div className="p-3 rounded-lg bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-start gap-2.5">
+                  <AlertCircle className="h-4 w-4 text-rose-600 shrink-0 mt-0.5" />
                   <div className="flex-1">
                     <span className="font-semibold block">Error al procesar la venta:</span>
-                    <p className="mt-0.5 text-rose-200/90">{submitError}</p>
+                    <p className="mt-0.5 text-rose-700/90">{submitError}</p>
                   </div>
                   <button
                     type="button"
                     onClick={() => setSubmitError(null)}
-                    className="text-rose-400 hover:text-white"
+                    className="text-rose-500 hover:text-rose-800"
                   >
                     <X className="h-3.5 w-3.5" />
                   </button>
@@ -755,7 +755,7 @@ export function PosTerminalClient({
                     !selectedEmployeeId ||
                     isSubmitting
                   }
-                  className="w-full py-3.5 px-4 min-h-[46px] rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-cyan-900/30 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 transition-all active:scale-[0.99]"
+                  className="w-full py-3.5 px-4 min-h-[46px] rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider shadow-xs disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 transition-all active:scale-[0.99]"
                 >
                   {isSubmitting ? (
                     <>
@@ -769,8 +769,8 @@ export function PosTerminalClient({
                     </>
                   )}
                 </button>
-                <div className="text-[11px] text-center text-cyan-300/80 bg-cyan-950/40 border border-cyan-500/20 rounded-lg p-2 flex items-center justify-center gap-1.5">
-                  <ShieldCheck className="h-3.5 w-3.5 shrink-0 text-cyan-400" />
+                <div className="text-[11px] text-center text-slate-600 bg-slate-50 border border-slate-200 rounded-lg p-2 flex items-center justify-center gap-1.5">
+                  <ShieldCheck className="h-3.5 w-3.5 shrink-0 text-blue-600" />
                   <span>
                     Transacción atómica segura con bloqueo de correlativos y control de existencias.
                   </span>
@@ -786,20 +786,20 @@ export function PosTerminalClient({
         <div
           role="dialog"
           aria-modal="true"
-          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/80 backdrop-blur-sm animate-in fade-in duration-200"
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/40 backdrop-blur-xs animate-in fade-in duration-200"
         >
-          <div className="relative w-full max-w-lg rounded-2xl bg-slate-900 border border-slate-800 shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+          <div className="relative w-full max-w-lg rounded-xl bg-white border border-slate-200 shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
             {/* Header Modal */}
-            <div className="p-4 sm:p-5 border-b border-slate-800 flex items-center justify-between shrink-0 bg-slate-950/50">
+            <div className="p-4 sm:p-5 border-b border-slate-100 flex items-center justify-between shrink-0 bg-slate-50/80">
               <div className="flex items-center gap-2.5">
-                <div className="p-2 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400">
+                <div className="p-2 rounded-lg bg-blue-50 border border-blue-100 text-blue-600">
                   <Receipt className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-white">
+                  <h3 className="text-base font-bold text-slate-900">
                     Confirmar Transacción Comercial
                   </h3>
-                  <p className="text-xs text-slate-400">
+                  <p className="text-xs text-slate-500">
                     Revisa los datos antes de emitir el comprobante y descontar el inventario.
                   </p>
                 </div>
@@ -808,7 +808,7 @@ export function PosTerminalClient({
                 type="button"
                 onClick={() => !isSubmitting && setShowConfirmModal(false)}
                 disabled={isSubmitting}
-                className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors disabled:opacity-50"
+                className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors disabled:opacity-50"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -817,8 +817,8 @@ export function PosTerminalClient({
             {/* Cuerpo con Scroll */}
             <div className="p-4 sm:p-5 space-y-4 overflow-y-auto text-xs">
               {/* Alerta de Transacción Real */}
-              <div className="p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-200 flex items-start gap-2.5">
-                <AlertTriangle className="h-4 w-4 text-amber-400 shrink-0 mt-0.5" />
+              <div className="p-3 rounded-lg bg-amber-50 border border-amber-200 text-amber-800 flex items-start gap-2.5">
+                <AlertTriangle className="h-4 w-4 text-amber-600 shrink-0 mt-0.5" />
                 <p className="leading-relaxed">
                   Esta acción registrará la venta en <strong>MishutecT2_Aceptacion</strong>, asignará un
                   número correlativo consecutivo e inmutable y descontará el stock físico de forma inmediata.
@@ -826,22 +826,22 @@ export function PosTerminalClient({
               </div>
 
               {/* Datos de Comprobante, Cliente y Empleado */}
-              <div className="grid grid-cols-2 gap-3 p-3 rounded-xl bg-slate-950 border border-slate-800">
+              <div className="grid grid-cols-2 gap-3 p-3 rounded-lg bg-slate-50 border border-slate-200">
                 <div>
                   <span className="text-[10px] uppercase font-bold text-slate-500 block">Tipo de Comprobante</span>
-                  <span className="text-white font-medium">
+                  <span className="text-slate-900 font-semibold">
                     {selectedTipoCompId === 1 ? "Boleta de Venta (B001)" : "Factura Comercial (F001)"}
                   </span>
                 </div>
                 <div>
                   <span className="text-[10px] uppercase font-bold text-slate-500 block">Operador / Empleado</span>
-                  <span className="text-white font-medium">
+                  <span className="text-slate-900 font-semibold">
                     {metadata.empleados.find((e) => e.id === selectedEmployeeId)?.nombreCompleto || `ID ${selectedEmployeeId}`}
                   </span>
                 </div>
-                <div className="col-span-2 pt-2 border-t border-slate-850">
+                <div className="col-span-2 pt-2 border-t border-slate-200">
                   <span className="text-[10px] uppercase font-bold text-slate-500 block">Cliente</span>
-                  <span className="text-white font-medium">
+                  <span className="text-slate-900 font-semibold">
                     {metadata.clientes.find((c) => c.dni === selectedClientDni)?.nombreCompleto || selectedClientDni} ({selectedClientDni})
                   </span>
                 </div>
@@ -856,15 +856,15 @@ export function PosTerminalClient({
                   {cart.map((item) => (
                     <div
                       key={item.producto.codbarras}
-                      className="p-2 rounded-lg bg-slate-950/60 border border-slate-850 flex items-center justify-between text-xs"
+                      className="p-2 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-between text-xs"
                     >
                       <div className="min-w-0 pr-2">
-                        <p className="text-slate-200 truncate font-medium">{item.producto.nombre}</p>
+                        <p className="text-slate-900 truncate font-semibold">{item.producto.nombre}</p>
                         <p className="text-[10px] text-slate-500 font-mono">
                           {item.cantidad} x {formatCurrency(item.precioUnitario)}
                         </p>
                       </div>
-                      <span className="font-mono font-bold text-white shrink-0">
+                      <span className="font-mono font-bold text-slate-900 shrink-0">
                         {formatCurrency(item.subtotal)}
                       </span>
                     </div>
@@ -881,10 +881,10 @@ export function PosTerminalClient({
                   {payments.map((p) => (
                     <div
                       key={p.idMetodo}
-                      className="p-2 rounded-lg bg-slate-950/60 border border-slate-850 flex items-center justify-between text-xs"
+                      className="p-2 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-between text-xs"
                     >
-                      <span className="text-slate-300">{p.nombreMetodo}</span>
-                      <span className="font-mono font-bold text-emerald-400">
+                      <span className="text-slate-700 font-medium">{p.nombreMetodo}</span>
+                      <span className="font-mono font-bold text-emerald-700">
                         {formatCurrency(p.monto)}
                       </span>
                     </div>
@@ -893,28 +893,28 @@ export function PosTerminalClient({
               </div>
 
               {/* Total Final */}
-              <div className="p-3 rounded-xl bg-cyan-950/30 border border-cyan-500/30 flex items-center justify-between">
-                <span className="font-bold text-white text-sm">Total Liquidado</span>
-                <span className="font-mono font-bold text-cyan-400 text-lg sm:text-xl">
+              <div className="p-3 rounded-lg bg-blue-50/80 border border-blue-200 flex items-center justify-between">
+                <span className="font-bold text-slate-900 text-sm">Total Liquidado</span>
+                <span className="font-mono font-bold text-blue-600 text-lg sm:text-xl">
                   {formatCurrency(totalGeneral)}
                 </span>
               </div>
 
               {submitError && (
-                <div className="p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs flex items-center gap-2">
-                  <AlertCircle className="h-4 w-4 text-rose-400 shrink-0" />
+                <div className="p-3 rounded-lg bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-center gap-2">
+                  <AlertCircle className="h-4 w-4 text-rose-600 shrink-0" />
                   <span>{submitError}</span>
                 </div>
               )}
             </div>
 
             {/* Footer Modal Acciones */}
-            <div className="p-4 sm:p-5 border-t border-slate-800 bg-slate-950/70 flex items-center justify-end gap-3 shrink-0">
+            <div className="p-4 sm:p-5 border-t border-slate-100 bg-slate-50/80 flex items-center justify-end gap-3 shrink-0">
               <button
                 type="button"
                 onClick={() => setShowConfirmModal(false)}
                 disabled={isSubmitting}
-                className="px-4 py-2.5 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-xs transition-colors disabled:opacity-50"
+                className="px-4 py-2.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-semibold text-xs shadow-xs transition-colors disabled:opacity-50"
               >
                 Volver y Modificar
               </button>
@@ -922,7 +922,7 @@ export function PosTerminalClient({
                 type="button"
                 onClick={handleExecuteSale}
                 disabled={isSubmitting}
-                className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-cyan-900/30 disabled:opacity-50 flex items-center gap-2 transition-all active:scale-[0.98]"
+                className="px-5 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-wider shadow-xs disabled:opacity-50 flex items-center gap-2 transition-all active:scale-[0.98]"
               >
                 {isSubmitting ? (
                   <>

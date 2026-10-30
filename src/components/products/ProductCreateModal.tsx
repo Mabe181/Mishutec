@@ -186,31 +186,31 @@ export function ProductCreateModal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-slate-950/80 backdrop-blur-sm animate-in fade-in duration-150"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-slate-950/60 backdrop-blur-sm animate-in fade-in duration-150"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-2xl bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl flex flex-col max-h-[92vh] text-slate-100 overflow-hidden"
+        className="relative w-full max-w-2xl bg-white border border-slate-200 rounded-2xl shadow-2xl flex flex-col max-h-[92vh] text-slate-900 overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Cabecera */}
-        <div className="flex items-center justify-between p-4 sm:p-5 border-b border-slate-800 bg-slate-950/60">
+        <div className="flex items-center justify-between p-4 sm:p-5 border-b border-slate-200 bg-slate-50/80">
           <div className="flex items-center gap-2.5">
-            <div className="p-2 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400">
+            <div className="p-2 rounded-xl bg-blue-50 border border-blue-200 text-blue-600">
               <PackagePlus className="h-5 w-5" />
             </div>
             <div>
-              <h2 className="text-base sm:text-lg font-bold text-white">
+              <h2 className="text-base sm:text-lg font-bold text-slate-900">
                 Nuevo Producto
               </h2>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-slate-500">
                 Alta transaccional con especialización técnica obligatoria
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+            className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
             type="button"
           >
             <X className="h-5 w-5" />
@@ -219,14 +219,14 @@ export function ProductCreateModal({
 
         {/* Notificaciones */}
         {errorMsg && (
-          <div className="m-4 mb-0 p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs flex items-start gap-2">
-            <AlertCircle className="h-4 w-4 shrink-0 mt-0.5 text-rose-400" />
+          <div className="m-4 mb-0 p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-start gap-2">
+            <AlertCircle className="h-4 w-4 shrink-0 mt-0.5 text-rose-600" />
             <span>{errorMsg}</span>
           </div>
         )}
         {successMsg && (
-          <div className="m-4 mb-0 p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs flex items-start gap-2">
-            <CheckCircle2 className="h-4 w-4 shrink-0 mt-0.5 text-emerald-400" />
+          <div className="m-4 mb-0 p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs flex items-start gap-2">
+            <CheckCircle2 className="h-4 w-4 shrink-0 mt-0.5 text-emerald-600" />
             <span>{successMsg}</span>
           </div>
         )}
@@ -236,7 +236,7 @@ export function ProductCreateModal({
           {/* Fila 1: Código de barras y Nombre */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div>
-              <label className="block text-slate-300 font-semibold mb-1">
+              <label className="block text-slate-700 font-semibold mb-1">
                 Código de Barras (EAN / PK) *
               </label>
               <input
@@ -246,13 +246,13 @@ export function ProductCreateModal({
                 value={codbarras}
                 onChange={(e) => setCodbarras(e.target.value)}
                 placeholder="7750000000011"
-                className="w-full h-9 px-3 rounded-lg bg-slate-950 border border-slate-800 text-cyan-300 font-mono text-xs focus:outline-none focus:border-cyan-500 transition-colors"
+                className="w-full h-9 px-3 rounded-lg bg-slate-50 border border-slate-200 text-blue-600 font-mono text-xs focus:outline-none focus:border-blue-500 focus:bg-white transition-colors"
               />
-              <span className="text-[10px] text-slate-500">Máx. 13 caracteres</span>
+              <span className="text-[10px] text-slate-400">Máx. 13 caracteres</span>
             </div>
 
             <div className="sm:col-span-2">
-              <label className="block text-slate-300 font-semibold mb-1">
+              <label className="block text-slate-700 font-semibold mb-1">
                 Nombre del Componente *
               </label>
               <input
@@ -262,20 +262,20 @@ export function ProductCreateModal({
                 value={nombre}
                 onChange={(e) => setNombre(e.target.value)}
                 placeholder="Ej. AMD Ryzen 5 5600X"
-                className="w-full h-9 px-3 rounded-lg bg-slate-950 border border-slate-800 text-white text-xs focus:outline-none focus:border-cyan-500 transition-colors"
+                className="w-full h-9 px-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:outline-none focus:border-blue-500 focus:bg-white transition-colors"
               />
-              <span className="text-[10px] text-slate-500">Límite varchar(120)</span>
+              <span className="text-[10px] text-slate-400">Límite varchar(120)</span>
             </div>
           </div>
 
           {/* Fila 2: Categoría, Marca y Garantía */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div>
-              <label className="block text-slate-300 font-semibold mb-1">Categoría *</label>
+              <label className="block text-slate-700 font-semibold mb-1">Categoría *</label>
               <select
                 value={idCategoria}
                 onChange={(e) => setIdCategoria(parseInt(e.target.value, 10))}
-                className="w-full h-9 px-3 rounded-lg bg-slate-950 border border-slate-800 text-white text-xs focus:outline-none focus:border-cyan-500 transition-colors"
+                className="w-full h-9 px-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:outline-none focus:border-blue-500 focus:bg-white transition-colors cursor-pointer"
               >
                 {metadata.categorias.map((c) => (
                   <option key={c.id} value={c.id}>
@@ -286,11 +286,11 @@ export function ProductCreateModal({
             </div>
 
             <div>
-              <label className="block text-slate-300 font-semibold mb-1">Marca *</label>
+              <label className="block text-slate-700 font-semibold mb-1">Marca *</label>
               <select
                 value={idMarca}
                 onChange={(e) => setIdMarca(parseInt(e.target.value, 10))}
-                className="w-full h-9 px-3 rounded-lg bg-slate-950 border border-slate-800 text-white text-xs focus:outline-none focus:border-cyan-500 transition-colors"
+                className="w-full h-9 px-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:outline-none focus:border-blue-500 focus:bg-white transition-colors cursor-pointer"
               >
                 {metadata.marcas.map((m) => (
                   <option key={m.id} value={m.id}>
@@ -301,7 +301,7 @@ export function ProductCreateModal({
             </div>
 
             <div>
-              <label className="block text-slate-300 font-semibold mb-1">
+              <label className="block text-slate-700 font-semibold mb-1">
                 Garantía (meses) *
               </label>
               <input
@@ -311,7 +311,7 @@ export function ProductCreateModal({
                 max={120}
                 value={garantiaMeses}
                 onChange={(e) => setGarantiaMeses(e.target.value)}
-                className="w-full h-9 px-3 rounded-lg bg-slate-950 border border-slate-800 text-white text-xs focus:outline-none focus:border-cyan-500 transition-colors"
+                className="w-full h-9 px-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:outline-none focus:border-blue-500 focus:bg-white transition-colors"
               />
             </div>
           </div>
@@ -319,7 +319,7 @@ export function ProductCreateModal({
           {/* Fila 3: Precio de venta y Aviso de Stock Inicial */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 items-end">
             <div>
-              <label className="block text-slate-300 font-semibold mb-1">
+              <label className="block text-slate-700 font-semibold mb-1">
                 Precio de Venta (S/.) *
               </label>
               <input
@@ -330,34 +330,34 @@ export function ProductCreateModal({
                 value={precio}
                 onChange={(e) => setPrecio(e.target.value)}
                 placeholder="450.00"
-                className="w-full h-9 px-3 rounded-lg bg-slate-950 border border-slate-800 text-cyan-300 font-mono text-xs focus:outline-none focus:border-cyan-500 transition-colors"
+                className="w-full h-9 px-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 font-mono font-bold text-xs focus:outline-none focus:border-blue-500 focus:bg-white transition-colors"
               />
             </div>
 
-            <div className="p-2.5 rounded-lg bg-slate-950/60 border border-slate-800/80 text-[11px] text-slate-400">
-              <span className="font-semibold text-rose-300">Stock Inicial: 0 unidades (Estado: Agotado)</span>
-              <p className="text-[10px] text-slate-500 mt-0.5">
+            <div className="p-2.5 rounded-lg bg-amber-50 border border-amber-200 text-[11px] text-amber-800">
+              <span className="font-semibold text-amber-900">Stock Inicial: 0 unidades (Estado: Agotado)</span>
+              <p className="text-[10px] text-amber-700 mt-0.5">
                 Por directriz de inventario, el producto se registra como &apos;Agotado&apos;. El stock y disponibilidad se habilitarán mediante entradas en Inventario.
               </p>
             </div>
           </div>
 
           {/* Sección Dinámica: Especificaciones Técnicas */}
-          <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800 space-y-3">
-            <div className="flex items-center gap-2 text-xs font-semibold text-cyan-300">
-              {categoryName === "CPU" && <Cpu className="h-4 w-4" />}
-              {categoryName === "RAM" && <MemoryStick className="h-4 w-4" />}
-              {categoryName === "SSD" && <HardDrive className="h-4 w-4" />}
-              {categoryName === "Grafica" && <Layers className="h-4 w-4" />}
-              {categoryName === "Fuente de poder" && <Zap className="h-4 w-4" />}
-              {categoryName === "Gabinete" && <Box className="h-4 w-4" />}
+          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
+            <div className="flex items-center gap-2 text-xs font-semibold text-slate-900">
+              {categoryName === "CPU" && <Cpu className="h-4 w-4 text-blue-600" />}
+              {categoryName === "RAM" && <MemoryStick className="h-4 w-4 text-blue-600" />}
+              {categoryName === "SSD" && <HardDrive className="h-4 w-4 text-blue-600" />}
+              {categoryName === "Grafica" && <Layers className="h-4 w-4 text-blue-600" />}
+              {categoryName === "Fuente de poder" && <Zap className="h-4 w-4 text-blue-600" />}
+              {categoryName === "Gabinete" && <Box className="h-4 w-4 text-blue-600" />}
               <span>Ficha Técnica Requerida: {categoryName}</span>
             </div>
 
             {categoryName === "CPU" && (
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-slate-400 mb-1">Frecuencia (GHz)</label>
+                  <label className="block text-slate-600 mb-1">Frecuencia (GHz)</label>
                   <input
                     type="number"
                     step="0.01"
@@ -366,12 +366,12 @@ export function ProductCreateModal({
                     max={10.0}
                     value={cpuFreq}
                     onChange={(e) => setCpuFreq(e.target.value)}
-                    className="w-full h-9 px-3 rounded-lg bg-slate-900 border border-slate-800 text-white font-mono text-xs"
+                    className="w-full h-9 px-3 rounded-lg bg-white border border-slate-200 text-slate-900 font-mono text-xs focus:border-blue-500"
                   />
-                  <span className="text-[10px] text-slate-500">decimal(4,2)</span>
+                  <span className="text-[10px] text-slate-400">decimal(4,2)</span>
                 </div>
                 <div>
-                  <label className="block text-slate-400 mb-1">Número de Núcleos</label>
+                  <label className="block text-slate-600 mb-1">Número de Núcleos</label>
                   <input
                     type="number"
                     required
@@ -379,7 +379,7 @@ export function ProductCreateModal({
                     max={128}
                     value={cpuCores}
                     onChange={(e) => setCpuCores(e.target.value)}
-                    className="w-full h-9 px-3 rounded-lg bg-slate-900 border border-slate-800 text-white font-mono text-xs"
+                    className="w-full h-9 px-3 rounded-lg bg-white border border-slate-200 text-slate-900 font-mono text-xs focus:border-blue-500"
                   />
                 </div>
               </div>
@@ -388,7 +388,7 @@ export function ProductCreateModal({
             {categoryName === "RAM" && (
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-slate-400 mb-1">Capacidad (GB)</label>
+                  <label className="block text-slate-600 mb-1">Capacidad (GB)</label>
                   <input
                     type="number"
                     required
@@ -396,11 +396,11 @@ export function ProductCreateModal({
                     max={256}
                     value={ramCap}
                     onChange={(e) => setRamCap(e.target.value)}
-                    className="w-full h-9 px-3 rounded-lg bg-slate-900 border border-slate-800 text-white font-mono text-xs"
+                    className="w-full h-9 px-3 rounded-lg bg-white border border-slate-200 text-slate-900 font-mono text-xs focus:border-blue-500"
                   />
                 </div>
                 <div>
-                  <label className="block text-slate-400 mb-1">Velocidad (MHz)</label>
+                  <label className="block text-slate-600 mb-1">Velocidad (MHz)</label>
                   <input
                     type="number"
                     required
@@ -408,7 +408,7 @@ export function ProductCreateModal({
                     max={10000}
                     value={ramVel}
                     onChange={(e) => setRamVel(e.target.value)}
-                    className="w-full h-9 px-3 rounded-lg bg-slate-900 border border-slate-800 text-white font-mono text-xs"
+                    className="w-full h-9 px-3 rounded-lg bg-white border border-slate-200 text-slate-900 font-mono text-xs focus:border-blue-500"
                   />
                 </div>
               </div>
@@ -417,7 +417,7 @@ export function ProductCreateModal({
             {categoryName === "SSD" && (
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-slate-400 mb-1">Capacidad (GB)</label>
+                  <label className="block text-slate-600 mb-1">Capacidad (GB)</label>
                   <input
                     type="number"
                     required
@@ -425,18 +425,18 @@ export function ProductCreateModal({
                     max={16000}
                     value={ssdCap}
                     onChange={(e) => setSsdCap(e.target.value)}
-                    className="w-full h-9 px-3 rounded-lg bg-slate-900 border border-slate-800 text-white font-mono text-xs"
+                    className="w-full h-9 px-3 rounded-lg bg-white border border-slate-200 text-slate-900 font-mono text-xs focus:border-blue-500"
                   />
                 </div>
                 <div>
-                  <label className="block text-slate-400 mb-1">Interfaz (Máx. 20 car.)</label>
+                  <label className="block text-slate-600 mb-1">Interfaz (Máx. 20 car.)</label>
                   <input
                     type="text"
                     required
                     maxLength={20}
                     value={ssdInterfaz}
                     onChange={(e) => setSsdInterfaz(e.target.value)}
-                    className="w-full h-9 px-3 rounded-lg bg-slate-900 border border-slate-800 text-white text-xs"
+                    className="w-full h-9 px-3 rounded-lg bg-white border border-slate-200 text-slate-900 text-xs focus:border-blue-500"
                   />
                 </div>
               </div>
@@ -445,7 +445,7 @@ export function ProductCreateModal({
             {categoryName === "Grafica" && (
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-slate-400 mb-1">VRAM (GB)</label>
+                  <label className="block text-slate-600 mb-1">VRAM (GB)</label>
                   <input
                     type="number"
                     required
@@ -453,18 +453,18 @@ export function ProductCreateModal({
                     max={96}
                     value={gpuVram}
                     onChange={(e) => setGpuVram(e.target.value)}
-                    className="w-full h-9 px-3 rounded-lg bg-slate-900 border border-slate-800 text-white font-mono text-xs"
+                    className="w-full h-9 px-3 rounded-lg bg-white border border-slate-200 text-slate-900 font-mono text-xs focus:border-blue-500"
                   />
                 </div>
                 <div>
-                  <label className="block text-slate-400 mb-1">Chipset (Máx. 50 car.)</label>
+                  <label className="block text-slate-600 mb-1">Chipset (Máx. 50 car.)</label>
                   <input
                     type="text"
                     required
                     maxLength={50}
                     value={gpuChipset}
                     onChange={(e) => setGpuChipset(e.target.value)}
-                    className="w-full h-9 px-3 rounded-lg bg-slate-900 border border-slate-800 text-white text-xs"
+                    className="w-full h-9 px-3 rounded-lg bg-white border border-slate-200 text-slate-900 text-xs focus:border-blue-500"
                   />
                 </div>
               </div>
@@ -473,7 +473,7 @@ export function ProductCreateModal({
             {categoryName === "Fuente de poder" && (
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-slate-400 mb-1">Potencia (Watts)</label>
+                  <label className="block text-slate-600 mb-1">Potencia (Watts)</label>
                   <input
                     type="number"
                     required
@@ -481,18 +481,18 @@ export function ProductCreateModal({
                     max={3000}
                     value={psuWatts}
                     onChange={(e) => setPsuWatts(e.target.value)}
-                    className="w-full h-9 px-3 rounded-lg bg-slate-900 border border-slate-800 text-white font-mono text-xs"
+                    className="w-full h-9 px-3 rounded-lg bg-white border border-slate-200 text-slate-900 font-mono text-xs focus:border-blue-500"
                   />
                 </div>
                 <div>
-                  <label className="block text-slate-400 mb-1">Certificación (Máx. 30 car.)</label>
+                  <label className="block text-slate-600 mb-1">Certificación (Máx. 30 car.)</label>
                   <input
                     type="text"
                     required
                     maxLength={30}
                     value={psuCert}
                     onChange={(e) => setPsuCert(e.target.value)}
-                    className="w-full h-9 px-3 rounded-lg bg-slate-900 border border-slate-800 text-white text-xs"
+                    className="w-full h-9 px-3 rounded-lg bg-white border border-slate-200 text-slate-900 text-xs focus:border-blue-500"
                   />
                 </div>
               </div>
@@ -501,25 +501,25 @@ export function ProductCreateModal({
             {categoryName === "Gabinete" && (
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-slate-400 mb-1">Formato (Máx. 20 car.)</label>
+                  <label className="block text-slate-600 mb-1">Formato (Máx. 20 car.)</label>
                   <input
                     type="text"
                     required
                     maxLength={20}
                     value={caseFormat}
                     onChange={(e) => setCaseFormat(e.target.value)}
-                    className="w-full h-9 px-3 rounded-lg bg-slate-900 border border-slate-800 text-white text-xs"
+                    className="w-full h-9 px-3 rounded-lg bg-white border border-slate-200 text-slate-900 text-xs focus:border-blue-500"
                   />
                 </div>
                 <div>
-                  <label className="block text-slate-400 mb-1">Material (Máx. 30 car.)</label>
+                  <label className="block text-slate-600 mb-1">Material (Máx. 30 car.)</label>
                   <input
                     type="text"
                     required
                     maxLength={30}
                     value={caseMaterial}
                     onChange={(e) => setCaseMaterial(e.target.value)}
-                    className="w-full h-9 px-3 rounded-lg bg-slate-900 border border-slate-800 text-white text-xs"
+                    className="w-full h-9 px-3 rounded-lg bg-white border border-slate-200 text-slate-900 text-xs focus:border-blue-500"
                   />
                 </div>
               </div>
@@ -529,14 +529,14 @@ export function ProductCreateModal({
           {/* Sección: Proveedores Opcionales */}
           <div className="space-y-2.5">
             <div className="flex items-center justify-between">
-              <label className="text-slate-300 font-semibold flex items-center gap-1.5">
-                <Building2 className="h-4 w-4 text-cyan-400" />
+              <label className="text-slate-700 font-semibold flex items-center gap-1.5">
+                <Building2 className="h-4 w-4 text-blue-600" />
                 <span>Asociación de Proveedores (Opcional)</span>
               </label>
               <button
                 type="button"
                 onClick={handleAddSupplier}
-                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-[11px] font-medium transition-colors"
+                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 text-[11px] font-medium transition-colors"
               >
                 <Plus className="h-3 w-3" />
                 Vincular Proveedor
@@ -544,7 +544,7 @@ export function ProductCreateModal({
             </div>
 
             {selectedSuppliers.length === 0 ? (
-              <p className="text-[11px] text-slate-500 italic">
+              <p className="text-[11px] text-slate-400 italic">
                 Sin proveedores asociados inicialmente.
               </p>
             ) : (
@@ -552,7 +552,7 @@ export function ProductCreateModal({
                 {selectedSuppliers.map((s, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-950/60 border border-slate-800"
+                    className="flex items-center gap-2 p-2.5 rounded-xl bg-white border border-slate-200"
                   >
                     <select
                       value={s.idProveedor}
@@ -562,7 +562,7 @@ export function ProductCreateModal({
                         updated[idx].idProveedor = newId;
                         setSelectedSuppliers(updated);
                       }}
-                      className="flex-1 h-8 px-2 rounded-lg bg-slate-900 border border-slate-800 text-white text-xs"
+                      className="flex-1 h-8 px-2 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:border-blue-500"
                     >
                       {metadata.proveedoresDisponibles.map((p) => (
                         <option key={p.id} value={p.id}>
@@ -581,13 +581,13 @@ export function ProductCreateModal({
                         updated[idx].precioCompra = e.target.value;
                         setSelectedSuppliers(updated);
                       }}
-                      className="w-32 h-8 px-2 rounded-lg bg-slate-900 border border-slate-800 text-white font-mono text-xs"
+                      className="w-32 h-8 px-2 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 font-mono text-xs focus:border-blue-500"
                     />
 
                     <button
                       type="button"
                       onClick={() => handleRemoveSupplier(idx)}
-                      className="p-1.5 text-slate-400 hover:text-rose-400 rounded-lg hover:bg-slate-900 transition-colors"
+                      className="p-1.5 text-slate-400 hover:text-rose-600 rounded-lg hover:bg-rose-50 transition-colors"
                     >
                       <Trash2 className="h-4 w-4" />
                     </button>
@@ -598,12 +598,12 @@ export function ProductCreateModal({
           </div>
 
           {/* Botones de acción */}
-          <div className="pt-3 border-t border-slate-800 flex items-center justify-end gap-2.5">
+          <div className="pt-3 border-t border-slate-200 flex items-center justify-end gap-2.5">
             <button
               type="button"
               onClick={onClose}
               disabled={isPending}
-              className="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium transition-colors"
+              className="px-4 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 text-xs font-medium transition-colors"
             >
               Cancelar
             </button>
@@ -611,7 +611,7 @@ export function ProductCreateModal({
             <button
               type="submit"
               disabled={isPending}
-              className="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs shadow-md shadow-cyan-500/20 disabled:opacity-50 transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs shadow-xs disabled:opacity-50 transition-colors"
             >
               {isPending ? (
                 <>

@@ -64,7 +64,7 @@ export function ProductFilters({
   };
 
   return (
-    <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-3.5 sm:p-5 space-y-3 sm:space-y-4 shadow-sm">
+    <div className="bg-white border border-slate-200 rounded-xl p-3.5 sm:p-5 space-y-3 sm:space-y-4 shadow-xs">
       {/* Fila Superior: Búsqueda y Selector de Ordenamiento */}
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 sm:gap-3">
         {/* Input de Búsqueda de Ancho Completo en Móvil */}
@@ -75,13 +75,13 @@ export function ProductFilters({
             value={search}
             onChange={(e) => updateParam("search", e.target.value)}
             placeholder="Buscar por nombre o código EAN-13..."
-            className="w-full pl-10 pr-9 py-2.5 rounded-lg bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 text-xs sm:text-sm text-slate-100 placeholder:text-slate-400 transition-colors"
+            className="w-full pl-10 pr-9 py-2.5 rounded-lg bg-slate-50 border border-slate-200 focus:border-blue-500 focus:bg-white focus:ring-1 focus:ring-blue-500 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 transition-colors"
           />
           {search && (
             <button
               onClick={() => updateParam("search", "")}
               type="button"
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 p-1"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1"
               aria-label="Borrar búsqueda"
             >
               <X className="h-3.5 w-3.5" />
@@ -104,7 +104,7 @@ export function ProductFilters({
                   router.push(`${pathname}?${params.toString()}`);
                 });
               }}
-              className="w-full sm:w-auto appearance-none bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 pr-8 text-xs text-slate-200 font-medium focus:border-cyan-500 transition-colors cursor-pointer"
+              className="w-full sm:w-auto appearance-none bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 pr-8 text-xs text-slate-700 font-medium focus:border-blue-500 focus:bg-white transition-colors cursor-pointer"
             >
               <option value="nombre-asc">Nombre (A &rarr; Z)</option>
               <option value="nombre-desc">Nombre (Z &rarr; A)</option>
@@ -120,10 +120,10 @@ export function ProductFilters({
             <button
               onClick={clearAllFilters}
               type="button"
-              className="inline-flex items-center gap-1.5 px-3 py-2 min-h-[38px] rounded-lg bg-slate-800 hover:bg-slate-700 active:bg-slate-700 text-xs font-medium text-slate-300 border border-slate-700 transition-colors shrink-0"
+              className="inline-flex items-center gap-1.5 px-3 py-2 min-h-[38px] rounded-lg bg-slate-100 hover:bg-slate-200 active:bg-slate-200 text-xs font-medium text-slate-700 border border-slate-200 transition-colors shrink-0"
               title="Restablecer todos los filtros"
             >
-              <RotateCcw className="h-3 w-3 text-cyan-400" />
+              <RotateCcw className="h-3 w-3 text-blue-600" />
               <span>Limpiar</span>
             </button>
           )}
@@ -131,16 +131,16 @@ export function ProductFilters({
       </div>
 
       {/* Fila Inferior: Selectores de Filtro Específico (2 cols móvil, 4 cols desktop) */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5 pt-2.5 border-t border-slate-800/80">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5 pt-2.5 border-t border-slate-200/80">
         {/* Filtro Categoría */}
         <div>
-          <label className="text-[10px] sm:text-[11px] font-medium text-slate-400 block mb-1">
+          <label className="text-[10px] sm:text-[11px] font-medium text-slate-500 block mb-1">
             Categoría:
           </label>
           <select
             value={categoria}
             onChange={(e) => updateParam("categoria", e.target.value)}
-            className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2 sm:px-2.5 py-1.5 text-xs text-slate-200 focus:border-cyan-500 cursor-pointer"
+            className="w-full bg-slate-50 border border-slate-200 rounded-lg px-2 sm:px-2.5 py-1.5 text-xs text-slate-700 focus:border-blue-500 focus:bg-white cursor-pointer"
           >
             <option value="todas">Todas ({metadata.categorias.length})</option>
             {metadata.categorias.map((cat) => (
@@ -153,13 +153,13 @@ export function ProductFilters({
 
         {/* Filtro Marca */}
         <div>
-          <label className="text-[10px] sm:text-[11px] font-medium text-slate-400 block mb-1">
+          <label className="text-[10px] sm:text-[11px] font-medium text-slate-500 block mb-1">
             Marca:
           </label>
           <select
             value={marca}
             onChange={(e) => updateParam("marca", e.target.value)}
-            className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2 sm:px-2.5 py-1.5 text-xs text-slate-200 focus:border-cyan-500 cursor-pointer"
+            className="w-full bg-slate-50 border border-slate-200 rounded-lg px-2 sm:px-2.5 py-1.5 text-xs text-slate-700 focus:border-blue-500 focus:bg-white cursor-pointer"
           >
             <option value="todas">Todas ({metadata.marcas.length})</option>
             {metadata.marcas.map((m) => (
@@ -172,13 +172,13 @@ export function ProductFilters({
 
         {/* Filtro Estado del Producto */}
         <div>
-          <label className="text-[10px] sm:text-[11px] font-medium text-slate-400 block mb-1">
+          <label className="text-[10px] sm:text-[11px] font-medium text-slate-500 block mb-1">
             Estado:
           </label>
           <select
             value={estado}
             onChange={(e) => updateParam("estado", e.target.value)}
-            className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2 sm:px-2.5 py-1.5 text-xs text-slate-200 focus:border-cyan-500 cursor-pointer"
+            className="w-full bg-slate-50 border border-slate-200 rounded-lg px-2 sm:px-2.5 py-1.5 text-xs text-slate-700 focus:border-blue-500 focus:bg-white cursor-pointer"
           >
             <option value="todos">Todos</option>
             {metadata.estados.map((est) => (
@@ -191,13 +191,13 @@ export function ProductFilters({
 
         {/* Filtro Disponibilidad de Stock */}
         <div>
-          <label className="text-[10px] sm:text-[11px] font-medium text-slate-400 block mb-1">
+          <label className="text-[10px] sm:text-[11px] font-medium text-slate-500 block mb-1">
             Stock:
           </label>
           <select
             value={stockStatus}
             onChange={(e) => updateParam("stockStatus", e.target.value)}
-            className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2 sm:px-2.5 py-1.5 text-xs text-slate-200 focus:border-cyan-500 cursor-pointer"
+            className="w-full bg-slate-50 border border-slate-200 rounded-lg px-2 sm:px-2.5 py-1.5 text-xs text-slate-700 focus:border-blue-500 focus:bg-white cursor-pointer"
           >
             <option value="todos">Cualquier stock</option>
             <option value="disponible">En Stock (&gt; 0)</option>
@@ -208,19 +208,19 @@ export function ProductFilters({
       </div>
 
       {/* Resumen de Resultados */}
-      <div className="flex flex-wrap items-center justify-between gap-1.5 pt-1 text-[11px] sm:text-xs text-slate-400">
+      <div className="flex flex-wrap items-center justify-between gap-1.5 pt-1 text-[11px] sm:text-xs text-slate-500">
         <div className="flex items-center gap-2">
           <span>
-            Mostrando <strong className="text-cyan-400">{totalFiltered}</strong> de{" "}
-            <strong>{metadata.totalCatalog}</strong> productos
+            Mostrando <strong className="text-blue-600 font-semibold">{totalFiltered}</strong> de{" "}
+            <strong className="text-slate-800">{metadata.totalCatalog}</strong> productos
           </span>
           {isPending && (
-            <span className="inline-block h-3.5 w-3.5 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin" />
+            <span className="inline-block h-3.5 w-3.5 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" />
           )}
         </div>
 
         {hasActiveFilters && (
-          <span className="text-[10px] sm:text-[11px] text-amber-400/90 font-medium bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
+          <span className="text-[10px] sm:text-[11px] text-amber-700 font-medium bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
             Filtros activos
           </span>
         )}

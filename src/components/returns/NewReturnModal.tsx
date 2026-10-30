@@ -190,32 +190,32 @@ export function NewReturnModal({ onClose, onSuccess, motivos }: NewReturnModalPr
     <div
       role="dialog"
       aria-modal="true"
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/80 backdrop-blur-sm animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/40 backdrop-blur-xs animate-in fade-in duration-200"
     >
-      <div className="relative w-full max-w-4xl max-h-[92vh] flex flex-col rounded-2xl bg-slate-900 border border-slate-800 shadow-2xl overflow-hidden">
+      <div className="relative w-full max-w-4xl max-h-[92vh] flex flex-col rounded-2xl bg-white border border-slate-200 shadow-2xl overflow-hidden">
         {/* Cabecera */}
-        <div className="p-4 sm:p-5 border-b border-slate-800 flex items-center justify-between shrink-0 bg-slate-950/70">
+        <div className="p-4 sm:p-5 border-b border-slate-200 flex items-center justify-between shrink-0 bg-slate-50/80">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400">
+            <div className="p-2.5 rounded-xl bg-blue-50 border border-blue-200 text-blue-600">
               <RotateCcw className="h-5 w-5" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h3 className="text-base sm:text-lg font-bold text-slate-100">
+                <h3 className="text-base sm:text-lg font-bold text-slate-900">
                   Registrar Solicitud de Devolución
                 </h3>
-                <span className="px-2 py-0.5 rounded text-[11px] font-semibold bg-amber-500/10 border border-amber-500/30 text-amber-400">
+                <span className="px-2 py-0.5 rounded text-[11px] font-semibold bg-amber-50 border border-amber-200 text-amber-700">
                   Estado: Pendiente
                 </span>
               </div>
-              <p className="text-xs text-slate-400 mt-0.5">
+              <p className="text-xs text-slate-500 mt-0.5">
                 Búsqueda transaccional de comprobante, verificación de saldos y reserva de unidades
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-2 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-800 transition-colors"
+            className="p-2 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
           >
             <X className="h-5 w-5" />
           </button>
@@ -224,27 +224,27 @@ export function NewReturnModal({ onClose, onSuccess, motivos }: NewReturnModalPr
         {/* Contenido desplazable */}
         <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-6">
           {/* 1. Buscador de Comprobante */}
-          <div className="p-4 rounded-xl bg-slate-950/40 border border-slate-800 space-y-3">
-            <label className="block text-xs font-semibold text-slate-300">
+          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
+            <label className="block text-xs font-semibold text-slate-700">
               Paso 1: Localizar Venta Original por Comprobante
             </label>
             <div className="flex flex-col sm:flex-row gap-2">
               <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
                 <input
                   type="text"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && handleSearchSale()}
                   placeholder="Ej: B001-000001, B001-000002, F001-000001..."
-                  className="w-full pl-9 pr-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-cyan-500"
+                  className="w-full pl-9 pr-3 py-2 bg-white border border-slate-200 rounded-lg text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                 />
               </div>
               <button
                 type="button"
                 onClick={() => handleSearchSale()}
                 disabled={isSearching || !searchTerm.trim()}
-                className="px-4 py-2 bg-cyan-600 hover:bg-cyan-500 disabled:opacity-50 text-white text-sm font-semibold rounded-lg flex items-center justify-center gap-2 transition-colors cursor-pointer"
+                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white text-sm font-semibold rounded-lg flex items-center justify-center gap-2 transition-colors cursor-pointer shadow-xs"
               >
                 {isSearching ? (
                   <div className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full" />
@@ -256,7 +256,7 @@ export function NewReturnModal({ onClose, onSuccess, motivos }: NewReturnModalPr
             </div>
 
             {/* Accesos rápidos a ventas recientes */}
-            <div className="flex flex-wrap items-center gap-1.5 text-xs text-slate-400 pt-1">
+            <div className="flex flex-wrap items-center gap-1.5 text-xs text-slate-500 pt-1">
               <span>Sugerencias rápidas:</span>
               {["B001-000001", "B001-000002", "B001-000003", "B001-000004", "B001-000005"].map(
                 (v) => (
@@ -267,7 +267,7 @@ export function NewReturnModal({ onClose, onSuccess, motivos }: NewReturnModalPr
                       setSearchTerm(v);
                       handleSearchSale(v);
                     }}
-                    className="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-cyan-400 font-mono text-[11px] border border-slate-700 transition-colors"
+                    className="px-2 py-0.5 rounded bg-white hover:bg-blue-50 text-blue-600 font-mono text-[11px] border border-slate-200 transition-colors shadow-2xs"
                   >
                     {v}
                   </button>
@@ -276,7 +276,7 @@ export function NewReturnModal({ onClose, onSuccess, motivos }: NewReturnModalPr
             </div>
 
             {searchError && (
-              <div className="p-3 rounded-lg bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs flex items-center gap-2">
+              <div className="p-3 rounded-lg bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-center gap-2">
                 <AlertCircle className="h-4 w-4 shrink-0" />
                 <span>{searchError}</span>
               </div>
@@ -286,49 +286,49 @@ export function NewReturnModal({ onClose, onSuccess, motivos }: NewReturnModalPr
           {/* 2. Información de la Venta Localizada */}
           {saleData && (
             <div className="space-y-4 animate-in fade-in duration-200">
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 p-4 rounded-xl bg-slate-950/50 border border-slate-800">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 p-4 rounded-xl bg-slate-50 border border-slate-200">
                 <div className="space-y-1">
-                  <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
+                  <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">
                     Comprobante
                   </span>
                   <div className="flex items-center gap-2">
-                    <FileText className="h-4 w-4 text-cyan-400" />
-                    <span className="font-mono font-bold text-slate-200">
+                    <FileText className="h-4 w-4 text-blue-600" />
+                    <span className="font-mono font-bold text-slate-900">
                       {saleData.numeroComprobante}
                     </span>
-                    <span className="text-xs px-2 py-0.5 rounded bg-slate-800 text-slate-300">
+                    <span className="text-xs px-2 py-0.5 rounded bg-white border border-slate-200 text-slate-700 font-medium">
                       {saleData.tipoComprobante}
                     </span>
                   </div>
-                  <p className="text-xs text-slate-400">
+                  <p className="text-xs text-slate-500">
                     Fecha: {formatDate(saleData.fechaVenta)} • Total:{" "}
-                    <strong className="text-slate-200">
+                    <strong className="text-slate-800">
                       {formatCurrency(saleData.totalVenta)}
                     </strong>
                   </p>
                 </div>
 
                 <div className="space-y-1">
-                  <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
+                  <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">
                     Cliente Titular
                   </span>
                   <div className="flex items-center gap-2">
-                    <User className="h-4 w-4 text-emerald-400" />
-                    <span className="font-medium text-slate-200 text-sm">
+                    <User className="h-4 w-4 text-emerald-600" />
+                    <span className="font-medium text-slate-900 text-sm">
                       {saleData.nombreCliente}
                     </span>
                   </div>
-                  <p className="text-xs text-slate-400">DNI: {saleData.dniCliente}</p>
+                  <p className="text-xs text-slate-500">DNI: {saleData.dniCliente}</p>
                 </div>
 
                 <div className="space-y-1">
-                  <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
+                  <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">
                     Vendedor Asignado
                   </span>
-                  <p className="text-sm font-medium text-slate-200">
+                  <p className="text-sm font-medium text-slate-900">
                     {saleData.nombreEmpleado}
                   </p>
-                  <p className="text-xs text-slate-400">
+                  <p className="text-xs text-slate-500">
                     Venta ID #{saleData.idVenta}
                   </p>
                 </div>
@@ -337,10 +337,10 @@ export function NewReturnModal({ onClose, onSuccess, motivos }: NewReturnModalPr
               {/* 3. Selección de Productos Vendidos y Cantidades */}
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <label className="text-xs font-semibold text-slate-300">
+                  <label className="text-xs font-semibold text-slate-700">
                     Paso 2: Seleccionar Productos a Devolver y Causa
                   </label>
-                  <span className="text-xs text-cyan-400">
+                  <span className="text-xs text-blue-600 font-medium">
                     {selectedCount} de {saleData.lineas.length} ítems seleccionados
                   </span>
                 </div>
@@ -356,10 +356,10 @@ export function NewReturnModal({ onClose, onSuccess, motivos }: NewReturnModalPr
                         key={line.idDetalle}
                         className={`p-3.5 sm:p-4 rounded-xl border transition-all ${
                           isSelected
-                            ? "bg-cyan-950/20 border-cyan-500/50 shadow-md shadow-cyan-950/50"
+                            ? "bg-blue-50/50 border-blue-400 shadow-xs"
                             : isAvailable
-                            ? "bg-slate-950/40 border-slate-800 hover:border-slate-700"
-                            : "bg-slate-950/20 border-slate-800/40 opacity-60"
+                            ? "bg-white border-slate-200 hover:border-slate-300"
+                            : "bg-slate-50/60 border-slate-200/60 opacity-60"
                         }`}
                       >
                         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
@@ -370,56 +370,56 @@ export function NewReturnModal({ onClose, onSuccess, motivos }: NewReturnModalPr
                               checked={isSelected}
                               disabled={!isAvailable}
                               onChange={() => handleToggleItem(line)}
-                              className="mt-1 h-4 w-4 rounded border-slate-700 bg-slate-900 text-cyan-600 focus:ring-cyan-500 cursor-pointer disabled:cursor-not-allowed"
+                              className="mt-1 h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500 cursor-pointer disabled:cursor-not-allowed"
                             />
                             <div className="min-w-0 flex-1">
                               <div className="flex flex-wrap items-center gap-2">
-                                <h4 className="text-sm font-semibold text-slate-200 truncate">
+                                <h4 className="text-sm font-semibold text-slate-900 truncate">
                                   {line.nombreProd}
                                 </h4>
-                                <span className="font-mono text-[11px] text-slate-400">
+                                <span className="font-mono text-[11px] text-slate-500">
                                   [{line.codbarrasProd}]
                                 </span>
                               </div>
 
                               {/* Badges de Balance y Plazo de Garantía */}
                               <div className="flex flex-wrap items-center gap-2 mt-1.5 text-xs">
-                                <span className="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-medium">
+                                <span className="px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-medium border border-slate-200">
                                   Vendidos: {line.cantidadVendida} unid.
                                 </span>
                                 {line.cantidadAprobada > 0 && (
-                                  <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-medium border border-emerald-500/20">
+                                  <span className="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 font-medium border border-emerald-200">
                                     Aprobados: {line.cantidadAprobada}
                                   </span>
                                 )}
                                 {line.cantidadPendiente > 0 && (
-                                  <span className="px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 font-medium border border-amber-500/20">
+                                  <span className="px-2 py-0.5 rounded bg-amber-50 text-amber-700 font-medium border border-amber-200">
                                     Reservados en Pendiente: {line.cantidadPendiente}
                                   </span>
                                 )}
                                 <span
                                   className={`px-2 py-0.5 rounded font-bold border ${
                                     line.cantidadDisponible > 0
-                                      ? "bg-cyan-500/10 text-cyan-300 border-cyan-500/30"
-                                      : "bg-rose-500/10 text-rose-400 border-rose-500/30"
+                                      ? "bg-blue-50 text-blue-700 border-blue-200"
+                                      : "bg-rose-50 text-rose-700 border-rose-200"
                                   }`}
                                 >
                                   Disponible: {line.cantidadDisponible} unid.
                                 </span>
 
                                 {/* Indicador de Garantía */}
-                                <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] bg-slate-800/80 text-slate-300 border border-slate-700">
+                                <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] bg-slate-100 text-slate-700 border border-slate-200">
                                   {line.garantiaVigente ? (
                                     <>
-                                      <ShieldCheck className="h-3 w-3 text-emerald-400" />
-                                      <span className="text-emerald-300 font-medium">
+                                      <ShieldCheck className="h-3 w-3 text-emerald-600" />
+                                      <span className="text-emerald-700 font-medium">
                                         Garantía Vigente ({line.diasGarantiaRestantes} d)
                                       </span>
                                     </>
                                   ) : (
                                     <>
-                                      <ShieldAlert className="h-3 w-3 text-rose-400" />
-                                      <span className="text-rose-300 font-medium">
+                                      <ShieldAlert className="h-3 w-3 text-rose-600" />
+                                      <span className="text-rose-700 font-medium">
                                         Garantía Expirada
                                       </span>
                                     </>
@@ -431,8 +431,8 @@ export function NewReturnModal({ onClose, onSuccess, motivos }: NewReturnModalPr
 
                           {/* Precio Unitario */}
                           <div className="text-right shrink-0">
-                            <span className="text-xs text-slate-400 block">Precio Venta</span>
-                            <span className="text-sm font-bold text-slate-200">
+                            <span className="text-xs text-slate-500 block">Precio Venta</span>
+                            <span className="text-sm font-bold text-slate-900 font-mono">
                               {formatCurrency(line.precioUnitario)}
                             </span>
                           </div>
@@ -440,9 +440,9 @@ export function NewReturnModal({ onClose, onSuccess, motivos }: NewReturnModalPr
 
                         {/* Controles de Entrada (cuando está seleccionado) */}
                         {isSelected && selectedState && (
-                          <div className="mt-3 pt-3 border-t border-slate-800/80 grid grid-cols-1 sm:grid-cols-2 gap-3 bg-slate-900/60 p-3 rounded-lg">
+                          <div className="mt-3 pt-3 border-t border-slate-200 grid grid-cols-1 sm:grid-cols-2 gap-3 bg-slate-50 p-3 rounded-lg">
                             <div>
-                              <label className="block text-[11px] font-semibold text-slate-300 mb-1">
+                              <label className="block text-[11px] font-semibold text-slate-700 mb-1">
                                 Cantidad a Devolver (Máx: {line.cantidadDisponible})
                               </label>
                               <div className="flex items-center gap-2">
@@ -458,11 +458,11 @@ export function NewReturnModal({ onClose, onSuccess, motivos }: NewReturnModalPr
                                       line.cantidadDisponible
                                     )
                                   }
-                                  className="w-24 px-3 py-1.5 bg-slate-950 border border-slate-700 rounded-lg text-sm text-center font-bold text-cyan-400 focus:outline-none focus:border-cyan-500"
+                                  className="w-24 px-3 py-1.5 bg-white border border-slate-300 rounded-lg text-sm text-center font-bold text-blue-600 focus:outline-none focus:border-blue-500"
                                 />
-                                <span className="text-xs text-slate-400">
+                                <span className="text-xs text-slate-600">
                                   Subtotal devolución:{" "}
-                                  <strong className="text-slate-200 font-mono">
+                                  <strong className="text-slate-900 font-mono">
                                     {formatCurrency(
                                       selectedState.cantidadDev * line.precioUnitario
                                     )}
@@ -472,7 +472,7 @@ export function NewReturnModal({ onClose, onSuccess, motivos }: NewReturnModalPr
                             </div>
 
                             <div>
-                              <label className="block text-[11px] font-semibold text-slate-300 mb-1">
+                              <label className="block text-[11px] font-semibold text-slate-700 mb-1">
                                 Causa / Motivo del Trámite
                               </label>
                               <select
@@ -480,7 +480,7 @@ export function NewReturnModal({ onClose, onSuccess, motivos }: NewReturnModalPr
                                 onChange={(e) =>
                                   handleMotiveChange(line.idDetalle, Number(e.target.value))
                                 }
-                                className="w-full px-3 py-1.5 bg-slate-950 border border-slate-700 rounded-lg text-xs text-slate-200 focus:outline-none focus:border-cyan-500"
+                                className="w-full px-3 py-1.5 bg-white border border-slate-300 rounded-lg text-xs text-slate-800 focus:outline-none focus:border-blue-500"
                               >
                                 {motivos.map((m) => (
                                   <option key={m.id} value={m.id}>
@@ -506,32 +506,32 @@ export function NewReturnModal({ onClose, onSuccess, motivos }: NewReturnModalPr
 
               {/* 4. Resumen y Empleado Responsable */}
               {selectedCount > 0 && (
-                <div className="p-4 rounded-xl bg-cyan-950/30 border border-cyan-500/30 space-y-3 animate-in fade-in duration-150">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-cyan-500/20 pb-3">
+                <div className="p-4 rounded-xl bg-blue-50/60 border border-blue-200 space-y-3 animate-in fade-in duration-150">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-blue-200/60 pb-3">
                     <div>
-                      <span className="text-xs font-semibold text-cyan-300 uppercase tracking-wider">
+                      <span className="text-xs font-semibold text-blue-900 uppercase tracking-wider">
                         Resumen del Trámite RMA
                       </span>
-                      <p className="text-xs text-slate-400">
+                      <p className="text-xs text-slate-600">
                         {selectedCount} producto(s) seleccionado(s) • Total unidades:{" "}
-                        <strong className="text-slate-200">{totalUnits} unid.</strong>
+                        <strong className="text-slate-900">{totalUnits} unid.</strong>
                       </p>
                     </div>
                     <div className="text-right">
-                      <span className="text-xs text-slate-400 block">Impacto Estimado</span>
-                      <span className="text-lg font-bold text-cyan-400 font-mono">
+                      <span className="text-xs text-slate-500 block">Impacto Estimado</span>
+                      <span className="text-lg font-bold text-blue-700 font-mono">
                         {formatCurrency(estimatedAmount)}
                       </span>
                     </div>
                   </div>
 
                   {/* Advertencia Transaccional */}
-                  <div className="p-3 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs flex items-start gap-2">
-                    <AlertTriangle className="h-4 w-4 shrink-0 mt-0.5" />
+                  <div className="p-3 rounded-lg bg-amber-50 border border-amber-200 text-amber-800 text-xs flex items-start gap-2">
+                    <AlertTriangle className="h-4 w-4 shrink-0 mt-0.5 text-amber-600" />
                     <p className="leading-relaxed">
                       <strong>Política de Reserva Transaccional:</strong> Al registrar este trámite,
                       las {totalUnits} unidades quedarán en estado{" "}
-                      <span className="text-amber-200 font-bold">Pendiente</span> y reservadas en la
+                      <span className="text-amber-900 font-bold">Pendiente</span> y reservadas en la
                       base de datos, impidiendo que otra terminal las devuelva. La mercadería no
                       ingresa al stock físico de almacén hasta su posterior evaluación y aprobación
                       administrativa.
@@ -541,7 +541,7 @@ export function NewReturnModal({ onClose, onSuccess, motivos }: NewReturnModalPr
               )}
 
               {submitError && (
-                <div className="p-3 rounded-lg bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs flex items-center gap-2">
+                <div className="p-3 rounded-lg bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-center gap-2">
                   <AlertCircle className="h-4 w-4 shrink-0" />
                   <span>{submitError}</span>
                 </div>
@@ -551,11 +551,11 @@ export function NewReturnModal({ onClose, onSuccess, motivos }: NewReturnModalPr
         </div>
 
         {/* Pie Fijo con Acciones */}
-        <div className="p-4 sm:p-5 border-t border-slate-800 flex items-center justify-between gap-3 bg-slate-950/70 shrink-0">
+        <div className="p-4 sm:p-5 border-t border-slate-200 flex items-center justify-between gap-3 bg-slate-50/80 shrink-0">
           <button
             type="button"
             onClick={onClose}
-            className="px-4 py-2 rounded-lg text-xs font-semibold text-slate-400 hover:text-slate-200 hover:bg-slate-800 transition-colors"
+            className="px-4 py-2 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors"
           >
             Cancelar
           </button>
@@ -564,7 +564,7 @@ export function NewReturnModal({ onClose, onSuccess, motivos }: NewReturnModalPr
             type="button"
             onClick={handleSubmit}
             disabled={isSubmitting || selectedCount === 0 || !saleData}
-            className="px-5 py-2.5 rounded-xl text-xs font-bold bg-cyan-600 hover:bg-cyan-500 disabled:opacity-40 text-white flex items-center gap-2 shadow-lg shadow-cyan-950/50 transition-all cursor-pointer"
+            className="px-5 py-2.5 rounded-xl text-xs font-bold bg-blue-600 hover:bg-blue-700 disabled:opacity-40 text-white flex items-center gap-2 shadow-xs transition-all cursor-pointer"
           >
             {isSubmitting ? (
               <>

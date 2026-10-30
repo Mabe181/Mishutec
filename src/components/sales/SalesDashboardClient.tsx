@@ -148,15 +148,15 @@ export function SalesDashboardClient({
   return (
     <div className="space-y-6">
       {/* Selector de Pestañas Principal */}
-      <div className="flex items-center justify-between border-b border-slate-800/80 pb-3 gap-3 overflow-x-auto">
+      <div className="flex items-center justify-between border-b border-slate-200 pb-3 gap-3 overflow-x-auto">
         <div className="flex items-center gap-2">
           <button
             type="button"
             onClick={() => setActiveTab("historial")}
             className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
               activeTab === "historial"
-                ? "bg-cyan-500 text-slate-950 shadow-md shadow-cyan-500/20"
-                : "bg-slate-900/80 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800"
+                ? "bg-blue-600 text-white shadow-xs"
+                : "bg-white text-slate-700 hover:text-slate-900 hover:bg-slate-50 border border-slate-200 shadow-xs"
             }`}
           >
             <History className="h-4 w-4" />
@@ -164,8 +164,8 @@ export function SalesDashboardClient({
             <span
               className={`px-1.5 py-0.2 rounded-full text-[10px] font-mono ${
                 activeTab === "historial"
-                  ? "bg-slate-950/20 text-slate-900"
-                  : "bg-slate-800 text-slate-400"
+                  ? "bg-blue-700 text-white"
+                  : "bg-slate-100 text-slate-600"
               }`}
             >
               {initialData.sales.length}
@@ -177,8 +177,8 @@ export function SalesDashboardClient({
             onClick={() => setActiveTab("pos")}
             className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
               activeTab === "pos"
-                ? "bg-cyan-500 text-slate-950 shadow-md shadow-cyan-500/20"
-                : "bg-slate-900/80 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800"
+                ? "bg-blue-600 text-white shadow-xs"
+                : "bg-white text-slate-700 hover:text-slate-900 hover:bg-slate-50 border border-slate-200 shadow-xs"
             }`}
           >
             <ShoppingCart className="h-4 w-4" />
@@ -187,8 +187,8 @@ export function SalesDashboardClient({
         </div>
 
         {/* Entorno DB Badge */}
-        <div className="hidden sm:flex items-center gap-1.5 text-[11px] text-slate-400 font-mono">
-          <span className="h-2 w-2 rounded-full bg-emerald-400" />
+        <div className="hidden sm:flex items-center gap-1.5 text-[11px] text-slate-500 font-mono">
+          <span className="h-2 w-2 rounded-full bg-emerald-500" />
           <span>{dbName}</span>
         </div>
       </div>

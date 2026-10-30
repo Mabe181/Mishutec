@@ -79,7 +79,7 @@ export function Sidebar({
       </div>
 
       {/* Navigation Links */}
-      <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
+      <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto min-h-0">
         <div className="px-3 pb-2 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
           Módulos del Sistema
         </div>
@@ -117,7 +117,7 @@ export function Sidebar({
       </nav>
 
       {/* Database Connection Status Footer */}
-      <div className="p-3 m-3 rounded-xl bg-slate-900/80 border border-slate-800 text-xs space-y-2 shrink-0">
+      <div className="p-3 m-3 rounded-xl bg-slate-900/90 border border-slate-800 text-xs space-y-2 shrink-0 mt-auto">
         <div className="flex items-center justify-between text-slate-300 font-medium">
           <div className="flex items-center gap-2">
             <Database className="h-3.5 w-3.5 text-cyan-400" />

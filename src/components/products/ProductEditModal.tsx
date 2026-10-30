@@ -215,31 +215,31 @@ export function ProductEditModal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-slate-950/80 backdrop-blur-sm animate-in fade-in duration-150"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-slate-950/60 backdrop-blur-sm animate-in fade-in duration-150"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-2xl bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl flex flex-col max-h-[92vh] text-slate-100 overflow-hidden"
+        className="relative w-full max-w-2xl bg-white border border-slate-200 rounded-2xl shadow-2xl flex flex-col max-h-[92vh] text-slate-900 overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Cabecera */}
-        <div className="flex items-center justify-between p-4 sm:p-5 border-b border-slate-800 bg-slate-950/60">
+        <div className="flex items-center justify-between p-4 sm:p-5 border-b border-slate-200 bg-slate-50/80">
           <div className="flex items-center gap-2.5">
-            <div className="p-2 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400">
+            <div className="p-2 rounded-xl bg-blue-50 border border-blue-200 text-blue-600">
               <Edit3 className="h-5 w-5" />
             </div>
             <div>
-              <h2 className="text-base sm:text-lg font-bold text-white">
+              <h2 className="text-base sm:text-lg font-bold text-slate-900">
                 Editar Producto
               </h2>
-              <p className="text-xs text-slate-400 font-mono">
+              <p className="text-xs text-slate-500 font-mono">
                 Código: {product.codbarras} | {product.categoria}
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+            className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
             type="button"
           >
             <X className="h-5 w-5" />
@@ -248,14 +248,14 @@ export function ProductEditModal({
 
         {/* Notificaciones */}
         {errorMsg && (
-          <div className="m-4 mb-0 p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs flex items-start gap-2">
-            <AlertCircle className="h-4 w-4 shrink-0 mt-0.5 text-rose-400" />
+          <div className="m-4 mb-0 p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-start gap-2">
+            <AlertCircle className="h-4 w-4 shrink-0 mt-0.5 text-rose-600" />
             <span>{errorMsg}</span>
           </div>
         )}
         {successMsg && (
-          <div className="m-4 mb-0 p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs flex items-start gap-2">
-            <CheckCircle2 className="h-4 w-4 shrink-0 mt-0.5 text-emerald-400" />
+          <div className="m-4 mb-0 p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs flex items-start gap-2">
+            <CheckCircle2 className="h-4 w-4 shrink-0 mt-0.5 text-emerald-600" />
             <span>{successMsg}</span>
           </div>
         )}
@@ -263,28 +263,28 @@ export function ProductEditModal({
         {/* Formulario */}
         <form onSubmit={handleSubmit} className="overflow-y-auto p-4 sm:p-6 space-y-5 text-xs">
           {/* Campos Protegidos Inmutables */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 p-3 rounded-xl bg-slate-950/60 border border-slate-800/80">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200">
             <div>
-              <span className="text-[10px] text-slate-400 uppercase font-semibold flex items-center gap-1">
-                <Lock className="h-3 w-3 text-cyan-400" /> Código (PK Inmutable)
+              <span className="text-[10px] text-slate-500 uppercase font-semibold flex items-center gap-1">
+                <Lock className="h-3 w-3 text-blue-600" /> Código (PK Inmutable)
               </span>
-              <p className="font-mono text-cyan-300 font-bold text-xs mt-1">
+              <p className="font-mono text-blue-600 font-bold text-xs mt-1">
                 {product.codbarras}
               </p>
             </div>
             <div>
-              <span className="text-[10px] text-slate-400 uppercase font-semibold flex items-center gap-1">
-                <Lock className="h-3 w-3 text-cyan-400" /> Categoría Vinculada
+              <span className="text-[10px] text-slate-500 uppercase font-semibold flex items-center gap-1">
+                <Lock className="h-3 w-3 text-blue-600" /> Categoría Vinculada
               </span>
-              <p className="font-semibold text-white text-xs mt-1">
+              <p className="font-semibold text-slate-900 text-xs mt-1">
                 {product.categoria}
               </p>
             </div>
             <div>
-              <span className="text-[10px] text-slate-400 uppercase font-semibold flex items-center gap-1">
-                <Lock className="h-3 w-3 text-cyan-400" /> Stock Actual
+              <span className="text-[10px] text-slate-500 uppercase font-semibold flex items-center gap-1">
+                <Lock className="h-3 w-3 text-blue-600" /> Stock Actual
               </span>
-              <p className="font-mono text-slate-300 text-xs mt-1">
+              <p className="font-mono text-slate-700 text-xs mt-1">
                 {product.stock} un. (Módulo Inventario)
               </p>
             </div>
@@ -293,7 +293,7 @@ export function ProductEditModal({
           {/* Nombre y Precio */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div className="sm:col-span-2">
-              <label className="block text-slate-300 font-semibold mb-1">
+              <label className="block text-slate-700 font-semibold mb-1">
                 Nombre del Componente *
               </label>
               <input
@@ -302,11 +302,11 @@ export function ProductEditModal({
                 maxLength={120}
                 value={nombre}
                 onChange={(e) => setNombre(e.target.value)}
-                className="w-full h-9 px-3 rounded-lg bg-slate-950 border border-slate-800 text-white text-xs focus:outline-none focus:border-cyan-500 transition-colors"
+                className="w-full h-9 px-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:outline-none focus:border-blue-500 focus:bg-white transition-colors"
               />
             </div>
             <div>
-              <label className="block text-slate-300 font-semibold mb-1">
+              <label className="block text-slate-700 font-semibold mb-1">
                 Precio Venta (S/.) *
               </label>
               <input
@@ -316,7 +316,7 @@ export function ProductEditModal({
                 min={0.01}
                 value={precio}
                 onChange={(e) => setPrecio(e.target.value)}
-                className="w-full h-9 px-3 rounded-lg bg-slate-950 border border-slate-800 text-cyan-300 font-mono text-xs focus:outline-none focus:border-cyan-500 transition-colors"
+                className="w-full h-9 px-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 font-mono font-bold text-xs focus:outline-none focus:border-blue-500 focus:bg-white transition-colors"
               />
             </div>
           </div>
@@ -324,11 +324,11 @@ export function ProductEditModal({
           {/* Marca, Estado y Garantía */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             <div>
-              <label className="block text-slate-300 font-semibold mb-1">Marca *</label>
+              <label className="block text-slate-700 font-semibold mb-1">Marca *</label>
               <select
                 value={idMarca}
                 onChange={(e) => setIdMarca(parseInt(e.target.value, 10))}
-                className="w-full h-9 px-3 rounded-lg bg-slate-950 border border-slate-800 text-white text-xs focus:outline-none focus:border-cyan-500 transition-colors"
+                className="w-full h-9 px-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:outline-none focus:border-blue-500 focus:bg-white transition-colors cursor-pointer"
               >
                 {metadata.marcas.map((m) => (
                   <option key={m.id} value={m.id}>
@@ -339,11 +339,11 @@ export function ProductEditModal({
             </div>
 
             <div>
-              <label className="block text-slate-300 font-semibold mb-1">Estado Operativo *</label>
+              <label className="block text-slate-700 font-semibold mb-1">Estado Operativo *</label>
               <select
                 value={idEstado}
                 onChange={(e) => setIdEstado(parseInt(e.target.value, 10))}
-                className="w-full h-9 px-3 rounded-lg bg-slate-950 border border-slate-800 text-white text-xs focus:outline-none focus:border-cyan-500 transition-colors"
+                className="w-full h-9 px-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:outline-none focus:border-blue-500 focus:bg-white transition-colors cursor-pointer"
               >
                 {metadata.estados.map((e) => (
                   <option key={e.id} value={e.id}>
@@ -354,7 +354,7 @@ export function ProductEditModal({
             </div>
 
             <div>
-              <label className="block text-slate-300 font-semibold mb-1">
+              <label className="block text-slate-700 font-semibold mb-1">
                 Garantía (meses) *
               </label>
               <input
@@ -364,38 +364,38 @@ export function ProductEditModal({
                 max={120}
                 value={garantiaMeses}
                 onChange={(e) => setGarantiaMeses(e.target.value)}
-                className="w-full h-9 px-3 rounded-lg bg-slate-950 border border-slate-800 text-white text-xs focus:outline-none focus:border-cyan-500 transition-colors"
+                className="w-full h-9 px-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:outline-none focus:border-blue-500 focus:bg-white transition-colors"
               />
             </div>
           </div>
 
           {/* Especificaciones Técnicas */}
-          <div className="p-4 rounded-xl bg-slate-950/70 border border-slate-800 space-y-3">
-            <span className="text-xs font-semibold text-cyan-300 block">
+          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
+            <span className="text-xs font-semibold text-slate-900 block">
               Características Técnicas ({product.categoria})
             </span>
 
             {product.categoria === "CPU" && (
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-slate-400 mb-1">Frecuencia (GHz)</label>
+                  <label className="block text-slate-600 mb-1">Frecuencia (GHz)</label>
                   <input
                     type="number"
                     step="0.01"
                     required
                     value={cpuFreq}
                     onChange={(e) => setCpuFreq(e.target.value)}
-                    className="w-full h-9 px-3 rounded-lg bg-slate-900 border border-slate-800 text-white font-mono text-xs"
+                    className="w-full h-9 px-3 rounded-lg bg-white border border-slate-200 text-slate-900 font-mono text-xs focus:border-blue-500"
                   />
                 </div>
                 <div>
-                  <label className="block text-slate-400 mb-1">Número de Núcleos</label>
+                  <label className="block text-slate-600 mb-1">Número de Núcleos</label>
                   <input
                     type="number"
                     required
                     value={cpuCores}
                     onChange={(e) => setCpuCores(e.target.value)}
-                    className="w-full h-9 px-3 rounded-lg bg-slate-900 border border-slate-800 text-white font-mono text-xs"
+                    className="w-full h-9 px-3 rounded-lg bg-white border border-slate-200 text-slate-900 font-mono text-xs focus:border-blue-500"
                   />
                 </div>
               </div>
@@ -404,23 +404,23 @@ export function ProductEditModal({
             {product.categoria === "RAM" && (
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-slate-400 mb-1">Capacidad (GB)</label>
+                  <label className="block text-slate-600 mb-1">Capacidad (GB)</label>
                   <input
                     type="number"
                     required
                     value={ramCap}
                     onChange={(e) => setRamCap(e.target.value)}
-                    className="w-full h-9 px-3 rounded-lg bg-slate-900 border border-slate-800 text-white font-mono text-xs"
+                    className="w-full h-9 px-3 rounded-lg bg-white border border-slate-200 text-slate-900 font-mono text-xs focus:border-blue-500"
                   />
                 </div>
                 <div>
-                  <label className="block text-slate-400 mb-1">Velocidad (MHz)</label>
+                  <label className="block text-slate-600 mb-1">Velocidad (MHz)</label>
                   <input
                     type="number"
                     required
                     value={ramVel}
                     onChange={(e) => setRamVel(e.target.value)}
-                    className="w-full h-9 px-3 rounded-lg bg-slate-900 border border-slate-800 text-white font-mono text-xs"
+                    className="w-full h-9 px-3 rounded-lg bg-white border border-slate-200 text-slate-900 font-mono text-xs focus:border-blue-500"
                   />
                 </div>
               </div>
@@ -429,24 +429,24 @@ export function ProductEditModal({
             {product.categoria === "SSD" && (
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-slate-400 mb-1">Capacidad (GB)</label>
+                  <label className="block text-slate-600 mb-1">Capacidad (GB)</label>
                   <input
                     type="number"
                     required
                     value={ssdCap}
                     onChange={(e) => setSsdCap(e.target.value)}
-                    className="w-full h-9 px-3 rounded-lg bg-slate-900 border border-slate-800 text-white font-mono text-xs"
+                    className="w-full h-9 px-3 rounded-lg bg-white border border-slate-200 text-slate-900 font-mono text-xs focus:border-blue-500"
                   />
                 </div>
                 <div>
-                  <label className="block text-slate-400 mb-1">Interfaz (Máx. 20 car.)</label>
+                  <label className="block text-slate-600 mb-1">Interfaz (Máx. 20 car.)</label>
                   <input
                     type="text"
                     required
                     maxLength={20}
                     value={ssdInterfaz}
                     onChange={(e) => setSsdInterfaz(e.target.value)}
-                    className="w-full h-9 px-3 rounded-lg bg-slate-900 border border-slate-800 text-white text-xs"
+                    className="w-full h-9 px-3 rounded-lg bg-white border border-slate-200 text-slate-900 text-xs focus:border-blue-500"
                   />
                 </div>
               </div>
@@ -455,24 +455,24 @@ export function ProductEditModal({
             {product.categoria === "Grafica" && (
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-slate-400 mb-1">VRAM (GB)</label>
+                  <label className="block text-slate-600 mb-1">VRAM (GB)</label>
                   <input
                     type="number"
                     required
                     value={gpuVram}
                     onChange={(e) => setGpuVram(e.target.value)}
-                    className="w-full h-9 px-3 rounded-lg bg-slate-900 border border-slate-800 text-white font-mono text-xs"
+                    className="w-full h-9 px-3 rounded-lg bg-white border border-slate-200 text-slate-900 font-mono text-xs focus:border-blue-500"
                   />
                 </div>
                 <div>
-                  <label className="block text-slate-400 mb-1">Chipset (Máx. 50 car.)</label>
+                  <label className="block text-slate-600 mb-1">Chipset (Máx. 50 car.)</label>
                   <input
                     type="text"
                     required
                     maxLength={50}
                     value={gpuChipset}
                     onChange={(e) => setGpuChipset(e.target.value)}
-                    className="w-full h-9 px-3 rounded-lg bg-slate-900 border border-slate-800 text-white text-xs"
+                    className="w-full h-9 px-3 rounded-lg bg-white border border-slate-200 text-slate-900 text-xs focus:border-blue-500"
                   />
                 </div>
               </div>
@@ -481,24 +481,24 @@ export function ProductEditModal({
             {product.categoria === "Fuente de poder" && (
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-slate-400 mb-1">Potencia (Watts)</label>
+                  <label className="block text-slate-600 mb-1">Potencia (Watts)</label>
                   <input
                     type="number"
                     required
                     value={psuWatts}
                     onChange={(e) => setPsuWatts(e.target.value)}
-                    className="w-full h-9 px-3 rounded-lg bg-slate-900 border border-slate-800 text-white font-mono text-xs"
+                    className="w-full h-9 px-3 rounded-lg bg-white border border-slate-200 text-slate-900 font-mono text-xs focus:border-blue-500"
                   />
                 </div>
                 <div>
-                  <label className="block text-slate-400 mb-1">Certificación (Máx. 30 car.)</label>
+                  <label className="block text-slate-600 mb-1">Certificación (Máx. 30 car.)</label>
                   <input
                     type="text"
                     required
                     maxLength={30}
                     value={psuCert}
                     onChange={(e) => setPsuCert(e.target.value)}
-                    className="w-full h-9 px-3 rounded-lg bg-slate-900 border border-slate-800 text-white text-xs"
+                    className="w-full h-9 px-3 rounded-lg bg-white border border-slate-200 text-slate-900 text-xs focus:border-blue-500"
                   />
                 </div>
               </div>
@@ -507,25 +507,25 @@ export function ProductEditModal({
             {product.categoria === "Gabinete" && (
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-slate-400 mb-1">Formato (Máx. 20 car.)</label>
+                  <label className="block text-slate-600 mb-1">Formato (Máx. 20 car.)</label>
                   <input
                     type="text"
                     required
                     maxLength={20}
                     value={caseFormat}
                     onChange={(e) => setCaseFormat(e.target.value)}
-                    className="w-full h-9 px-3 rounded-lg bg-slate-900 border border-slate-800 text-white text-xs"
+                    className="w-full h-9 px-3 rounded-lg bg-white border border-slate-200 text-slate-900 text-xs focus:border-blue-500"
                   />
                 </div>
                 <div>
-                  <label className="block text-slate-400 mb-1">Material (Máx. 30 car.)</label>
+                  <label className="block text-slate-600 mb-1">Material (Máx. 30 car.)</label>
                   <input
                     type="text"
                     required
                     maxLength={30}
                     value={caseMaterial}
                     onChange={(e) => setCaseMaterial(e.target.value)}
-                    className="w-full h-9 px-3 rounded-lg bg-slate-900 border border-slate-800 text-white text-xs"
+                    className="w-full h-9 px-3 rounded-lg bg-white border border-slate-200 text-slate-900 text-xs focus:border-blue-500"
                   />
                 </div>
               </div>
@@ -535,14 +535,14 @@ export function ProductEditModal({
           {/* Proveedores */}
           <div className="space-y-2.5">
             <div className="flex items-center justify-between">
-              <label className="text-slate-300 font-semibold flex items-center gap-1.5">
-                <Building2 className="h-4 w-4 text-cyan-400" />
+              <label className="text-slate-700 font-semibold flex items-center gap-1.5">
+                <Building2 className="h-4 w-4 text-blue-600" />
                 <span>Proveedores Asociados</span>
               </label>
               <button
                 type="button"
                 onClick={handleAddSupplier}
-                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-[11px] font-medium transition-colors"
+                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 text-[11px] font-medium transition-colors"
               >
                 <Plus className="h-3 w-3" />
                 Agregar Proveedor
@@ -550,7 +550,7 @@ export function ProductEditModal({
             </div>
 
             {selectedSuppliers.length === 0 ? (
-              <p className="text-[11px] text-slate-500 italic">
+              <p className="text-[11px] text-slate-400 italic">
                 Sin proveedores asignados.
               </p>
             ) : (
@@ -558,7 +558,7 @@ export function ProductEditModal({
                 {selectedSuppliers.map((s, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-950/60 border border-slate-800"
+                    className="flex items-center gap-2 p-2.5 rounded-xl bg-white border border-slate-200"
                   >
                     <select
                       value={s.idProveedor}
@@ -568,7 +568,7 @@ export function ProductEditModal({
                         updated[idx].idProveedor = newId;
                         setSelectedSuppliers(updated);
                       }}
-                      className="flex-1 h-8 px-2 rounded-lg bg-slate-900 border border-slate-800 text-white text-xs"
+                      className="flex-1 h-8 px-2 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 text-xs focus:border-blue-500"
                     >
                       {metadata.proveedoresDisponibles.map((p) => (
                         <option key={p.id} value={p.id}>
@@ -587,13 +587,13 @@ export function ProductEditModal({
                         updated[idx].precioCompra = e.target.value;
                         setSelectedSuppliers(updated);
                       }}
-                      className="w-32 h-8 px-2 rounded-lg bg-slate-900 border border-slate-800 text-white font-mono text-xs"
+                      className="w-32 h-8 px-2 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 font-mono text-xs focus:border-blue-500"
                     />
 
                     <button
                       type="button"
                       onClick={() => handleRemoveSupplier(idx)}
-                      className="p-1.5 text-slate-400 hover:text-rose-400 rounded-lg hover:bg-slate-900 transition-colors"
+                      className="p-1.5 text-slate-400 hover:text-rose-600 rounded-lg hover:bg-rose-50 transition-colors"
                     >
                       <Trash2 className="h-4 w-4" />
                     </button>
@@ -604,12 +604,12 @@ export function ProductEditModal({
           </div>
 
           {/* Botones de acción */}
-          <div className="pt-3 border-t border-slate-800 flex items-center justify-end gap-2.5">
+          <div className="pt-3 border-t border-slate-200 flex items-center justify-end gap-2.5">
             <button
               type="button"
               onClick={onClose}
               disabled={isPending}
-              className="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium transition-colors"
+              className="px-4 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 text-xs font-medium transition-colors"
             >
               Cancelar
             </button>
@@ -617,7 +617,7 @@ export function ProductEditModal({
             <button
               type="submit"
               disabled={isPending}
-              className="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs shadow-md shadow-cyan-500/20 disabled:opacity-50 transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs shadow-xs disabled:opacity-50 transition-colors"
             >
               {isPending ? (
                 <>

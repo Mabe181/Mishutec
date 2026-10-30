@@ -137,20 +137,20 @@ export function SupplierModal({
       role="dialog"
       aria-modal="true"
       aria-labelledby="supplier-modal-title"
-      className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-4 bg-slate-950/80 backdrop-blur-sm animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-4 bg-slate-950/40 backdrop-blur-xs animate-in fade-in duration-200"
     >
-      <div className="relative w-full max-w-lg bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl overflow-hidden max-h-[92vh] flex flex-col">
+      <div className="relative w-full max-w-lg bg-white border border-slate-200 rounded-xl shadow-2xl overflow-hidden max-h-[92vh] flex flex-col">
         {/* Cabecera */}
-        <div className="flex items-center justify-between p-4 sm:p-5 border-b border-slate-800 shrink-0">
+        <div className="flex items-center justify-between p-4 sm:p-5 border-b border-slate-100 bg-slate-50/80 shrink-0">
           <div className="flex items-center gap-3">
-            <div className="p-2 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 shrink-0">
+            <div className="p-2 rounded-lg bg-blue-50 border border-blue-100 text-blue-600 shrink-0">
               <Building2 className="h-5 w-5" />
             </div>
             <div>
-              <h2 id="supplier-modal-title" className="text-sm sm:text-base font-bold text-white">
+              <h2 id="supplier-modal-title" className="text-sm sm:text-base font-bold text-slate-900">
                 {isEdit ? "Editar Información de Proveedor" : "Registrar Nuevo Proveedor"}
               </h2>
-              <p className="text-[11px] sm:text-xs text-slate-400">
+              <p className="text-[11px] sm:text-xs text-slate-500">
                 {isEdit
                   ? `ID #${supplier?.idProveedor} en SQL Server`
                   : "Alta de distribuidor o fabricante en SQL Server (dbo.Proveedor)"}
@@ -160,7 +160,7 @@ export function SupplierModal({
           <button
             type="button"
             onClick={onClose}
-            className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors shrink-0"
+            className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors shrink-0"
             aria-label="Cerrar modal"
           >
             <X className="h-4 w-4" />
@@ -170,15 +170,15 @@ export function SupplierModal({
         {/* Formulario con Scroll Interno */}
         <form onSubmit={handleSubmit} className="p-4 sm:p-5 space-y-3.5 sm:space-y-4 overflow-y-auto flex-1">
           {errorMsg && (
-            <div className="p-3 rounded-lg bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs flex items-center gap-2">
-              <AlertCircle className="h-4 w-4 shrink-0 text-rose-400" />
+            <div className="p-3 rounded-lg bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-center gap-2">
+              <AlertCircle className="h-4 w-4 shrink-0 text-rose-600" />
               <span>{errorMsg}</span>
             </div>
           )}
 
           {/* Razón Social / Nombre */}
           <div>
-            <label className="block text-xs font-medium text-slate-300 mb-1.5">
+            <label className="block text-xs font-semibold text-slate-700 mb-1.5">
               Razón Social / Nombre Comercial *
             </label>
             <input
@@ -187,60 +187,60 @@ export function SupplierModal({
               value={nombre}
               onChange={(e) => setNombre(e.target.value)}
               placeholder="Ej. Deltron Perú S.A."
-              className="w-full px-3 py-2.5 bg-slate-950/70 border border-slate-700/80 rounded-lg text-xs sm:text-sm text-white focus:outline-none focus:border-cyan-500 transition-colors"
+              className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-blue-500 focus:bg-white transition-colors"
             />
           </div>
 
           {/* Correo Electrónico */}
           <div>
-            <label className="block text-xs font-medium text-slate-300 mb-1.5">
+            <label className="block text-xs font-semibold text-slate-700 mb-1.5">
               Correo Electrónico Comercial *
             </label>
             <div className="relative">
-              <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
+              <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
               <input
                 type="email"
                 maxLength={100}
                 value={correo}
                 onChange={(e) => setCorreo(e.target.value)}
                 placeholder="ventas@deltron.pe"
-                className="w-full pl-9 pr-3 py-2.5 bg-slate-950/70 border border-slate-700/80 rounded-lg text-xs sm:text-sm text-white focus:outline-none focus:border-cyan-500 transition-colors"
+                className="w-full pl-9 pr-3 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-blue-500 focus:bg-white transition-colors"
               />
             </div>
           </div>
 
           {/* Teléfono */}
           <div>
-            <label className="block text-xs font-medium text-slate-300 mb-1.5">
+            <label className="block text-xs font-semibold text-slate-700 mb-1.5">
               Teléfono de Contacto Comercial *
             </label>
             <div className="relative">
-              <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
+              <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
               <input
                 type="tel"
                 maxLength={15}
                 value={telefono}
                 onChange={(e) => setTelefono(e.target.value)}
                 placeholder="Ej. 01-5123456 o 987654321"
-                className="w-full pl-9 pr-3 py-2.5 bg-slate-950/70 border border-slate-700/80 rounded-lg text-xs sm:text-sm text-white focus:outline-none focus:border-cyan-500 transition-colors"
+                className="w-full pl-9 pr-3 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-blue-500 focus:bg-white transition-colors"
               />
             </div>
           </div>
 
           {/* Botones de Acción Fijos */}
-          <div className="flex items-center justify-end gap-2.5 pt-3 border-t border-slate-800 shrink-0">
+          <div className="flex items-center justify-end gap-2.5 pt-3 border-t border-slate-100 bg-slate-50/80 -mx-4 -mb-4 sm:-mx-5 sm:-mb-5 p-4 sm:p-5 shrink-0">
             <button
               type="button"
               onClick={onClose}
               disabled={isPending}
-              className="px-4 py-2.5 min-h-[42px] rounded-lg bg-slate-800 hover:bg-slate-700 active:bg-slate-700 text-slate-300 text-xs font-semibold transition-colors"
+              className="px-4 py-2.5 min-h-[42px] rounded-lg bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 text-xs font-semibold shadow-xs transition-colors"
             >
               Cancelar
             </button>
             <button
               type="submit"
               disabled={isPending}
-              className="inline-flex items-center gap-1.5 px-4 py-2.5 min-h-[42px] rounded-lg bg-cyan-500 hover:bg-cyan-400 active:bg-cyan-400 disabled:opacity-40 disabled:cursor-not-allowed text-slate-950 text-xs font-bold shadow-md shadow-cyan-500/20 transition-colors"
+              className="inline-flex items-center gap-1.5 px-4 py-2.5 min-h-[42px] rounded-lg bg-blue-600 hover:bg-blue-700 disabled:opacity-40 disabled:cursor-not-allowed text-white text-xs font-bold shadow-xs transition-colors"
             >
               {isPending ? (
                 <>

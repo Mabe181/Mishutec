@@ -42,9 +42,9 @@ export function AdminLayoutClient({
   }, [mobileOpen]);
 
   return (
-    <div className="min-h-screen flex bg-slate-950 text-slate-100 font-sans antialiased selection:bg-cyan-500/20 selection:text-cyan-300">
+    <div className="h-screen h-[100dvh] flex overflow-hidden bg-slate-50 text-slate-900 font-sans antialiased selection:bg-blue-500/20 selection:text-blue-700">
       {/* Sidebar Escritorio (fijo para pantallas lg+) */}
-      <div className="hidden lg:flex lg:flex-shrink-0">
+      <div className="hidden lg:flex lg:flex-shrink-0 h-full">
         <Sidebar dbName={dbName} isAcademic={isAcademic} />
       </div>
 
@@ -58,13 +58,13 @@ export function AdminLayoutClient({
         >
           {/* Fondo oscuro traslúcido */}
           <div
-            className="fixed inset-0 bg-black/75 backdrop-blur-sm transition-opacity"
+            className="fixed inset-0 bg-black/60 backdrop-blur-xs transition-opacity"
             onClick={() => setMobileOpen(false)}
             aria-hidden="true"
           />
 
           {/* Contenedor del Sidebar con botón de cerrar accesible */}
-          <div className="relative flex-1 flex flex-col max-w-xs w-full bg-slate-950 shadow-2xl z-10 animate-in slide-in-from-left duration-200">
+          <div className="relative flex-1 flex flex-col max-w-xs w-full bg-slate-950 shadow-2xl z-10 animate-in slide-in-from-left duration-200 h-full">
             <div className="absolute top-3.5 right-3.5 z-20">
               <button
                 type="button"
@@ -84,14 +84,14 @@ export function AdminLayoutClient({
         </div>
       )}
 
-      {/* Área Principal de Contenido */}
-      <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
+      {/* Área Principal de Contenido - Con scroll independiente del Sidebar */}
+      <div className="flex-1 flex flex-col min-w-0 h-full overflow-y-auto bg-slate-50">
         <Header
           dbName={dbName}
           isAcademic={isAcademic}
           onToggleMobile={() => setMobileOpen(true)}
         />
-        <main className="flex-1 p-3.5 sm:p-6 lg:p-8 max-w-7xl w-full mx-auto space-y-5 sm:space-y-6">
+        <main className="flex-1 p-3.5 sm:p-6 lg:p-8 max-w-7xl w-full mx-auto space-y-6">
           {children}
         </main>
       </div>

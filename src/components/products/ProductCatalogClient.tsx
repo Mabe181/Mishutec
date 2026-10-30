@@ -175,21 +175,21 @@ export function ProductCatalogClient({
       )}
 
       {/* Barra de Acciones Administrativas */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 p-3.5 rounded-xl bg-slate-900/60 border border-slate-800/80">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 p-3.5 rounded-xl bg-white border border-slate-200 shadow-xs">
         <div className="flex items-center gap-2 text-xs">
           {isAuthenticated ? (
-            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 font-semibold text-[11px]">
-              <ShieldCheck className="h-3.5 w-3.5" />
+            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-50 border border-emerald-200 text-emerald-800 font-semibold text-[11px]">
+              <ShieldCheck className="h-3.5 w-3.5 text-emerald-600" />
               <span>Sesión Activa: {username}</span>
             </div>
           ) : (
-            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-800 text-slate-400 text-[11px]">
-              <Lock className="h-3 w-3" />
+            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-100 border border-slate-200 text-slate-600 text-[11px]">
+              <Lock className="h-3 w-3 text-slate-400" />
               <span>Modo Consulta (Sin autenticar)</span>
             </div>
           )}
-          <span className="text-slate-500 hidden sm:inline">•</span>
-          <span className="text-[11px] text-slate-400 hidden sm:inline">
+          <span className="text-slate-300 hidden sm:inline">•</span>
+          <span className="text-[11px] text-slate-500 hidden sm:inline">
             Gestión transaccional con integridad referencial completa
           </span>
         </div>
@@ -199,9 +199,9 @@ export function ProductCatalogClient({
             <button
               type="button"
               onClick={() => setIsLoginOpen(true)}
-              className="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold whitespace-nowrap transition-colors"
+              className="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 text-xs font-semibold whitespace-nowrap transition-colors shadow-xs"
             >
-              <Lock className="h-3.5 w-3.5 text-cyan-400 shrink-0" />
+              <Lock className="h-3.5 w-3.5 text-blue-600 shrink-0" />
               <span>Acceso Admin</span>
             </button>
           ) : null}
@@ -215,7 +215,7 @@ export function ProductCatalogClient({
                 setIsCreateOpen(true);
               }
             }}
-            className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs shadow-md shadow-cyan-500/20 whitespace-nowrap transition-colors"
+            className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs shadow-xs whitespace-nowrap transition-colors"
           >
             <PackagePlus className="h-4 w-4 shrink-0" />
             <span>Nuevo Producto</span>
@@ -232,10 +232,10 @@ export function ProductCatalogClient({
       {/* Indicador de carga sutil durante transiciones de filtro */}
       <div className="relative">
         {isPending && (
-          <div className="absolute inset-0 bg-slate-950/40 backdrop-blur-[1px] z-10 rounded-xl flex items-center justify-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-700 text-cyan-400 text-xs shadow-lg">
+          <div className="absolute inset-0 bg-white/60 backdrop-blur-[1px] z-10 rounded-xl flex items-center justify-center">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-blue-600 text-xs shadow-lg">
               <Loader2 className="h-4 w-4 animate-spin" />
-              <span>Actualizando catálogo...</span>
+              <span className="font-medium text-slate-700">Actualizando catálogo...</span>
             </div>
           </div>
         )}
@@ -259,8 +259,8 @@ export function ProductCatalogClient({
 
       {/* Indicador flotante cuando se está cargando el detalle */}
       {isLoadingDetail && (
-        <div className="fixed bottom-6 right-6 z-50 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 border border-cyan-500/40 text-cyan-300 text-xs shadow-xl animate-in fade-in slide-in-from-bottom-2">
-          <Loader2 className="h-4 w-4 animate-spin" />
+        <div className="fixed bottom-6 right-6 z-50 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-800 text-xs shadow-xl animate-in fade-in slide-in-from-bottom-2">
+          <Loader2 className="h-4 w-4 animate-spin text-blue-600" />
           <span>Cargando ficha técnica desde SQL Server...</span>
         </div>
       )}

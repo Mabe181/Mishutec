@@ -25,14 +25,14 @@ export function Header({ onToggleMobile, dbName, isAcademic }: HeaderProps) {
   };
 
   return (
-    <header className="h-14 sm:h-16 px-3.5 sm:px-6 sticky top-0 z-30 bg-slate-950/85 backdrop-blur-md border-b border-slate-800/80 flex items-center justify-between transition-all">
+    <header className="h-14 sm:h-16 px-3.5 sm:px-6 sticky top-0 z-30 bg-white/90 backdrop-blur-md border-b border-slate-200/80 flex items-center justify-between shrink-0 shadow-xs transition-all">
       {/* Lado Izquierdo: Botón Mobile + Breadcrumbs */}
       <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
         <button
           onClick={onToggleMobile}
           type="button"
           aria-label="Abrir menú de navegación"
-          className="lg:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-900 border border-slate-800 transition-colors shrink-0"
+          className="lg:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-slate-200 transition-colors shrink-0"
         >
           <Menu className="h-5 w-5" />
         </button>
@@ -41,12 +41,12 @@ export function Header({ onToggleMobile, dbName, isAcademic }: HeaderProps) {
         <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 sm:gap-2 text-xs truncate">
           <Link
             href="/dashboard"
-            className="hidden sm:inline text-slate-400 hover:text-slate-200 transition-colors font-medium shrink-0"
+            className="hidden sm:inline text-slate-500 hover:text-slate-800 transition-colors font-medium shrink-0"
           >
             Mishutec
           </Link>
-          <ChevronRight className="hidden sm:inline h-3.5 w-3.5 text-slate-600 shrink-0" />
-          <span className="text-cyan-400 font-semibold truncate text-xs sm:text-sm">
+          <ChevronRight className="hidden sm:inline h-3.5 w-3.5 text-slate-300 shrink-0" />
+          <span className="text-blue-600 font-semibold truncate text-xs sm:text-sm">
             {currentItem.title}
           </span>
         </nav>
@@ -57,30 +57,30 @@ export function Header({ onToggleMobile, dbName, isAcademic }: HeaderProps) {
         {/* Badge de Base de Datos Dinámica */}
         <div
           title={`Base de datos activa: ${dbName} (${isAcademic ? "Protegida" : "Aceptación"})`}
-          className="flex items-center gap-1.5 sm:gap-2 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-[11px] sm:text-xs"
+          className="flex items-center gap-1.5 sm:gap-2 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-[11px] sm:text-xs shadow-xs"
         >
-          <Database className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-cyan-400 shrink-0" />
-          <span className="hidden md:inline text-slate-400">BD:</span>
-          <span className="font-semibold text-slate-200 truncate max-w-[110px] sm:max-w-none">
+          <Database className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-blue-600 shrink-0" />
+          <span className="hidden md:inline text-slate-500 font-medium">BD:</span>
+          <span className="font-semibold text-slate-800 truncate max-w-[110px] sm:max-w-none">
             {dbName}
           </span>
           <span
-            className={`hidden sm:inline-block h-1.5 w-1.5 rounded-full ${
-              isAcademic ? "bg-amber-400" : "bg-emerald-400 animate-pulse"
+            className={`hidden sm:inline-block h-2 w-2 rounded-full ${
+              isAcademic ? "bg-amber-500" : "bg-emerald-500 animate-pulse"
             }`}
           />
         </div>
 
         {/* Badge de Usuario Windows */}
-        <div className="flex items-center gap-1.5 sm:gap-2 px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg bg-slate-900/90 border border-slate-800 text-xs">
-          <div className="h-6 w-6 rounded-full bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shrink-0">
+        <div className="flex items-center gap-1.5 sm:gap-2 px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-xs shadow-xs">
+          <div className="h-6 w-6 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600 shrink-0">
             <UserCheck className="h-3.5 w-3.5" />
           </div>
           <div className="hidden sm:flex flex-col text-left">
-            <span className="text-[11px] font-medium text-slate-200 leading-tight">
+            <span className="text-[11px] font-semibold text-slate-800 leading-tight">
               Operador Local
             </span>
-            <span className="text-[10px] text-slate-400 leading-tight">
+            <span className="text-[10px] text-slate-500 leading-tight">
               Windows Auth
             </span>
           </div>

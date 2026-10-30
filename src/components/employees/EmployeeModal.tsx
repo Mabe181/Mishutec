@@ -134,20 +134,20 @@ export function EmployeeModal({
       role="dialog"
       aria-modal="true"
       aria-labelledby="employee-modal-title"
-      className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-4 bg-slate-950/80 backdrop-blur-sm animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-4 bg-slate-950/40 backdrop-blur-xs animate-in fade-in duration-200"
     >
-      <div className="relative w-full max-w-lg bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl overflow-hidden max-h-[92vh] flex flex-col">
+      <div className="relative w-full max-w-lg bg-white border border-slate-200 rounded-xl shadow-2xl overflow-hidden max-h-[92vh] flex flex-col">
         {/* Cabecera */}
-        <div className="flex items-center justify-between p-4 sm:p-5 border-b border-slate-800 shrink-0">
+        <div className="flex items-center justify-between p-4 sm:p-5 border-b border-slate-100 bg-slate-50/80 shrink-0">
           <div className="flex items-center gap-3">
-            <div className="p-2 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 shrink-0">
+            <div className="p-2 rounded-lg bg-blue-50 border border-blue-100 text-blue-600 shrink-0">
               {isEdit ? <UserCheck className="h-5 w-5" /> : <UserPlus className="h-5 w-5" />}
             </div>
             <div>
-              <h2 id="employee-modal-title" className="text-sm sm:text-base font-bold text-white">
+              <h2 id="employee-modal-title" className="text-sm sm:text-base font-bold text-slate-900">
                 {isEdit ? "Editar Información de Empleado" : "Registrar Nuevo Empleado"}
               </h2>
-              <p className="text-[11px] sm:text-xs text-slate-400">
+              <p className="text-[11px] sm:text-xs text-slate-500">
                 {isEdit
                   ? `ID #${employee?.idEmpleado} (DNI ${employee?.dni})`
                   : "Alta de personal operativo en SQL Server (dbo.Empleado)"}
@@ -157,7 +157,7 @@ export function EmployeeModal({
           <button
             type="button"
             onClick={onClose}
-            className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors shrink-0"
+            className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors shrink-0"
             aria-label="Cerrar modal"
           >
             <X className="h-4 w-4" />
@@ -167,15 +167,15 @@ export function EmployeeModal({
         {/* Formulario con Scroll Interno */}
         <form onSubmit={handleSubmit} className="p-4 sm:p-5 space-y-3.5 sm:space-y-4 overflow-y-auto flex-1">
           {errorMsg && (
-            <div className="p-3 rounded-lg bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs flex items-center gap-2">
-              <AlertCircle className="h-4 w-4 shrink-0 text-rose-400" />
+            <div className="p-3 rounded-lg bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-center gap-2">
+              <AlertCircle className="h-4 w-4 shrink-0 text-rose-600" />
               <span>{errorMsg}</span>
             </div>
           )}
 
           {/* DNI */}
           <div>
-            <label className="block text-xs font-medium text-slate-300 mb-1.5">
+            <label className="block text-xs font-semibold text-slate-700 mb-1.5">
               DNI de Identidad (8 dígitos) *
             </label>
             <div className="relative">
@@ -186,10 +186,10 @@ export function EmployeeModal({
                 onChange={(e) => setDni(e.target.value.replace(/\D/g, ""))}
                 disabled={isEdit}
                 placeholder="Ej. 44556677"
-                className={`w-full px-3 py-2.5 bg-slate-950/70 border rounded-lg text-xs sm:text-sm font-mono transition-colors ${
+                className={`w-full px-3 py-2.5 rounded-lg text-xs sm:text-sm font-mono transition-colors ${
                   isEdit
-                    ? "border-slate-800 text-slate-400 cursor-not-allowed bg-slate-900/50"
-                    : "border-slate-700/80 text-white focus:outline-none focus:border-cyan-500"
+                    ? "border border-slate-200 text-slate-500 cursor-not-allowed bg-slate-100"
+                    : "border border-slate-200 bg-slate-50 text-slate-900 focus:outline-none focus:border-blue-500 focus:bg-white"
                 }`}
               />
               {isEdit && (
@@ -203,7 +203,7 @@ export function EmployeeModal({
           {/* Nombres y Apellidos */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-medium text-slate-300 mb-1.5">
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                 Nombres *
               </label>
               <input
@@ -212,11 +212,11 @@ export function EmployeeModal({
                 value={nombre}
                 onChange={(e) => setNombre(e.target.value)}
                 placeholder="Ej. Andrés"
-                className="w-full px-3 py-2.5 bg-slate-950/70 border border-slate-700/80 rounded-lg text-xs sm:text-sm text-white focus:outline-none focus:border-cyan-500 transition-colors"
+                className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-blue-500 focus:bg-white transition-colors"
               />
             </div>
             <div>
-              <label className="block text-xs font-medium text-slate-300 mb-1.5">
+              <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                 Apellidos *
               </label>
               <input
@@ -225,32 +225,32 @@ export function EmployeeModal({
                 value={apellido}
                 onChange={(e) => setApellido(e.target.value)}
                 placeholder="Ej. Mendoza Castro"
-                className="w-full px-3 py-2.5 bg-slate-950/70 border border-slate-700/80 rounded-lg text-xs sm:text-sm text-white focus:outline-none focus:border-cyan-500 transition-colors"
+                className="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-xs sm:text-sm text-slate-900 focus:outline-none focus:border-blue-500 focus:bg-white transition-colors"
               />
             </div>
           </div>
 
-          <div className="p-3 rounded-xl bg-slate-950/50 border border-slate-800 text-[11px] text-slate-400 flex items-start gap-2">
-            <BadgeCheck className="h-4 w-4 text-cyan-400 shrink-0 mt-0.5" />
+          <div className="p-3 rounded-xl bg-blue-50 border border-blue-200 text-[11px] text-blue-900 flex items-start gap-2">
+            <BadgeCheck className="h-4 w-4 text-blue-600 shrink-0 mt-0.5" />
             <span>
               El personal registrado queda inmediatamente disponible para autorizar comprobantes de venta, registrar movimientos en almacén y tramitar garantías.
             </span>
           </div>
 
           {/* Botones de Acción Fijos */}
-          <div className="flex items-center justify-end gap-2.5 pt-3 border-t border-slate-800 shrink-0">
+          <div className="flex items-center justify-end gap-2.5 pt-3 border-t border-slate-100 bg-slate-50/80 -mx-4 -mb-4 sm:-mx-5 sm:-mb-5 p-4 sm:p-5 shrink-0">
             <button
               type="button"
               onClick={onClose}
               disabled={isPending}
-              className="px-4 py-2.5 min-h-[42px] rounded-lg bg-slate-800 hover:bg-slate-700 active:bg-slate-700 text-slate-300 text-xs font-semibold transition-colors"
+              className="px-4 py-2.5 min-h-[42px] rounded-lg bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 text-xs font-semibold shadow-xs transition-colors"
             >
               Cancelar
             </button>
             <button
               type="submit"
               disabled={isPending}
-              className="inline-flex items-center gap-1.5 px-4 py-2.5 min-h-[42px] rounded-lg bg-cyan-500 hover:bg-cyan-400 active:bg-cyan-400 disabled:opacity-40 disabled:cursor-not-allowed text-slate-950 text-xs font-bold shadow-md shadow-cyan-500/20 transition-colors"
+              className="inline-flex items-center gap-1.5 px-4 py-2.5 min-h-[42px] rounded-lg bg-blue-600 hover:bg-blue-700 disabled:opacity-40 disabled:cursor-not-allowed text-white text-xs font-bold shadow-xs transition-colors"
             >
               {isPending ? (
                 <>

@@ -29,11 +29,11 @@ export function ProductPagination({
   }
 
   return (
-    <div className="flex flex-col sm:flex-row items-center justify-between gap-4 py-3 px-1 text-xs text-slate-400">
+    <div className="flex flex-col sm:flex-row items-center justify-between gap-4 py-3 px-1 text-xs text-slate-500">
       <div>
-        Mostrando <span className="font-semibold text-slate-200">{startItem}</span> -{" "}
-        <span className="font-semibold text-slate-200">{endItem}</span> de{" "}
-        <span className="font-semibold text-white">{totalItems}</span> productos
+        Mostrando <span className="font-semibold text-slate-700">{startItem}</span> -{" "}
+        <span className="font-semibold text-slate-700">{endItem}</span> de{" "}
+        <span className="font-semibold text-slate-900">{totalItems}</span> productos
       </div>
 
       <div className="flex items-center gap-1.5">
@@ -41,7 +41,7 @@ export function ProductPagination({
           type="button"
           onClick={() => onPageChange(currentPage - 1)}
           disabled={currentPage <= 1}
-          className="inline-flex items-center justify-center h-8 w-8 rounded-lg border border-slate-800 bg-slate-900 text-slate-300 hover:bg-slate-800 hover:text-white disabled:opacity-40 disabled:hover:bg-slate-900 disabled:hover:text-slate-300 transition-colors"
+          className="inline-flex items-center justify-center h-8 w-8 rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 hover:text-slate-900 disabled:opacity-40 disabled:hover:bg-white disabled:hover:text-slate-600 transition-colors shadow-xs"
           aria-label="Página anterior"
         >
           <ChevronLeft className="h-4 w-4" />
@@ -57,8 +57,8 @@ export function ProductPagination({
                 onClick={() => onPageChange(p)}
                 className={`h-8 min-w-[2rem] px-2 rounded-lg font-medium text-xs transition-colors ${
                   isActive
-                    ? "bg-cyan-500 text-slate-950 font-bold shadow-sm shadow-cyan-500/20"
-                    : "bg-slate-900 border border-slate-800 text-slate-300 hover:bg-slate-800 hover:text-white"
+                    ? "bg-blue-600 text-white font-semibold shadow-xs"
+                    : "bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 hover:text-slate-900 shadow-xs"
                 }`}
               >
                 {p}
@@ -71,7 +71,7 @@ export function ProductPagination({
           type="button"
           onClick={() => onPageChange(currentPage + 1)}
           disabled={currentPage >= totalPages}
-          className="inline-flex items-center justify-center h-8 w-8 rounded-lg border border-slate-800 bg-slate-900 text-slate-300 hover:bg-slate-800 hover:text-white disabled:opacity-40 disabled:hover:bg-slate-900 disabled:hover:text-slate-300 transition-colors"
+          className="inline-flex items-center justify-center h-8 w-8 rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 hover:text-slate-900 disabled:opacity-40 disabled:hover:bg-white disabled:hover:text-slate-600 transition-colors shadow-xs"
           aria-label="Página siguiente"
         >
           <ChevronRight className="h-4 w-4" />

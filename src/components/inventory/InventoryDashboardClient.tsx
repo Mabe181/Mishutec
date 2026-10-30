@@ -101,15 +101,15 @@ export function InventoryDashboardClient({
         <div
           className={`p-3.5 rounded-xl border flex items-center justify-between text-xs animate-in slide-in-from-top-2 duration-200 ${
             feedback.type === "success"
-              ? "bg-emerald-500/10 border-emerald-500/30 text-emerald-300"
-              : "bg-rose-500/10 border-rose-500/30 text-rose-300"
+              ? "bg-emerald-50 border-emerald-200 text-emerald-800 shadow-xs"
+              : "bg-rose-50 border-rose-200 text-rose-800 shadow-xs"
           }`}
         >
           <div className="flex items-center gap-2">
             {feedback.type === "success" ? (
-              <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-400" />
+              <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-600" />
             ) : (
-              <AlertCircle className="h-4 w-4 shrink-0 text-rose-400" />
+              <AlertCircle className="h-4 w-4 shrink-0 text-rose-600" />
             )}
             <span>{feedback.message}</span>
           </div>
@@ -126,21 +126,21 @@ export function InventoryDashboardClient({
       <InventoryKpiCards stats={stats} />
 
       {/* Barra de Acciones Operativas y Sesión */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 p-3.5 rounded-xl bg-slate-900/60 border border-slate-800/80">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 p-3.5 rounded-xl bg-white border border-slate-200 shadow-xs">
         <div className="flex items-center gap-2 text-xs">
           {isAuthenticated ? (
-            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 font-semibold text-[11px]">
+            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-50 border border-emerald-200 text-emerald-700 font-semibold text-[11px]">
               <ShieldCheck className="h-3.5 w-3.5" />
               <span>Sesión Activa: {username}</span>
             </div>
           ) : (
-            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-800 text-slate-400 text-[11px]">
+            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-100 border border-slate-200 text-slate-600 text-[11px]">
               <Lock className="h-3 w-3" />
               <span>Modo Consulta (Sin autenticar)</span>
             </div>
           )}
-          <span className="text-slate-500 hidden sm:inline">•</span>
-          <span className="text-[11px] text-slate-400 hidden sm:inline">
+          <span className="text-slate-300 hidden sm:inline">•</span>
+          <span className="text-[11px] text-slate-500 hidden sm:inline">
             Control de existencias y trazabilidad con bloqueo de sobreventa
           </span>
         </div>
@@ -150,9 +150,9 @@ export function InventoryDashboardClient({
             <button
               type="button"
               onClick={() => setIsLoginOpen(true)}
-              className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 min-h-[42px] rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold whitespace-nowrap transition-colors"
+              className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 min-h-[42px] rounded-lg bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 text-xs font-semibold whitespace-nowrap transition-colors shadow-xs"
             >
-              <Lock className="h-3.5 w-3.5 text-cyan-400 shrink-0" />
+              <Lock className="h-3.5 w-3.5 text-blue-600 shrink-0" />
               <span>Acceso Admin</span>
             </button>
           ) : null}
@@ -167,7 +167,7 @@ export function InventoryDashboardClient({
                 setIsEntryOpen(true);
               }
             }}
-            className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 min-h-[42px] rounded-lg bg-emerald-500 hover:bg-emerald-400 active:bg-emerald-400 text-slate-950 font-bold text-xs shadow-md shadow-emerald-500/20 whitespace-nowrap transition-colors"
+            className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 min-h-[42px] rounded-lg bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-700 text-white font-semibold text-xs shadow-xs whitespace-nowrap transition-colors"
           >
             <ArrowDownRight className="h-4 w-4 shrink-0" />
             <span>+ Registrar Entrada</span>
@@ -183,7 +183,7 @@ export function InventoryDashboardClient({
                 setIsExitOpen(true);
               }
             }}
-            className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 min-h-[42px] rounded-lg bg-orange-500 hover:bg-orange-400 active:bg-orange-400 text-slate-950 font-bold text-xs shadow-md shadow-orange-500/20 whitespace-nowrap transition-colors"
+            className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 min-h-[42px] rounded-lg bg-blue-600 hover:bg-blue-700 active:bg-blue-700 text-white font-semibold text-xs shadow-xs whitespace-nowrap transition-colors"
           >
             <ArrowUpRight className="h-4 w-4 shrink-0" />
             <span>- Registrar Salida</span>
@@ -192,14 +192,14 @@ export function InventoryDashboardClient({
       </div>
 
       {/* Selector de Pestañas Adaptable */}
-      <div className="flex items-center gap-1.5 sm:gap-2 border-b border-slate-800 overflow-x-auto pb-0.5">
+      <div className="flex items-center gap-1.5 sm:gap-2 border-b border-slate-200 overflow-x-auto pb-0.5">
         <button
           type="button"
           onClick={() => setActiveTab("existencias")}
           className={`flex items-center gap-2 px-3 sm:px-4 py-2.5 text-xs font-semibold border-b-2 whitespace-nowrap shrink-0 transition-all ${
             activeTab === "existencias"
-              ? "border-cyan-400 text-cyan-300 bg-cyan-500/5"
-              : "border-transparent text-slate-400 hover:text-slate-200 hover:border-slate-700"
+              ? "border-blue-600 text-blue-600 bg-blue-50/50"
+              : "border-transparent text-slate-500 hover:text-slate-800 hover:border-slate-300"
           }`}
         >
           <Boxes className="h-4 w-4 shrink-0" />
@@ -211,8 +211,8 @@ export function InventoryDashboardClient({
           onClick={() => setActiveTab("kardex")}
           className={`flex items-center gap-2 px-3 sm:px-4 py-2.5 text-xs font-semibold border-b-2 whitespace-nowrap shrink-0 transition-all ${
             activeTab === "kardex"
-              ? "border-cyan-400 text-cyan-300 bg-cyan-500/5"
-              : "border-transparent text-slate-400 hover:text-slate-200 hover:border-slate-700"
+              ? "border-blue-600 text-blue-600 bg-blue-50/50"
+              : "border-transparent text-slate-500 hover:text-slate-800 hover:border-slate-300"
           }`}
         >
           <History className="h-4 w-4 shrink-0" />
@@ -224,8 +224,8 @@ export function InventoryDashboardClient({
           onClick={() => setActiveTab("politicas")}
           className={`flex items-center gap-2 px-3 sm:px-4 py-2.5 text-xs font-semibold border-b-2 whitespace-nowrap shrink-0 transition-all ${
             activeTab === "politicas"
-              ? "border-cyan-400 text-cyan-300 bg-cyan-500/5"
-              : "border-transparent text-slate-400 hover:text-slate-200 hover:border-slate-700"
+              ? "border-blue-600 text-blue-600 bg-blue-50/50"
+              : "border-transparent text-slate-500 hover:text-slate-800 hover:border-slate-300"
           }`}
         >
           <BookOpen className="h-4 w-4 shrink-0" />
